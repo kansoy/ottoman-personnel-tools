@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+.venv/
+.env
+.env.*
+.DS_Store
+example-output/
+local-inputs/
+local-outputs/
+*.sqlite
+*.sqlite3
+*.db
+*.csv

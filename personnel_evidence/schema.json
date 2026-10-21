@@ -1,0 +1,1020 @@
+{
+  "type": "object",
+  "properties": {
+    "person_key": {
+      "type": "string"
+    },
+    "facts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "field": {
+            "type": "string",
+            "enum": [
+              "father_name",
+              "father_occupation",
+              "mother_name",
+              "family_name",
+              "family_details",
+              "community",
+              "nationality",
+              "birthplace",
+              "birth_date",
+              "school",
+              "diploma",
+              "education_subjects",
+              "education_duration",
+              "internship",
+              "language",
+              "rank",
+              "honour",
+              "medal",
+              "legal",
+              "death_date",
+              "death_place",
+              "physical_traits",
+              "other",
+              "birth_locality",
+              "birth_kaza",
+              "birth_sancak",
+              "birth_vilayet",
+              "language_study",
+              "first_work_claim"
+            ]
+          },
+          "value_raw": {
+            "type": "string"
+          },
+          "related_name": {
+            "type": "string"
+          },
+          "detail": {
+            "type": "string"
+          },
+          "date_raw": {
+            "type": "string"
+          },
+          "quote": {
+            "type": "string"
+          },
+          "pdf_pages": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            }
+          },
+          "source_lines": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "field",
+          "value_raw",
+          "related_name",
+          "detail",
+          "date_raw",
+          "quote",
+          "pdf_pages",
+          "source_lines"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "event_no": {
+            "type": "integer"
+          },
+          "event_type": {
+            "type": "string",
+            "enum": [
+              "birth",
+              "education",
+              "internship",
+              "appointment",
+              "acting",
+              "service_interval",
+              "transfer",
+              "promotion",
+              "pay_change",
+              "pay_record",
+              "separation",
+              "dismissal",
+              "suspension",
+              "resignation",
+              "retirement",
+              "pension",
+              "death",
+              "rank",
+              "honour",
+              "medal",
+              "legal",
+              "illness",
+              "request",
+              "document",
+              "other"
+            ]
+          },
+          "description": {
+            "type": "string"
+          },
+          "date_raw": {
+            "type": "string"
+          },
+          "dates": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "calendar": {
+                  "type": "string",
+                  "enum": [
+                    "hijri",
+                    "rumi",
+                    "gregorian",
+                    "unspecified"
+                  ]
+                },
+                "year": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
+                },
+                "month": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
+                },
+                "day": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
+                },
+                "year_basis": {
+                  "type": "string",
+                  "enum": [
+                    "literal",
+                    "editorial_expansion",
+                    "contextual",
+                    "relative",
+                    "malformed",
+                    "unresolved"
+                  ]
+                },
+                "calendar_basis": {
+                  "type": "string"
+                },
+                "date_quote": {
+                  "type": "string"
+                },
+                "context_quote": {
+                  "type": "string"
+                },
+                "reference_event_no": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
+                },
+                "source_lines": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "context_lines": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "proposed_year": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
+                },
+                "year_abbreviated": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
+                }
+              },
+              "required": [
+                "calendar",
+                "year",
+                "month",
+                "day",
+                "year_basis",
+                "calendar_basis",
+                "date_quote",
+                "context_quote",
+                "reference_event_no",
+                "source_lines",
+                "context_lines",
+                "proposed_year",
+                "year_abbreviated"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "end_date_raw": {
+            "type": "string"
+          },
+          "end_dates": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "calendar": {
+                  "type": "string",
+                  "enum": [
+                    "hijri",
+                    "rumi",
+                    "gregorian",
+                    "unspecified"
+                  ]
+                },
+                "year": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
+                },
+                "month": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
+                },
+                "day": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
+                },
+                "year_basis": {
+                  "type": "string",
+                  "enum": [
+                    "literal",
+                    "editorial_expansion",
+                    "contextual",
+                    "relative",
+                    "malformed",
+                    "unresolved"
+                  ]
+                },
+                "calendar_basis": {
+                  "type": "string"
+                },
+                "date_quote": {
+                  "type": "string"
+                },
+                "context_quote": {
+                  "type": "string"
+                },
+                "reference_event_no": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
+                },
+                "source_lines": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "context_lines": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "proposed_year": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
+                },
+                "year_abbreviated": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
+                }
+              },
+              "required": [
+                "calendar",
+                "year",
+                "month",
+                "day",
+                "year_basis",
+                "calendar_basis",
+                "date_quote",
+                "context_quote",
+                "reference_event_no",
+                "source_lines",
+                "context_lines",
+                "proposed_year",
+                "year_abbreviated"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "office_raw": {
+            "type": "string"
+          },
+          "title_raw": {
+            "type": "string"
+          },
+          "place_raw": {
+            "type": "string"
+          },
+          "institution_raw": {
+            "type": "string"
+          },
+          "employer_raw": {
+            "type": "string"
+          },
+          "ministry_raw": {
+            "type": "string"
+          },
+          "authority_raw": {
+            "type": "string"
+          },
+          "office_basis": {
+            "type": "string",
+            "enum": [
+              "explicit",
+              "continued_narrative",
+              "unclear",
+              "not_recorded"
+            ]
+          },
+          "context_quote": {
+            "type": "string"
+          },
+          "office_reference_event_no": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "age_raw": {
+            "type": "string"
+          },
+          "age": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "duration_raw": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "recorded",
+              "self_reported_unconfirmed",
+              "proposed",
+              "disputed",
+              "unclear"
+            ]
+          },
+          "honorary": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "payments": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "component": {
+                  "type": "string",
+                  "enum": [
+                    "salary",
+                    "salary_increment",
+                    "salary_reduction",
+                    "allowance",
+                    "acting_allowance",
+                    "pension",
+                    "family_pension",
+                    "back_pay",
+                    "withheld_pay",
+                    "fee",
+                    "liability",
+                    "embezzlement",
+                    "fine",
+                    "other",
+                    "dismissal_pay"
+                  ]
+                },
+                "term_raw": {
+                  "type": "string"
+                },
+                "amount_literal": {
+                  "type": "string"
+                },
+                "amount": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "currency_raw": {
+                  "type": "string"
+                },
+                "subunit_amount_literal": {
+                  "type": "string"
+                },
+                "subunit_amount": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "subunit_currency_raw": {
+                  "type": "string"
+                },
+                "frequency_raw": {
+                  "type": "string"
+                },
+                "basis": {
+                  "type": "string",
+                  "enum": [
+                    "direct",
+                    "explicit_reference",
+                    "explicit_absence",
+                    "unclear"
+                  ]
+                },
+                "reference_event_no": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
+                },
+                "quote": {
+                  "type": "string"
+                },
+                "source_lines": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "pay_anchor_id": {
+                  "type": "string"
+                },
+                "amount_scope": {
+                  "type": "string"
+                },
+                "amount_role": {
+                  "type": "string"
+                },
+                "recipient_raw": {
+                  "type": "string"
+                },
+                "reuse_reason": {
+                  "type": "string"
+                },
+                "paid_amount": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "reading_flags": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "warnings": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "component",
+                "term_raw",
+                "amount_literal",
+                "amount",
+                "currency_raw",
+                "subunit_amount_literal",
+                "subunit_amount",
+                "subunit_currency_raw",
+                "frequency_raw",
+                "basis",
+                "reference_event_no",
+                "quote",
+                "source_lines",
+                "pay_anchor_id",
+                "amount_scope",
+                "amount_role",
+                "recipient_raw",
+                "reuse_reason",
+                "paid_amount",
+                "reading_flags",
+                "warnings"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "reason_raw": {
+            "type": "string"
+          },
+          "source_quote": {
+            "type": "string"
+          },
+          "pdf_pages": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            }
+          },
+          "warnings": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "source_lines": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "context_lines": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "award_raw": {
+            "type": "string"
+          },
+          "grade_raw": {
+            "type": "string"
+          },
+          "grade": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "legal_outcome": {
+            "type": "string"
+          },
+          "office_relation": {
+            "type": "string"
+          },
+          "document_number_raw": {
+            "type": "string"
+          },
+          "locality_raw": {
+            "type": "string"
+          },
+          "kaza_raw": {
+            "type": "string"
+          },
+          "sancak_raw": {
+            "type": "string"
+          },
+          "vilayet_raw": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "event_no",
+          "event_type",
+          "description",
+          "date_raw",
+          "dates",
+          "end_date_raw",
+          "end_dates",
+          "office_raw",
+          "title_raw",
+          "place_raw",
+          "institution_raw",
+          "employer_raw",
+          "ministry_raw",
+          "authority_raw",
+          "office_basis",
+          "context_quote",
+          "office_reference_event_no",
+          "age_raw",
+          "age",
+          "duration_raw",
+          "status",
+          "honorary",
+          "payments",
+          "reason_raw",
+          "source_quote",
+          "pdf_pages",
+          "warnings",
+          "source_lines",
+          "context_lines",
+          "award_raw",
+          "grade_raw",
+          "grade",
+          "legal_outcome",
+          "office_relation",
+          "document_number_raw",
+          "locality_raw",
+          "kaza_raw",
+          "sancak_raw",
+          "vilayet_raw"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "excluded_money": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "pay_anchor_id": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "source_lines": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "quote": {
+            "type": "string"
+          },
+          "pdf_pages": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            }
+          }
+        },
+        "required": [
+          "pay_anchor_id",
+          "reason",
+          "source_lines",
+          "quote",
+          "pdf_pages"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "warnings": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "birth_resolution": {
+      "type": "object",
+      "properties": {
+        "year": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "calendar": {
+          "type": "string"
+        },
+        "precision": {
+          "type": "string"
+        },
+        "basis": {
+          "type": "string"
+        },
+        "source_lines": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "quote": {
+          "type": "string"
+        },
+        "pdf_pages": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "supersedes_source_lines": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "unresolved_reason": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "year",
+        "calendar",
+        "precision",
+        "basis",
+        "source_lines",
+        "quote",
+        "pdf_pages",
+        "supersedes_source_lines",
+        "unresolved_reason"
+      ],
+      "additionalProperties": false
+    },
+    "internship_spells": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "start_event_no": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "end_event_no": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "office_raw": {
+            "type": "string"
+          },
+          "source_lines": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "quote": {
+            "type": "string"
+          },
+          "pdf_pages": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            }
+          },
+          "start_basis": {
+            "type": "string"
+          },
+          "end_basis": {
+            "type": "string"
+          },
+          "duration_years": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "duration_basis": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "start_event_no",
+          "end_event_no",
+          "office_raw",
+          "source_lines",
+          "quote",
+          "pdf_pages",
+          "start_basis",
+          "end_basis",
+          "duration_years",
+          "duration_basis"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "service_spells": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "start_event_no": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "end_event_no": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "office_reference_event_no": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "relation": {
+            "type": "string"
+          },
+          "continuity_basis": {
+            "type": "string"
+          },
+          "source_lines": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "quote": {
+            "type": "string"
+          },
+          "pdf_pages": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            }
+          },
+          "pay_reference_event_nos": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            }
+          },
+          "interruption_event_nos": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            }
+          },
+          "annualization_allowed": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "annualization_reason": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "start_event_no",
+          "end_event_no",
+          "office_reference_event_no",
+          "relation",
+          "continuity_basis",
+          "source_lines",
+          "quote",
+          "pdf_pages",
+          "pay_reference_event_nos",
+          "interruption_event_nos",
+          "annualization_allowed",
+          "annualization_reason"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "completeness_check": {
+      "type": "object",
+      "properties": {
+        "first_service_event_no": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "last_service_event_no": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "death_event_nos": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "death_not_recorded": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "all_source_lines_examined": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "internship_occurrences_accounted_for": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "salary_references_accounted_for": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "unexplained_gaps": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "from_year": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "to_year": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "calendar": {
+                "type": "string"
+              },
+              "reason": {
+                "type": "string"
+              },
+              "source_lines": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "quote": {
+                "type": "string"
+              },
+              "pdf_pages": {
+                "type": "array",
+                "items": {
+                  "type": "integer"
+                }
+              }
+            },
+            "required": [
+              "from_year",
+              "to_year",
+              "calendar",
+              "reason",
+              "source_lines",
+              "quote",
+              "pdf_pages"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "first_service_event_no",
+        "last_service_event_no",
+        "death_event_nos",
+        "death_not_recorded",
+        "all_source_lines_examined",
+        "internship_occurrences_accounted_for",
+        "salary_references_accounted_for",
+        "unexplained_gaps"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "person_key",
+    "facts",
+    "events",
+    "excluded_money",
+    "warnings",
+    "birth_resolution",
+    "internship_spells",
+    "service_spells",
+    "completeness_check"
+  ],
+  "additionalProperties": false
+}

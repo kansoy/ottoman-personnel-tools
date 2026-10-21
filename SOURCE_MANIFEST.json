@@ -1,0 +1,76 @@
+{
+  "status": "Public software release approved by the project owner on 21 October 2026; Apache-2.0",
+  "copied_files": [
+    {
+      "source": "OttomanWage/bureaucracy/tools/public_personnel/__init__.py",
+      "candidate": "personnel_evidence/__init__.py",
+      "source_sha256": "fdd808bc21aeae85c30416c719a383976ed2df8fde2a6638d3e0e8d65c8984e2",
+      "candidate_sha256": "fdd808bc21aeae85c30416c719a383976ed2df8fde2a6638d3e0e8d65c8984e2",
+      "modification": "none; package directory renamed, relative imports preserved"
+    },
+    {
+      "source": "OttomanWage/bureaucracy/tools/public_personnel/intake.py",
+      "candidate": "personnel_evidence/intake.py",
+      "source_sha256": "48a87f178ff9f3afce9bf09c05d6a6c850bc66cf49e05831a27db92f4739ef15",
+      "candidate_sha256": "48a87f178ff9f3afce9bf09c05d6a6c850bc66cf49e05831a27db92f4739ef15",
+      "modification": "none; package directory renamed, relative imports preserved"
+    },
+    {
+      "source": "OttomanWage/bureaucracy/tools/public_personnel/anchors.py",
+      "candidate": "personnel_evidence/anchors.py",
+      "source_sha256": "e23597c0df889f1ff42c20e59df1be2470fb69a2a1ffc92445b14f0345f00d30",
+      "candidate_sha256": "e23597c0df889f1ff42c20e59df1be2470fb69a2a1ffc92445b14f0345f00d30",
+      "modification": "none; package directory renamed, relative imports preserved"
+    },
+    {
+      "source": "OttomanWage/bureaucracy/tools/public_personnel/literals.py",
+      "candidate": "personnel_evidence/literals.py",
+      "source_sha256": "d76c1bdc83ec749431cd653b4484f170639133f2644f3e1c82b0a00e445b5d41",
+      "candidate_sha256": "d76c1bdc83ec749431cd653b4484f170639133f2644f3e1c82b0a00e445b5d41",
+      "modification": "none; package directory renamed, relative imports preserved"
+    },
+    {
+      "source": "OttomanWage/bureaucracy/tools/public_personnel/contract.py",
+      "candidate": "personnel_evidence/contract.py",
+      "source_sha256": "edd14e9cf92c5f4560491b5fccc2976059d4d3458833304d84507e475a5a47dc",
+      "candidate_sha256": "edd14e9cf92c5f4560491b5fccc2976059d4d3458833304d84507e475a5a47dc",
+      "modification": "none; package directory renamed, relative imports preserved"
+    },
+    {
+      "source": "OttomanWage/bureaucracy/tools/public_personnel/grounding.py",
+      "candidate": "personnel_evidence/grounding.py",
+      "source_sha256": "99b82f9937ea88f7be0598763c1e912c5a550d3e06e538984c9ddac799e17a24",
+      "candidate_sha256": "99b82f9937ea88f7be0598763c1e912c5a550d3e06e538984c9ddac799e17a24",
+      "modification": "none; package directory renamed, relative imports preserved"
+    },
+    {
+      "source": "OttomanWage/bureaucracy/tools/public_personnel/export.py",
+      "candidate": "personnel_evidence/export.py",
+      "source_sha256": "2f3ecd2fe79a619d882e3b0f229a824453a89c74cf1457b4d38b374af5defc38",
+      "candidate_sha256": "2f3ecd2fe79a619d882e3b0f229a824453a89c74cf1457b4d38b374af5defc38",
+      "modification": "none; package directory renamed, relative imports preserved"
+    },
+    {
+      "source": "OttomanWage/bureaucracy/tools/public_personnel/schema.json",
+      "candidate": "personnel_evidence/schema.json",
+      "source_sha256": "1fc2effdff2d5e1a7065bf0916354efd03647b9ca0947119b213c282af8d24cf",
+      "candidate_sha256": "1fc2effdff2d5e1a7065bf0916354efd03647b9ca0947119b213c282af8d24cf",
+      "modification": "none; package directory renamed, relative imports preserved"
+    },
+    {
+      "source": "OttomanWage/bureaucracy/tools/public_personnel/prompt.txt",
+      "candidate": "personnel_evidence/prompt.txt",
+      "source_sha256": "5793d502a33376d7d6fca1ef12ef9fbf8dff790146076fa5c264e0166d5b9395",
+      "candidate_sha256": "5793d502a33376d7d6fca1ef12ef9fbf8dff790146076fa5c264e0166d5b9395",
+      "modification": "none; package directory renamed, relative imports preserved"
+    }
+  ],
+  "excluded": [
+    "API runner run.py",
+    "reprocess.py (depends on API runner)",
+    "original test fixtures",
+    "original README with private project paths",
+    "all source publications, dataset rows, images, model outputs, logs, credentials"
+  ],
+  "public_repository": "https://github.com/kansoy/ottoman-personnel-tools"
+}
