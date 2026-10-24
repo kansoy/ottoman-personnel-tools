@@ -1,29 +1,29 @@
 {
-  "version": "0.1.4",
+  "version": "0.1.5",
   "python_tested": "3.14.0",
-  "unit_tests_passed": 39,
+  "unit_tests_passed": 40,
   "installed_package_matches_source_files": 33,
   "all_match": true,
   "artifacts": {
-    "sicilahval-0.1.4-py3-none-any.whl": {
-      "sha256": "1b0a85ff4317cb2064890833710b6b7bebe5ad494fe6a8c4e4a7f52d2c13163c",
-      "bytes": 110898
+    "sicilahval-0.1.5-py3-none-any.whl": {
+      "sha256": "fb527895733afc7478996259fdda3b63fc4d91df5910de6972dc34de694120e3",
+      "bytes": 111802
     },
-    "sicilahval-0.1.4.tar.gz": {
-      "sha256": "4433a665ac437f4818f8290ad0c28116dc48e4ab6fb92a0bfefd8e6425841a48",
-      "bytes": 266449
+    "sicilahval-0.1.5.tar.gz": {
+      "sha256": "9f85ed459e367e78da8857d96f3e76b0aebcd15d99c74cf0907cfa53ed418a4b",
+      "bytes": 268731
     },
-    "sicilahval-skill-0.1.4.zip": {
-      "sha256": "1be1c936bd7165cfd3308924fec6677f92e5dd604ab0037514b4822c8295486a",
-      "bytes": 65759
+    "sicilahval-skill-0.1.5.zip": {
+      "sha256": "63bbea62e893eb49d2e205057bebeda8838268dfb2a7ae9d16cc7e18cc0dfab7",
+      "bytes": 66065
     },
     "sicilahval_en.pdf": {
-      "sha256": "a32f2c736bc36741c6e162c364c216d1a4f75ac7c02077861e6adf5a4ecb066e",
-      "bytes": 213768
+      "sha256": "81ecc3fc930980c3a52a3348e944a9d0cf4c2b06439ae0a099704cac9cae0762",
+      "bytes": 213672
     },
     "sicilahval_tr.pdf": {
-      "sha256": "b71043540f6d2cab728a7e9e31aa6b2bb53d4878cdae3fd54953a5d9086a36e7",
-      "bytes": 214029
+      "sha256": "a9cab7f3a2808256044b6cbd8c280c22ffd0add8dfd40dd08b5b9a1a176aaddf",
+      "bytes": 213931
     }
   },
   "real_demo_counts": {
@@ -43,19 +43,19 @@
     }
   },
   "standalone_real_demo_counts": {
-    "zenop": {
-      "records": 1,
-      "facts": 38,
-      "events": 21,
-      "dates": 25,
-      "payments": 10
-    },
     "manuk": {
       "records": 1,
       "facts": 33,
       "events": 14,
       "dates": 14,
       "payments": 6
+    },
+    "zenop": {
+      "records": 1,
+      "facts": 38,
+      "events": 21,
+      "dates": 25,
+      "payments": 10
     }
   },
   "stdlib_runtime": true,
@@ -71,8 +71,8 @@
   "real_sources_are_transcriptions_not_facsimile_inspections": true,
   "unseen_document_accuracy_benchmark": false,
   "no_network_or_model_used_for_cached_demos": true,
-  "skill_zip_sha256": "1be1c936bd7165cfd3308924fec6677f92e5dd604ab0037514b4822c8295486a",
-  "patch_scope": "Explicit conversion and name-change guidance; retain prior religion as unknown when unstated; expose structured conversion details in the real Manuk example and verify native dates and details survive CSV and SQLite. Source text, existing source readings, native dates and entity counts are unchanged.",
+  "skill_zip_sha256": "63bbea62e893eb49d2e205057bebeda8838268dfb2a7ae9d16cc7e18cc0dfab7",
+  "patch_scope": "Temporal religion/name applicability: preserve the exact conversion boundary; do not assign the later state to earlier periods, the whole conversion year or later periods by extrapolation. Link Manuk event details to its existing native dates, preserve unspecified prior religion, and verify CSV/SQLite retention without a lifetime flag. Source text, pre-existing source readings, native dates and entity counts are unchanged.",
   "pdf_pages": {
     "en": 3,
     "tr": 3
@@ -91,5 +91,28 @@
   "packages_checked": [
     "sicilahval",
     "personnel_evidence"
-  ]
+  ],
+  "unit_test_runs": [
+    "repository checkout: 40 passed, zero skips",
+    "fresh installed wheel outside checkout: 40 passed, zero skips"
+  ],
+  "sdist_real_demo_counts": {
+    "manuk": {
+      "records": 1,
+      "facts": 33,
+      "events": 14,
+      "dates": 14,
+      "payments": 6
+    },
+    "zenop": {
+      "records": 1,
+      "facts": 38,
+      "events": 21,
+      "dates": 25,
+      "payments": 10
+    }
+  },
+  "local_distribution_checks_passed": 18,
+  "independent_regression_cases_basis": "The separate 55-case regression receipt is from the v0.1.3 numerical patch. It was not rerun for v0.1.5; numbers.py and validation.py are unchanged. The current complete 40-test suite passed in both the checkout and a fresh installed wheel.",
+  "verification_scope": "Local release preparation: fresh wheel and sdist installations, standalone ZIP execution, bilingual demos, payload mirrors, schema/provenance checks, and both PDFs. Public tag installation and downloaded release assets require a separate check after publication."
 }

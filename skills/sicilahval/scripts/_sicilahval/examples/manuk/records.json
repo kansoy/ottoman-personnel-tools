@@ -1181,7 +1181,16 @@
             "religion_before": null,
             "religion_before_basis": "not_stated_in_supplied_source",
             "religion_after": "Islam",
-            "name_after": "Mahmut Süreyya"
+            "name_after": "Mahmut Süreyya",
+            "temporal_applicability": {
+              "effective_from_date_ids": [
+                "manuk-r1-d011",
+                "manuk-r1-d012"
+              ],
+              "before_event": "not_assigned",
+              "whole_year_assignment": "not_derived",
+              "later_periods": "not_extrapolated"
+            }
           }
         },
         {

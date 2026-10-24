@@ -30,6 +30,10 @@ Preserve negation and attribution: “ihtida etmedi” or “Müslüman olmadı�
 
 Record an affirmative conversion of the official as an event linked to any stated new name and native dates. Preserve both names and distinguish previous from subsequent affiliations. If the previous religion is unstated, retain `null` with that reason; an Armenian school, surname or compilation title does not establish Christianity or a denomination. An undated conversion remains an event with an unknown date. Downstream summaries should retain the change and its timing rather than flatten it into one lifetime religion.
 
+Apply the subsequent religion or new name no earlier than its source-supported change date. Do not backdate it to birth, earlier appointments or the start of that calendar year. Preserve a supplied day/month boundary and distinct before/after phases within the year; the earlier religion may remain unknown. Do not label the whole year with the later religion or name. If only a year is stated, retain year precision and an unresolved within-year boundary. For an undated change, do not borrow a year from a nearby event or report.
+
+For Manuk, the source states conversion to Islam and the name Mahmut Süreyya on 4 Rebiülevvel AH 1306, paired with 28 Teşrinievvel 1304, whose Rumi calendar is inferred. Those dates do not establish Islam or the new name for his earlier life or the whole of AH 1306. The event's optional `details.temporal_applicability` links to its existing date IDs and records the limits on use. This extraction does not fill a continuous affiliation or name spell: any separately requested later propagation is an explicit inference, not a source assertion, and must not create an after-death state.
+
 ## Dates and chronology
 
 Keep every native expression, calendar and precision. AH/Hijri, Rumi/mali, Julian and Gregorian years are not interchangeable. Civil month names such as Şubat and Teşrinievvel require calendar attention; a heading alone may not establish a calendar. A paired AH/Rumi date belongs to one event, not two appointments or two payments.

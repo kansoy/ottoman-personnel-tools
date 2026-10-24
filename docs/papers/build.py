@@ -83,7 +83,7 @@ def main() -> None:
             ],
         }
     receipt = {
-        "version": "0.1.4",
+        "version": "0.1.5",
         "release_date": "2026-10-24",
         "toolchain": "latexmk with pdfLaTeX; Poppler pdfinfo and pdftotext",
         "notes": checks,

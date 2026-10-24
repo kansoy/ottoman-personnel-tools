@@ -93,6 +93,46 @@ class SicilahvalTests(unittest.TestCase):
             self.assertEqual({r[0] for r in con.execute("SELECT fact_id FROM event_facts WHERE event_id=?",
                                                        (event["event_id"],))}, set(event["fact_ids"]))
 
+    def test_real_conversion_keeps_day_boundary_without_lifetime_or_year_assignment(self):
+        out = self.base / "manuk-temporal-scope"
+        summary = write_demo(out, "en")
+        data = read_json(out / "data/records.json")
+        record = data["records"][0]
+        event = next(e for e in record["events"] if e["event_type"] == "conversion_and_name_change")
+        applicability = event["details"]["temporal_applicability"]
+        self.assertEqual(applicability["effective_from_date_ids"], [d["date_id"] for d in event["dates"]])
+        self.assertEqual(applicability["before_event"], "not_assigned")
+        self.assertEqual(applicability["whole_year_assignment"], "not_derived")
+        self.assertEqual(applicability["later_periods"], "not_extrapolated")
+        self.assertEqual({f["key"] for f in record["facts"] if f["category"] == "religion"},
+                         {"conversion_to_islam"})
+        self.assertEqual([e["event_id"] for e in record["events"] if "religion_after" in e.get("details", {})],
+                         [event["event_id"]])
+        self.assertFalse({"is_muslim", "religion_after", "name_after"} & record.get("details", {}).keys())
+        self.assertNotIn("is_muslim", {f["key"] for f in record["facts"]})
+        fields = ("date_id", "calendar", "year", "month", "day", "precision", "certainty", "raw")
+        expected = [
+            ("manuk-r1-d011", "hijri", "1306", "3", "4", "day", "direct",
+             "bin üç yüz altı senesi Rebiülevvelinin dördünde"),
+            ("manuk-r1-d012", "rumi", "1304", "10", "28", "day", "inferred",
+             "28 Teşrinievvel sene 1304"),
+        ]
+        with (out / "data/dates.csv").open(encoding="utf-8-sig", newline="") as handle:
+            saved_dates = [tuple(row[field] for field in fields) for row in csv.DictReader(handle)
+                           if row["owner_id"] == event["event_id"]]
+        self.assertEqual(saved_dates, expected)
+        with (out / "data/records.csv").open(encoding="utf-8-sig", newline="") as handle:
+            saved_record = next(csv.DictReader(handle))
+        self.assertEqual(json.loads(saved_record["payload_json"]), record)
+        with closing(sqlite3.connect(summary["database"])) as con:
+            saved_dates = con.execute("SELECT " + ",".join(fields) +
+                                      " FROM dates WHERE owner_id=? ORDER BY date_id",
+                                      (event["event_id"],)).fetchall()
+            self.assertEqual(saved_dates, expected)
+            self.assertEqual(json.loads(con.execute("SELECT payload_json FROM extraction_document").fetchone()[0]),
+                             data)
+        self.assertEqual(summary["counts"], {"records": 1, "facts": 33, "events": 14, "dates": 14, "payments": 6})
+
     def test_utf8_exact_text_and_original_hash(self):
         original, source, records = self.reading()
         self.assertEqual(source["sha256"], hashlib.sha256(original.read_bytes()).hexdigest())

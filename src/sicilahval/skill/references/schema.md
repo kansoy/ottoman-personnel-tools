@@ -18,6 +18,8 @@ Evidence is a list of `{ "segment_id": "...", "quote": "exact text" }`. Quotes m
 
 Certainty is `direct`, `inferred`, `uncertain` or `unresolved`. Give a reason for any nondirect value. Alternatives can retain the literal reading, another interpretation and a reason; do not invent numerical confidence probabilities.
 
+For a dated religion/name change, optional event `details.temporal_applicability` can link `effective_from_date_ids` to the event's existing dates and state that earlier periods are not assigned, whole-year status is not derived and later periods are not extrapolated. Paired date IDs describe one boundary. This documents how the source assertion may be used; it does not add an affiliation interval or a lifetime flag. An undated change has no invented effective date.
+
 Dates retain `date_id`, `raw`, `calendar`, `year`, `month`, `day`, `precision`, `certainty`, `evidence`, `note`. A missing component is `null`. Preserve separate paired expressions with their own IDs and shared parent event/fact. Use `role` to distinguish a start, end, report or correction date. Explain abbreviated or contextual dates.
 
 Numeric months encode month names. Hijri months run from Muharrem=1 to Zilhicce=12. For Gregorian, Julian and Rumi dates use January/Kânunusani=1, Şubat=2, Mart=3, Nisan=4, Mayıs=5, Haziran=6, Temmuz=7, Ağustos=8, Eylül=9, Teşrinievvel=10, Teşrinisani=11 and Kânunuevvel=12. This is a civil month-label encoding, not the Rumi fiscal ordinal convention starting with Mart=1. Preserve the native year unchanged, including January/February; this encoding does not convert the date to Gregorian. Retain the month wording in `raw`; use `null` if it cannot be identified.
