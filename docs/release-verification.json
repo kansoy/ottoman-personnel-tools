@@ -1,29 +1,29 @@
 {
-  "version": "0.1.3",
+  "version": "0.1.4",
   "python_tested": "3.14.0",
-  "unit_tests_passed": 38,
+  "unit_tests_passed": 39,
   "installed_package_matches_source_files": 33,
   "all_match": true,
   "artifacts": {
-    "sicilahval-0.1.3-py3-none-any.whl": {
-      "sha256": "811f8fd97fbaceda15d57242ba9c3bd02380f40e2e2b7215be6c741f64946fe3",
-      "bytes": 110250
+    "sicilahval-0.1.4-py3-none-any.whl": {
+      "sha256": "1b0a85ff4317cb2064890833710b6b7bebe5ad494fe6a8c4e4a7f52d2c13163c",
+      "bytes": 110898
     },
-    "sicilahval-0.1.3.tar.gz": {
-      "sha256": "80ee454606d5fcde1e19ffd2f0eeab811b2011b601a81fbafa0b8439327dc0fd",
-      "bytes": 264255
+    "sicilahval-0.1.4.tar.gz": {
+      "sha256": "4433a665ac437f4818f8290ad0c28116dc48e4ab6fb92a0bfefd8e6425841a48",
+      "bytes": 266449
     },
-    "sicilahval-skill-0.1.3.zip": {
-      "sha256": "8eb0c3c652e147a0e04f9b29e6289bed950ad7646a80e5fcbeefe335fdfb4373",
-      "bytes": 65141
+    "sicilahval-skill-0.1.4.zip": {
+      "sha256": "1be1c936bd7165cfd3308924fec6677f92e5dd604ab0037514b4822c8295486a",
+      "bytes": 65759
     },
     "sicilahval_en.pdf": {
-      "sha256": "a9b51ac1c423e34575a428b6e0ab90a34ce0993c3a328c5fdc747ce4548308bb",
-      "bytes": 213671
+      "sha256": "a32f2c736bc36741c6e162c364c216d1a4f75ac7c02077861e6adf5a4ecb066e",
+      "bytes": 213768
     },
     "sicilahval_tr.pdf": {
-      "sha256": "f930cbb3d04124e42625de777b9d7dedcb8cde107021a7b8bfcf55b2de795bd1",
-      "bytes": 213927
+      "sha256": "b71043540f6d2cab728a7e9e31aa6b2bb53d4878cdae3fd54953a5d9086a36e7",
+      "bytes": 214029
     }
   },
   "real_demo_counts": {
@@ -49,6 +49,13 @@
       "events": 21,
       "dates": 25,
       "payments": 10
+    },
+    "manuk": {
+      "records": 1,
+      "facts": 33,
+      "events": 14,
+      "dates": 14,
+      "payments": 6
     }
   },
   "stdlib_runtime": true,
@@ -64,8 +71,8 @@
   "real_sources_are_transcriptions_not_facsimile_inspections": true,
   "unseen_document_accuracy_benchmark": false,
   "no_network_or_model_used_for_cached_demos": true,
-  "skill_zip_sha256": "8eb0c3c652e147a0e04f9b29e6289bed950ad7646a80e5fcbeefe335fdfb4373",
-  "patch_scope": "Correct numerical evidence boundaries, explicit unpaid amounts, written-year calendar labels and English cardinal conjunctions; define Rumi month-name encoding; clarify documentation and close legacy SQLite readback connections. Source readings are unchanged.",
+  "skill_zip_sha256": "1be1c936bd7165cfd3308924fec6677f92e5dd604ab0037514b4822c8295486a",
+  "patch_scope": "Explicit conversion and name-change guidance; retain prior religion as unknown when unstated; expose structured conversion details in the real Manuk example and verify native dates and details survive CSV and SQLite. Source text, existing source readings, native dates and entity counts are unchanged.",
   "pdf_pages": {
     "en": 3,
     "tr": 3

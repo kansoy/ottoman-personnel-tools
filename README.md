@@ -11,12 +11,12 @@ The LLM reads and structures the source. Python prepares the text, validates quo
 Python 3.10 or later:
 
 ```sh
-python -m pip install "sicilahval @ git+https://github.com/kansoy/ottoman-personnel-tools.git@v0.1.3"
+python -m pip install "sicilahval @ git+https://github.com/kansoy/ottoman-personnel-tools.git@v0.1.4"
 sicilahval install-skill --target codex --scope user
 # Or: sicilahval install-skill --target claude --scope user
 ```
 
-Use `--scope project` for the current project, `--target agents` for a shared Agent Skills directory, or `--path` for a custom parent directory. The [standalone skill](skills/sicilahval) includes Python helpers; an uploadable ZIP is on the [release page](https://github.com/kansoy/ottoman-personnel-tools/releases/tag/v0.1.3). A host with file access and Python execution is required; skill discovery varies by client.
+Use `--scope project` for the current project, `--target agents` for a shared Agent Skills directory, or `--path` for a custom parent directory. The [standalone skill](skills/sicilahval) includes Python helpers; an uploadable ZIP is on the [release page](https://github.com/kansoy/ottoman-personnel-tools/releases/tag/v0.1.4). A host with file access and Python execution is required; skill discovery varies by client.
 
 ## Use
 
@@ -48,7 +48,7 @@ python -m pip install ".[pdf,dev]"
 python -m unittest discover -s tests -v
 ```
 
-[Two real records](examples/sicilahval) show Manuk Filcancıyan’s schooling, appointments, pay changes and later name/faith change, and Zenop Tangaryan’s career with conflicting birth-year statements. The supplied transcription and exact archival references accompany the readings. [Validation notes](docs/validation.md) report the checks actually run.
+[Two real records](examples/sicilahval) show Manuk Filcancıyan’s schooling, appointments, pay changes and explicit conversion to Islam with the name Mahmut Süreyya in AH 1306, and Zenop Tangaryan’s career with conflicting birth-year statements. The supplied transcription and exact archival references accompany the readings. [Validation notes](docs/validation.md) report the checks actually run.
 
 The output contains linked records, facts, events, dates, payments, evidence, coverage and source segments. Unknown values remain distinct from zero; source claims remain distinct from inference. Research classifications, numeric place/job codes, identity merging and annual panels are separate tasks.
 
@@ -56,7 +56,7 @@ Mechanical validation cannot prove historical accuracy or complete semantic extr
 
 ## Cite
 
-Kansoy, Fatih. 2026. *sicilahval: Evidence-linked extraction of Ottoman personnel records*. Version 0.1.3. https://github.com/kansoy/ottoman-personnel-tools.
+Kansoy, Fatih. 2026. *sicilahval: Evidence-linked extraction of Ottoman personnel records*. Version 0.1.4. https://github.com/kansoy/ottoman-personnel-tools.
 
 [CITATION.cff](CITATION.cff) · [BibTeX](docs/citation.bib) · [English methods note](docs/papers/sicilahval_en.pdf) · [Türkçe yöntem notu](docs/papers/sicilahval_tr.pdf)
 

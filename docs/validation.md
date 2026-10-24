@@ -1,8 +1,8 @@
 # Validation / Doğrulama
 
-Version 0.1.3, 24 October 2026. / Sürüm 0.1.3, 24 Ekim 2026.
+Version 0.1.4, 24 October 2026. / Sürüm 0.1.4, 24 Ekim 2026.
 
-**38 local tests passed.** They cover source hashes, text integrity, exact quotations, linked facts/events, declared coverage, dates, payments, CSV/SQLite equality, package installation and standalone skill execution. / **38 yerel test geçti.** Kaynak özeti, metin bütünlüğü, alıntılar, olgu/olay bağlantıları, kapsam, tarihler, ödemeler, CSV/SQLite eşitliği, paket kurulumu ve bağımsız beceri çalışması denetlendi.
+**39 local tests passed.** They cover source hashes, text integrity, exact quotations, linked facts/events, declared coverage, dates, payments, CSV/SQLite equality, package installation and standalone skill execution. / **39 yerel test geçti.** Kaynak özeti, metin bütünlüğü, alıntılar, olgu/olay bağlantıları, kapsam, tarihler, ödemeler, CSV/SQLite eşitliği, paket kurulumu ve bağımsız beceri çalışması denetlendi.
 
 | Input / Girdi | Checked scope / Denenen kapsam |
 |---|---|
@@ -37,3 +37,7 @@ These checks do not measure general extraction accuracy or establish source trut
 Regression cases now reject nonzero direct amounts attached to unpaid wording and partial numeric matches such as `150 kuruş` inside `1150 kuruş`, including decimal, sign and grouping boundaries. Written-year calendar labels, the source's `Hicriyesi'nde` form and English cardinal years containing “and” are checked correctly. Whole amounts and sentence punctuation remain accepted. The two real readings are unchanged. / Yeni regresyon durumları, ücretsiz hizmet ifadesine bağlanan sıfır dışı doğrudan tutarları ve `1150 kuruş` içindeki `150 kuruş` gibi kısmi eşleşmeleri reddeder; ondalık, işaret ve basamak ayırıcıları da denetlenir. Yazıyla verilen yıl ve takvim ifadeleri, kaynaktaki `Hicriyesi'nde` biçimi ve İngilizce “and” içeren yıl okumaları doğru işlenir. Tam tutarlar ve cümle noktalaması kabul edilir. İki gerçek kayıt okuması değişmemiştir.
 
 The schema now defines Rumi numeric months as civil month labels, January/Kânunusani=1 through December/Kânunuevvel=12, with the native year unchanged. This is not March-based fiscal numbering or Gregorian conversion. / Şema artık Rumî ay numaralarını Kânunusani=1 ile Kânunuevvel=12 arasındaki ay adı kodları olarak tanımlar; özgün yıl değişmez. Bu, Mart ile başlayan malî ay sırası veya Miladî tarih dönüşümü değildir.
+
+## Version 0.1.4 conversion review / Sürüm 0.1.4 ihtida kontrolü
+
+The real Manuk reading already contained the conversion-to-Islam fact, Mahmut Süreyya name and paired dates. The example now also makes the subsequent religion/name explicit in event details, with prior religion left unknown. A regression checks that the event, linked facts, certainty and both native dates survive JSON, CSV and SQLite. Conversion expressions and subject/negation/attribution pitfalls are reading guidance for the host model; the Python helpers do not perform automatic religious classification. / Gerçek Manuk okumasında Müslüman oluş, Mahmut Süreyya adı ve iki tarih zaten vardı. Örnekte olay ayrıntıları da sonraki din ve adı açıkça belirtir; önceki din bilinmiyor olarak kalır. Regresyon testi olayın, bağlı olguların, kesinlik durumunun ve iki özgün tarihin JSON, CSV ve SQLite çıktılarında korunduğunu denetler. İhtida ifadeleri ile özne, olumsuzluk ve rivayet ayrımları modeli yönlendirir; Python yardımcıları otomatik din sınıflaması yapmaz.

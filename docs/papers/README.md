@@ -1,6 +1,6 @@
 # sicilahval technical note
 
-Fatih Kansoy, 24 October 2026, version 0.1.3.
+Fatih Kansoy, 24 October 2026, version 0.1.4.
 
 - [English PDF](sicilahval_en.pdf): *From personnel biographies to auditable data*.
 - [Türkçe PDF](sicilahval_tr.pdf): *Memur biyografilerinden denetlenebilir veriye*.

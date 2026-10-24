@@ -62,6 +62,37 @@ class SicilahvalTests(unittest.TestCase):
             write_demo(self.base / "wrong-language", "tr", "manuk")
         self.assertFalse((self.base / "wrong-language").exists())
 
+    def test_real_conversion_name_and_date_pair_survive_all_exports(self):
+        out = self.base / "manuk-conversion"
+        summary = write_demo(out, "en")
+        record = read_json(out / "work/records.json")["records"][0]
+        event = next(e for e in record["events"] if e["event_type"] == "conversion_and_name_change")
+        facts = {f["fact_id"]: f for f in record["facts"]}
+        linked = [facts[fid] for fid in event["fact_ids"]]
+        self.assertEqual({f["key"] for f in linked}, {"conversion_to_islam", "new_name_on_conversion"})
+        self.assertEqual(event["details"]["religion_after"], "Islam")
+        self.assertEqual(event["details"]["name_after"], "Mahmut Süreyya")
+        self.assertIsNone(event["details"]["religion_before"])
+        self.assertEqual(event["details"]["religion_before_basis"], "not_stated_in_supplied_source")
+        self.assertTrue(all(f["certainty"] == "direct" for f in linked))
+        self.assertIn("şeref-i İslâm ile müşerref olarak", event["evidence"][0]["quote"])
+        self.assertEqual([(d["calendar"], d["year"], d["month"], d["day"], d["certainty"])
+                          for d in event["dates"]],
+                         [("hijri", 1306, 3, 4, "direct"), ("rumi", 1304, 10, 28, "inferred")])
+        with (out / "data/events.csv").open(encoding="utf-8-sig", newline="") as handle:
+            saved = next(r for r in csv.DictReader(handle) if r["event_id"] == event["event_id"])
+        self.assertEqual(json.loads(saved["details_json"]), event["details"])
+        with closing(sqlite3.connect(summary["database"])) as con:
+            details = con.execute("SELECT details_json FROM events WHERE event_id=?",
+                                  (event["event_id"],)).fetchone()[0]
+            self.assertEqual(json.loads(details), event["details"])
+            dates = con.execute("SELECT calendar,year,month,day,certainty FROM dates "
+                                "WHERE owner_id=? ORDER BY date_id", (event["event_id"],)).fetchall()
+            self.assertEqual(dates, [("hijri", "1306", "3", "4", "direct"),
+                                     ("rumi", "1304", "10", "28", "inferred")])
+            self.assertEqual({r[0] for r in con.execute("SELECT fact_id FROM event_facts WHERE event_id=?",
+                                                       (event["event_id"],))}, set(event["fact_ids"]))
+
     def test_utf8_exact_text_and_original_hash(self):
         original, source, records = self.reading()
         self.assertEqual(source["sha256"], hashlib.sha256(original.read_bytes()).hexdigest())

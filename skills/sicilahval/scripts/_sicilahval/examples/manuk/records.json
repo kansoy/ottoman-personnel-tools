@@ -1174,7 +1174,15 @@
               "quote": "Mumaileyh bin üç yüz altı senesi Rebiülevvelinin dördünde 28 Teşrinievvel sene 1304 şeref-i İslâm ile müşerref olarak Mahmut Süreyya tesmiye kılınmış ve sene-i mezkure Zilhiccesinin yedisinde 25 Mayıs sene 1305 vefat eylemiştir."
             }
           ],
-          "note": ""
+          "note": "",
+          "details": {
+            "subject": "record_subject",
+            "assertion_status": "affirmative_source_statement",
+            "religion_before": null,
+            "religion_before_basis": "not_stated_in_supplied_source",
+            "religion_after": "Islam",
+            "name_after": "Mahmut Süreyya"
+          }
         },
         {
           "event_id": "manuk-r1-e014",

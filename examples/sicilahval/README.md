@@ -9,6 +9,8 @@ Two complete biographies from an owner-supplied Latin-script transcription. The 
 
 Each folder includes the complete source excerpt, prepared segments, structured reading, validation report, CSV relations and SQLite. / Her klasör tam biyografi metnini, kaynak parçalarını, yapılandırılmış okumayı, kontrol raporunu, CSV tablolarını ve SQLite dosyasını içerir.
 
+Manuk's [conversion event](manuk/data/events.csv) records Islam and the new name Mahmut Süreyya on 4 Rebiülevvel AH 1306, paired with 28 Teşrinievvel 1304 (contextually read as Rumi). The previous religion is unspecified in the supplied passage. These are dated changes, not a lifetime religious classification. / Manuk'un [ihtida olayı](manuk/data/events.csv), 4 Rebiülevvel 1306'da Müslüman oluşunu ve Mahmut Süreyya adını alışını kaydeder; yanında 28 Teşrinievvel 1304 tarihi korunur ve takvimi bağlamdan Rumî olarak okunur. Verilen pasajda önceki din belirtilmez. Bu, hayatının tamamına uygulanan bir din sınıfı değil, tarihli bir değişikliktir.
+
 Reproduce in a new directory / Yeni klasörde yeniden üretin:
 
 ```sh

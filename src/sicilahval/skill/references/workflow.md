@@ -22,6 +22,14 @@ Use one fact per distinct assertion where practical, with open-ended keys and st
 - Training/mülazemet, service interruptions, honours, medals, publications, legal inquiries and outcomes, health, retirement and death.
 - Other source details as facts even if their analytical use is not yet known.
 
+## Conversion and changes of name
+
+Review complete biographies and additions for expressions such as “şeref-i İslâm ile müşerref”, “ihtidâ/ihtida etti”, “Müslüman oldu”, and “hidâyet/hidayet” phrases. These are cues for contextual reading, not automatic conversion labels. Identify the grammatical subject and distinguish affirmative, negated, conditional, ambiguous and attributed claims. A father's or colleague's conversion belongs to that person. “Hidayet Efendi” is a personal name; isolated “hidâyet” is insufficient. A name change alone does not establish conversion.
+
+Preserve negation and attribution: “ihtida etmedi” or “Müslüman olmadı” is negative; “ihtida ettiği rivayet edilir” remains a reported claim. An explicit affirmative administrative report can be a direct source assertion, which does not imply independent historical verification.
+
+Record an affirmative conversion of the official as an event linked to any stated new name and native dates. Preserve both names and distinguish previous from subsequent affiliations. If the previous religion is unstated, retain `null` with that reason; an Armenian school, surname or compilation title does not establish Christianity or a denomination. An undated conversion remains an event with an unknown date. Downstream summaries should retain the change and its timing rather than flatten it into one lifetime religion.
+
 ## Dates and chronology
 
 Keep every native expression, calendar and precision. AH/Hijri, Rumi/mali, Julian and Gregorian years are not interchangeable. Civil month names such as Şubat and Teşrinievvel require calendar attention; a heading alone may not establish a calendar. A paired AH/Rumi date belongs to one event, not two appointments or two payments.

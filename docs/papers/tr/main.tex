@@ -1,9 +1,9 @@
 \documentclass[11pt,a4paper]{article}
 \usepackage[turkish]{babel}
 \usepackage{kansoy}
-\hypersetup{pdftitle={sicilahval: Memur biyografilerinden denetlenebilir veriye},pdfauthor={Fatih Kansoy},pdfsubject={Yazılım notu, sürüm 0.1.3},pdfkeywords={Sicill-i Ahval, Osmanlı memurları, tarihsel veri, LLM becerisi, kaynak kanıtı}}
+\hypersetup{pdftitle={sicilahval: Memur biyografilerinden denetlenebilir veriye},pdfauthor={Fatih Kansoy},pdfsubject={Yazılım notu, sürüm 0.1.4},pdfkeywords={Sicill-i Ahval, Osmanlı memurları, tarihsel veri, LLM becerisi, kaynak kanıtı}}
 \begin{document}
-\noteTitle{Memur biyografilerinden denetlenebilir veriye}{Yazılım notu}{Sürüm 0.1.3}{24 Ekim 2026}
+\noteTitle{Memur biyografilerinden denetlenebilir veriye}{Yazılım notu}{Sürüm 0.1.4}{24 Ekim 2026}
 
 \textbf{sicilahval}, Sicill-i Ahvâl transkripsiyonlarını yapılandırılmış kayıtlara, CSV tablolarına ve SQLite veritabanına dönüştüren bir Python paketi ve taşınabilir dil modeli becerisidir. Fatih Kansoy tarafından, Musevi ve Ermeni memurlar dâhil Osmanlı memur biyografilerinin incelenmesinde kullanılan iş akışlarından geliştirilmiştir. Araştırma değişkenleri oluşturulmadan önce kaynakta belirtilen bilgileri ve dayanaklarını kaydeder.
 
@@ -55,7 +55,7 @@ Tartışmalı adları, tutarları, takvimleri ve biyografi sınırlarını kulla
 Python 3.10 veya üzeri gerekir. Etiketlenmiş sürümü kurun:
 \begin{Code}
 python -m pip install \
-  "git+https://github.com/kansoy/ottoman-personnel-tools.git@v0.1.3"
+  "git+https://github.com/kansoy/ottoman-personnel-tools.git@v0.1.4"
 sicilahval install-skill --target codex --scope user
 \end{Code}
 Claude Code için \verb|--target claude| kullanın. Diğer ortamlar Agent Skills ve Python çalıştırmayı desteklemelidir.
@@ -78,7 +78,7 @@ TXT, Markdown, DOCX, metin PDF, HTML, RTF ve ODT desteklenir. Metin PDF için is
 Seçilen gerçek okumalar çevriyazılarla karşılaştırılmıştır. Regresyon testleri ayrıca doğrulama ve dışa aktarmayı sınar; bunlar bilgi çıkarımının doğruluk oranını ölçmez. Açık sürümde yalnızca bu iki örnek bulunur; araştırma derleminin bütünü paylaşılmaz.
 
 \section{Atıf ve erişim}
-\smallref{Kansoy, Fatih. 2026. \emph{sicilahval: Memur biyografilerinden denetlenebilir veriye}. Yazılım ve teknik not, sürüm 0.1.3. \url{https://github.com/kansoy/ottoman-personnel-tools/releases/tag/v0.1.3}.}
+\smallref{Kansoy, Fatih. 2026. \emph{sicilahval: Memur biyografilerinden denetlenebilir veriye}. Yazılım ve teknik not, sürüm 0.1.4. \url{https://github.com/kansoy/ottoman-personnel-tools/releases/tag/v0.1.4}.}
 \smallref{Yazılım atfı için deponun \texttt{CITATION.cff} dosyasını kullanın. Kaynak yayınlara ayrıca atıf verin; araç bu çalışmaların bilimsel katkısının yerine geçmez. Yazılım ve beceri: Apache-2.0. Tarihsel parçalar kaynak künyeleriyle sunulur.}
 
 \section{Kaynakça}

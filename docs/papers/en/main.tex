@@ -1,9 +1,9 @@
 \documentclass[11pt,a4paper]{article}
 \usepackage[english]{babel}
 \usepackage{kansoy}
-\hypersetup{pdftitle={sicilahval: From personnel biographies to auditable data},pdfauthor={Fatih Kansoy},pdfsubject={Software note, version 0.1.3},pdfkeywords={Sicill-i Ahval, Ottoman personnel, historical data, LLM skill, source evidence}}
+\hypersetup{pdftitle={sicilahval: From personnel biographies to auditable data},pdfauthor={Fatih Kansoy},pdfsubject={Software note, version 0.1.4},pdfkeywords={Sicill-i Ahval, Ottoman personnel, historical data, LLM skill, source evidence}}
 \begin{document}
-\noteTitle{From personnel biographies to auditable data}{Software note}{Version 0.1.3}{24 October 2026}
+\noteTitle{From personnel biographies to auditable data}{Software note}{Version 0.1.4}{24 October 2026}
 
 \textbf{sicilahval} is a Python package and a portable language-model skill for converting Sicill-i Ahvâl transcriptions into structured records, CSV tables and SQLite. Fatih Kansoy developed it from workflows used to review Ottoman personnel biographies, including Jewish and Armenian officials. It records source statements and their evidence before researchers construct analysis variables.
 
@@ -55,7 +55,7 @@ Review disputed names, amounts, calendars and biography boundaries before wider 
 Python 3.10 or later is required. Install the tagged release:
 \begin{Code}
 python -m pip install \
-  "git+https://github.com/kansoy/ottoman-personnel-tools.git@v0.1.3"
+  "git+https://github.com/kansoy/ottoman-personnel-tools.git@v0.1.4"
 sicilahval install-skill --target codex --scope user
 \end{Code}
 Use \verb|--target claude| for Claude Code. Other hosts need Agent Skills and Python execution.
@@ -78,7 +78,7 @@ TXT, Markdown, DOCX, text PDF, HTML, RTF and ODT are supported. Text PDFs need t
 The selected real readings were checked against their transcriptions. Regression tests also check validation and export; neither establishes an extraction accuracy rate. The public release includes these two examples, not the full research corpus.
 
 \section{Citation and availability}
-\smallref{Kansoy, Fatih. 2026. \emph{sicilahval: From personnel biographies to auditable data}. Software and technical note, version 0.1.3. \url{https://github.com/kansoy/ottoman-personnel-tools/releases/tag/v0.1.3}.}
+\smallref{Kansoy, Fatih. 2026. \emph{sicilahval: From personnel biographies to auditable data}. Software and technical note, version 0.1.4. \url{https://github.com/kansoy/ottoman-personnel-tools/releases/tag/v0.1.4}.}
 \smallref{Use the repository's \texttt{CITATION.cff} for software citation. Cite the source publications separately; this tool does not replace their scholarly credit. Software and skill: Apache-2.0. Historical excerpts retain their source attribution.}
 
 \section{References}
