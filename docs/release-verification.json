@@ -1,29 +1,29 @@
 {
-  "version": "0.1.6",
+  "version": "0.1.7",
   "python_tested": "3.14.0",
-  "unit_tests_passed": 43,
+  "unit_tests_passed": 46,
   "installed_package_matches_source_files": 33,
   "all_match": true,
   "artifacts": {
-    "sicilahval-0.1.6-py3-none-any.whl": {
-      "sha256": "c81e4de682fc539f0cc1c0d71828db0df6997f339491d770a782542e692a0530",
-      "bytes": 112230
+    "sicilahval-0.1.7-py3-none-any.whl": {
+      "sha256": "43c7df576854bcd1bf3bbdf99ec10a99625f93205e02d6778dd971bd0f415567",
+      "bytes": 112480
     },
-    "sicilahval-0.1.6.tar.gz": {
-      "sha256": "2d9ffc70fd4963e28f2b2a332c260d38c2b080996316b47150d3ee2f1bdaa16c",
-      "bytes": 269815
+    "sicilahval-0.1.7.tar.gz": {
+      "sha256": "b10a833d0f04a8b2ad31043820a8afbe96a037714e2686ae8419c6b28d7bca04",
+      "bytes": 270986
     },
-    "sicilahval-skill-0.1.6.zip": {
-      "sha256": "a673cee012b1951918263dc04ffddd6ce24b263960b7a1920510f272bae0afa7",
-      "bytes": 67038
+    "sicilahval-skill-0.1.7.zip": {
+      "sha256": "605d4b8a3be996a96093fa6cbe31b8604d4fe6c1e97231d8c6ea16252ec13c2e",
+      "bytes": 67287
     },
     "sicilahval_en.pdf": {
-      "sha256": "c138f724943f4f8446072868ee7301d972b906448465396a9a083520e98c5197",
-      "bytes": 213670
+      "sha256": "711b5dbfe7909fea05a7c602a349e1c4e448f0ee6e300ffb7186ee0037a4b0b5",
+      "bytes": 213672
     },
     "sicilahval_tr.pdf": {
-      "sha256": "3738f0cccc3147837176d612a9225d04b50723db0137967d2bd34e6ed52cc3fa",
-      "bytes": 213926
+      "sha256": "fc0287fbcd111ab91a2b6a334957b5e26c7f27a6e5a8a258ee04b61d3dd9e2d6",
+      "bytes": 213933
     }
   },
   "real_demo_counts": {
@@ -71,8 +71,8 @@
   "real_sources_are_transcriptions_not_facsimile_inspections": true,
   "unseen_document_accuracy_benchmark": false,
   "no_network_or_model_used_for_cached_demos": true,
-  "skill_zip_sha256": "a673cee012b1951918263dc04ffddd6ce24b263960b7a1920510f272bae0afa7",
-  "patch_scope": "Bounded date-literal checks recognize Turkish dative day forms as complete compounds and four-digit years attached to named months. Regressions accept the source-supported values, preserve direct certainty, and reject wrong days and shortened or incorrect years. Source text, source readings, native dates and entity counts are unchanged.",
+  "skill_zip_sha256": "605d4b8a3be996a96093fa6cbe31b8604d4fe6c1e97231d8c6ea16252ec13c2e",
+  "patch_scope": "Bounded date checks recognize Turkish ablative day forms as complete compounds, including gurresinden, while preserving year exclusion and rejecting incorrect days. CSV verification accepts complete biography fields larger than the default CSV parser limit, checks their full content against SQLite and restores the caller's limit. The regression uses synthetic content; source readings, quotations, native dates and entity counts are unchanged.",
   "pdf_pages": {
     "en": 3,
     "tr": 3
@@ -93,8 +93,8 @@
     "personnel_evidence"
   ],
   "unit_test_runs": [
-    "repository checkout: 43 passed, zero skips",
-    "fresh installed wheel outside checkout: 43 passed, zero skips"
+    "repository checkout: 46 passed, zero skips",
+    "fresh installed wheel outside checkout: 46 passed, zero skips"
   ],
   "sdist_real_demo_counts": {
     "manuk": {
@@ -113,6 +113,6 @@
     }
   },
   "local_distribution_checks_passed": 18,
-  "independent_regression_cases_basis": "The separate 55-case regression receipt is from the v0.1.3 numerical patch and was not rerun for v0.1.6. The current complete 43-test suite, including the bounded day and attached-year changes, passed in both the checkout and a fresh installed wheel.",
+  "independent_regression_cases_basis": "The separate 55-case regression receipt is from the v0.1.3 numerical patch and was not rerun for v0.1.7. The current complete 46-test suite, including the bounded ablative-day and long-field export changes, passed in both the checkout and a fresh installed wheel.",
   "verification_scope": "Local release preparation: fresh wheel and sdist installations, standalone ZIP execution, bilingual demos, payload mirrors, schema/provenance checks, and both PDFs. Public tag installation and downloaded release assets require a separate check after publication."
 }

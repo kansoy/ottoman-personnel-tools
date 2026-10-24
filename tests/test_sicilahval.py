@@ -529,6 +529,56 @@ class SicilahvalTests(unittest.TestCase):
                     self.assertFalse(report["valid"])
                     self.assertIn("direct day conflicts", " ".join(report["errors"]))
 
+    def test_ablative_turkish_days_keep_complete_compounds(self):
+        forms = (
+            "birinden", "ikisinden", "üçünden", "dördünden", "beşinden", "altısından",
+            "yedisinden", "sekizinden", "dokuzundan", "onundan", "on birinden",
+            "on ikisinden", "on üçünden", "on dördünden", "on beşinden", "on altısından",
+            "on yedisinden", "on sekizinden", "on dokuzundan", "yirmisinden",
+            "yirmi birinden", "yirmi ikisinden", "yirmi üçünden", "yirmi dördünden",
+            "yirmi beşinden", "yirmi altısından", "yirmi yedisinden", "yirmi sekizinden",
+            "yirmi dokuzundan", "otuzundan", "otuz birinden",
+        )
+        for day, form in enumerate(forms, 1):
+            with self.subTest(day=day, form=form):
+                self.assertEqual(day_values("bin üç yüz on sekiz senesi Mayısının " + form), {day})
+        self.assertEqual(day_values("Şabanının onsekizinden"), {18})
+        self.assertEqual(day_values("Şabanının yirmidokuzundan"), {29})
+        self.assertEqual(day_values("Muharreminin gurresinden"), {1})
+        for raw in (
+            "bin üç yüz on sekiz senesi Şabanının okunamayan gününden",
+            "yirmi dokuz senesi Şabanının okunamayan gününden",
+            "21 senesi Şabanının okunamayan gününden",
+        ):
+            with self.subTest(raw=raw):
+                self.assertEqual(day_values(raw), set())
+
+    def test_ablative_dates_accept_direct_days_and_reject_wrong_days(self):
+        cases = [
+            ("bin üç yüz on bir senesi Cemaziyelahiresinin on sekizinden", 1311, 6, 18),
+            ("bin üç yüz beş senesi Zilkadesinin yirmi dokuzundan", 1305, 11, 29),
+            ("bin üç yüz on sekiz senesi Muharreminin gurresinden", 1318, 1, 1),
+        ]
+        for index, (raw, year, month, day) in enumerate(cases):
+            original = self.base / f"ablative-{index}.txt"
+            original.write_text(TEXTS["appointment"].replace("Hicrî 1285", raw), encoding="utf-8")
+            workspace = self.base / f"ablative-{index}"
+            prepare_source(original, workspace)
+            source = read_json(workspace / "source.json")
+            records = build_example("appointment", source, "en")
+            date = records["records"][0]["events"][0]["dates"][0]
+            date.update(raw=raw, year=year, month=month, day=day, precision="day")
+            report = validate_records(records, source)
+            self.assertTrue(report["valid"], report["errors"])
+            self.assertFalse(any("day literal is not mechanically parsed" in w for w in report["warnings"]))
+            self.assertEqual(date["certainty"], "direct")
+            for wrong_day in set(range(1, 32)) - {day}:
+                with self.subTest(raw=raw, wrong_day=wrong_day):
+                    date["day"] = wrong_day
+                    report = validate_records(records, source)
+                    self.assertFalse(report["valid"])
+                    self.assertIn("direct day conflicts", " ".join(report["errors"]))
+
     def test_html_entities_tables_notes_without_script_execution(self):
         original = self.base / "source.html"
         original.write_text('<html><head><title>Sicill kaydı</title><script>DO NOT EXECUTE</script></head><body>'

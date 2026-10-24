@@ -114,21 +114,21 @@ def day_values(text: str) -> set[int]:
                   if re.match(r"\s*(?:senesi|senesinde|sene|yili|yilinda|year)\b", raw[end:])]
     matches = [(m.start(), m.end(), int(m.group(1))) for m in re.finditer(
         r"(?<!\d)([0-3]?\d)(?:st|nd|rd|th)?(?!\d)", raw) if 1 <= int(m.group(1)) <= 31]
-    # Dative forms belong to the complete compound: "yirmi besine" is 25,
-    # so the fallback must not mistake its bare tens prefix for day 20.
+    # Inflected forms belong to the complete compound: "yirmi besine" is
+    # 25 and "on sekizinden" is 18. Do not accept only the bare tens prefix.
     forms = {
-        1: ("birinde", "birine", "birinci", "birincisinde"),
-        2: ("ikisinde", "ikisine", "ikinci", "ikincisinde"),
-        3: ("ucunde", "ucune", "ucuncu", "ucuncusunde"),
-        4: ("dordunde", "dordune", "dorduncu", "dorduncusunde"),
-        5: ("besinde", "besine", "besinci", "besincisinde"),
-        6: ("altisinda", "altisina", "altinci", "altincisinda"),
-        7: ("yedisinde", "yedisine", "yedinci", "yedincisinde"),
-        8: ("sekizinde", "sekizine", "sekizinci", "sekizincisinde"),
-        9: ("dokuzunda", "dokuzuna", "dokuzuncu", "dokuzuncusunda"),
-        10: ("onunda", "onuna", "onuncu", "onuncusunda"),
-        20: ("yirmisinde", "yirmisine", "yirminci", "yirmincisinde"),
-        30: ("otuzunda", "otuzuna", "otuzuncu", "otuzuncusunda"),
+        1: ("birinde", "birine", "birinden", "birinci", "birincisinde"),
+        2: ("ikisinde", "ikisine", "ikisinden", "ikinci", "ikincisinde"),
+        3: ("ucunde", "ucune", "ucunden", "ucuncu", "ucuncusunde"),
+        4: ("dordunde", "dordune", "dordunden", "dorduncu", "dorduncusunde"),
+        5: ("besinde", "besine", "besinden", "besinci", "besincisinde"),
+        6: ("altisinda", "altisina", "altisindan", "altinci", "altincisinda"),
+        7: ("yedisinde", "yedisine", "yedisinden", "yedinci", "yedincisinde"),
+        8: ("sekizinde", "sekizine", "sekizinden", "sekizinci", "sekizincisinde"),
+        9: ("dokuzunda", "dokuzuna", "dokuzundan", "dokuzuncu", "dokuzuncusunda"),
+        10: ("onunda", "onuna", "onundan", "onuncu", "onuncusunda"),
+        20: ("yirmisinde", "yirmisine", "yirmisinden", "yirminci", "yirmincisinde"),
+        30: ("otuzunda", "otuzuna", "otuzundan", "otuzuncu", "otuzuncusunda"),
     }
     for value in range(1, 32):
         tens, unit = divmod(value, 10)
@@ -140,7 +140,7 @@ def day_values(text: str) -> set[int]:
         for candidate in candidates:
             pattern = r"(?<!\w)" + r"\s*".join(map(re.escape, candidate.split())) + r"(?!\w)"
             matches.extend((m.start(), m.end(), value) for m in re.finditer(pattern, raw))
-    matches.extend((m.start(), m.end(), 1) for m in re.finditer(r"(?<!\w)gurre(?:si(?:nde|nin|ne)?|sinde)?(?!\w)", raw))
+    matches.extend((m.start(), m.end(), 1) for m in re.finditer(r"(?<!\w)gurre(?:si(?:nde|nden|nin|ne)?|sinde)?(?!\w)", raw))
     english = {1: "first", 2: "second", 3: "third", 4: "fourth", 5: "fifth", 6: "sixth",
                7: "seventh", 8: "eighth", 9: "ninth", 10: "tenth", 11: "eleventh", 12: "twelfth",
                13: "thirteenth", 14: "fourteenth", 15: "fifteenth", 16: "sixteenth", 17: "seventeenth",

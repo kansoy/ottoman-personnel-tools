@@ -133,8 +133,18 @@ def export_records(records: dict | str | Path, source: dict | str | Path, out: s
             saved = connection.execute(f'SELECT * FROM "{table}" ORDER BY rowid').fetchall()
             if saved != [tuple(row) for row in rows]:
                 raise RuntimeError(f"SQLite round-trip mismatch in {table}")
-            with (target / f"{table}.csv").open(encoding="utf-8-sig", newline="") as handle:
-                saved_csv = list(csv.reader(handle))
+            # A complete biography payload can exceed csv's 128 KiB default.
+            # Raise the limit only for this verification and restore the caller's
+            # process setting even when parsing fails.
+            previous_limit = csv.field_size_limit()
+            largest_field = max((len(value) for row in rows for value in row
+                                 if isinstance(value, str)), default=0)
+            try:
+                csv.field_size_limit(max(previous_limit, largest_field))
+                with (target / f"{table}.csv").open(encoding="utf-8-sig", newline="") as handle:
+                    saved_csv = list(csv.reader(handle))
+            finally:
+                csv.field_size_limit(previous_limit)
             if saved_csv != [columns] + [["" if value is None else value for value in row] for row in rows]:
                 raise RuntimeError(f"CSV round-trip mismatch in {table}")
         connection.execute("CREATE TABLE extraction_document (payload_json TEXT NOT NULL)")

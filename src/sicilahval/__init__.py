@@ -4,7 +4,7 @@ Semantic extraction is performed by the hosting model or a human reader.
 This package prepares sources, checks citations and exports supplied readings.
 """
 
-__version__ = "0.1.6"
+__version__ = "0.1.7"
 
 from .intake import prepare_source
 from .validation import validate_records

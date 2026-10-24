@@ -1,8 +1,8 @@
 # Validation / Doğrulama
 
-Version 0.1.6, 24 October 2026. / Sürüm 0.1.6, 24 Ekim 2026.
+Version 0.1.7, 24 October 2026. / Sürüm 0.1.7, 24 Ekim 2026.
 
-**43 local tests passed, with no skips.** They cover source hashes, text integrity, exact quotations, linked facts/events, declared coverage, dates, payments, temporal limits on the conversion example, CSV/SQLite equality, package installation and standalone skill execution. / **43 yerel test, atlanan test olmadan geçti.** Kaynak özeti, metin bütünlüğü, alıntılar, olgu/olay bağlantıları, kapsam, tarihler, ödemeler, ihtida örneğinin zamana bağlı sınırları, CSV/SQLite eşitliği, paket kurulumu ve bağımsız beceri çalışması denetlendi.
+**46 local tests passed, with no skips.** They cover source hashes, text integrity, exact quotations, linked facts/events, declared coverage, dates, payments, temporal limits on the conversion example, CSV/SQLite equality, package installation and standalone skill execution. / **46 yerel test, atlanan test olmadan geçti.** Kaynak özeti, metin bütünlüğü, alıntılar, olgu/olay bağlantıları, kapsam, tarihler, ödemeler, ihtida örneğinin zamana bağlı sınırları, CSV/SQLite eşitliği, paket kurulumu ve bağımsız beceri çalışması denetlendi.
 
 | Input / Girdi | Checked scope / Denenen kapsam |
 |---|---|
@@ -49,3 +49,7 @@ The Manuk example now links its subsequent religion and name to the existing day
 ## Version 0.1.6 dative day forms / Sürüm 0.1.6 yönelme ekli günler
 
 Date checks now recognize Turkish dative day forms such as “yirmi beşine” (25) and “on sekizine” (18) as complete compounds, rather than reading only their tens prefixes. Regressions cover all 31 day spellings, joined spelling, “gurresine”, preservation of direct certainty and 60 incorrect-day rejections. A complete four-digit year attached to a named month, such as “Zilhicce1299”, is also recognized without accepting a truncated or incorrect year. No source assertions or dates were changed. / Tarih denetimi artık “yirmi beşine” (25) ve “on sekizine” (18) gibi yönelme ekli günleri yalnız onluk kısmıyla değil, bütün olarak okur. Regresyonlar 31 günün yazımını, bitişik yazımı, “gurresine” biçimini, doğrudan kaynak kesinliğinin korunmasını ve 60 yanlış günün reddini kapsar. “Zilhicce1299” gibi bir ay adına bitişik yazılmış dört basamaklı yıl da eksik veya yanlış bir yıl kabul edilmeden tanınır. Kaynak ifadeleri veya tarihler değiştirilmedi.
+
+## Version 0.1.7 ablative days and long CSV fields / Sürüm 0.1.7 ayrılma ekli günler ve uzun CSV alanları
+
+Date checks now recognize ablative forms such as “on sekizinden” (18), “yirmi dokuzundan” (29) and “gurresinden” (1). Regressions cover all 31 day spellings, joined forms, year exclusion and 90 incorrect-day rejections while preserving direct certainty. CSV verification also accepts complete biography fields larger than Python's default field limit, compares their full contents with SQLite and restores the caller's previous limit. The long-field regression uses synthetic content. No source readings, quotations or dates were changed. / Tarih denetimi artık “on sekizinden” (18), “yirmi dokuzundan” (29) ve “gurresinden” (1) gibi ayrılma ekli biçimleri tanır. Regresyonlar 31 günün yazımını, bitişik biçimleri, yılın gün olarak okunmamasını ve 90 yanlış günün reddini kapsar; doğrudan kaynak kesinliği korunur. CSV doğrulaması, Python'un varsayılan alan sınırını aşan tam biyografi alanlarını da kabul eder; içeriğin tamamını SQLite ile karşılaştırır ve çağıranın önceki sınırını geri yükler. Uzun alan testi yapay içerik kullanır. Kaynak okumaları, alıntılar veya tarihler değiştirilmedi.

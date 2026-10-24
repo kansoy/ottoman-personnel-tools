@@ -1,6 +1,6 @@
 # Note verification
 
-Reviewed 24 October 2026 for version 0.1.6.
+Reviewed 24 October 2026 for version 0.1.7.
 
 Both final PDFs have three A4 pages and Fatih Kansoy in the author metadata. All six rendered pages were visually inspected after the final content update: headings, paragraphs, quotations, commands, references, page numbers and Turkish characters are legible, with no clipping or overlap. The supplied fonts are embedded.
 
@@ -15,5 +15,7 @@ The single scholarly reference was checked against the author’s university pub
 The author block in both language editions links to kansoy@gmail.com and https://fatih.ai. The email is the author’s explicitly requested contact. The v0.1.5 revision ties the example’s subsequent religion and name to its exact conversion date, without assigning them to earlier periods, the whole conversion year or later periods by extrapolation. Source quotations, native dates and email remain unchanged. The validation note separately records the v0.1.3 numerical checks and Rumi month-label convention, and the v0.1.4 conversion review.
 
 The v0.1.6 revision adds bounded recognition of Turkish dative day forms and complete four-digit years attached to named months to the helper and regressions. The paper body is unchanged apart from the release version. All 43 tests pass; source quotations and native dates remain unchanged.
+
+The v0.1.7 revision adds bounded recognition of Turkish ablative day forms and lossless verification of CSV fields larger than the default parser limit. The paper body is unchanged apart from the release version. All 46 tests pass; source quotations and native dates remain unchanged.
 
 The notes include short excerpts from the two owner-approved real examples. The complete research corpus, original scans and research-specific tables are excluded.

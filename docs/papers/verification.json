@@ -1,5 +1,5 @@
 {
-  "version": "0.1.6",
+  "version": "0.1.7",
   "release_date": "2026-10-24",
   "toolchain": "latexmk with pdfLaTeX; Poppler pdfinfo and pdftotext",
   "notes": {
@@ -8,8 +8,8 @@
       "pages": 3,
       "author": "Fatih Kansoy",
       "title": "sicilahval: From personnel biographies to auditable data",
-      "sha256": "c138f724943f4f8446072868ee7301d972b906448465396a9a083520e98c5197",
-      "bytes": 213670,
+      "sha256": "711b5dbfe7909fea05a7c602a349e1c4e448f0ee6e300ffb7186ee0037a4b0b5",
+      "bytes": 213672,
       "source": "en/main.tex",
       "checks": [
         "exactly_three_pages",
@@ -29,8 +29,8 @@
       "pages": 3,
       "author": "Fatih Kansoy",
       "title": "sicilahval: Memur biyografilerinden denetlenebilir veriye",
-      "sha256": "3738f0cccc3147837176d612a9225d04b50723db0137967d2bd34e6ed52cc3fa",
-      "bytes": 213926,
+      "sha256": "fc0287fbcd111ab91a2b6a334957b5e26c7f27a6e5a8a258ee04b61d3dd9e2d6",
+      "bytes": 213933,
       "source": "tr/main.tex",
       "checks": [
         "exactly_three_pages",

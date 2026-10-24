@@ -11,12 +11,12 @@ Metni LLM okur ve yapılandırır. Python metni hazırlar, alıntıları ve bağ
 Python 3.10 veya üzeri:
 
 ```sh
-python -m pip install "sicilahval @ git+https://github.com/kansoy/ottoman-personnel-tools.git@v0.1.6"
+python -m pip install "sicilahval @ git+https://github.com/kansoy/ottoman-personnel-tools.git@v0.1.7"
 sicilahval install-skill --target codex --scope user
 # Veya: sicilahval install-skill --target claude --scope user
 ```
 
-`--scope project` mevcut projeye, `--target agents` ortak Agent Skills dizinine kurar. `--path` ile farklı üst dizin seçilebilir. [Bağımsız beceri](skills/sicilahval) Python yardımcılarını içerir; yüklenebilir ZIP [sürüm sayfasındadır](https://github.com/kansoy/ottoman-personnel-tools/releases/tag/v0.1.6). Dosya erişimi ve Python çalıştırma gerekir; beceri tanıma desteği istemciye göre değişir.
+`--scope project` mevcut projeye, `--target agents` ortak Agent Skills dizinine kurar. `--path` ile farklı üst dizin seçilebilir. [Bağımsız beceri](skills/sicilahval) Python yardımcılarını içerir; yüklenebilir ZIP [sürüm sayfasındadır](https://github.com/kansoy/ottoman-personnel-tools/releases/tag/v0.1.7). Dosya erişimi ve Python çalıştırma gerekir; beceri tanıma desteği istemciye göre değişir.
 
 ## Kullanım
 
@@ -56,7 +56,7 @@ Mekanik doğrulama tarihsel doğruluğu veya bütün anlam ayrıntılarının ç
 
 ## Atıf
 
-Kansoy, Fatih. 2026. *sicilahval: Evidence-linked extraction of Ottoman personnel records*. Sürüm 0.1.6. https://github.com/kansoy/ottoman-personnel-tools.
+Kansoy, Fatih. 2026. *sicilahval: Evidence-linked extraction of Ottoman personnel records*. Sürüm 0.1.7. https://github.com/kansoy/ottoman-personnel-tools.
 
 [CITATION.cff](CITATION.cff) · [BibTeX](docs/citation.bib) · [Türkçe yöntem notu](docs/papers/sicilahval_tr.pdf) · [English methods note](docs/papers/sicilahval_en.pdf)
 
