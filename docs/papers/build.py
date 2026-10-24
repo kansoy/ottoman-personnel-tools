@@ -49,7 +49,7 @@ def main() -> None:
         assert metadata["Author"] == "Fatih Kansoy", (lang, metadata["Author"])
         assert metadata["Title"].startswith("sicilahval:"), (lang, metadata["Title"])
         text = run(["pdftotext", "-layout", str(pdf), "-"])
-        for required in ("sicilahval", "Fatih Kansoy", "Manuk", "Zenop", "Sarıyıldız", "hi@fatih.ai", "fatih.ai", "CITATION.cff"):
+        for required in ("sicilahval", "Fatih Kansoy", "Manuk", "Zenop", "Sarıyıldız", "kansoy@gmail.com", "fatih.ai", "CITATION.cff"):
             assert required in text, (lang, required)
         assert "--language " + lang in text, (lang, "command hyphens")
         source = (project / "main.tex").read_text()
@@ -57,7 +57,7 @@ def main() -> None:
         assert source.split(heading)[1].count("\\smallref{") == 1, (lang, "one scholarly reference")
         for removed in ("Başaran", "Saylan", "Bergama", "Gümüşhane"):
             assert removed not in text, (lang, "removed reference", removed)
-        assert "mailto:hi@fatih.ai" in (project / "kansoy.sty").read_text()
+        assert "mailto:kansoy@gmail.com" in (project / "kansoy.sty").read_text()
         assert "https://fatih.ai" in (project / "kansoy.sty").read_text()
         assert "\ufffd" not in text and "\u25a0" not in text, (lang, "missing glyph")
         log = (build / "main.log").read_text(errors="replace")
@@ -83,7 +83,7 @@ def main() -> None:
             ],
         }
     receipt = {
-        "version": "0.1.1",
+        "version": "0.1.2",
         "release_date": "2026-10-24",
         "toolchain": "latexmk with pdfLaTeX; Poppler pdfinfo and pdftotext",
         "notes": checks,

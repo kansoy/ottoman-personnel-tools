@@ -11,12 +11,12 @@ The LLM reads and structures the source. Python prepares the text, validates quo
 Python 3.10 or later:
 
 ```sh
-python -m pip install "sicilahval @ git+https://github.com/kansoy/ottoman-personnel-tools.git@v0.1.1"
+python -m pip install "sicilahval @ git+https://github.com/kansoy/ottoman-personnel-tools.git@v0.1.2"
 sicilahval install-skill --target codex --scope user
 # Or: sicilahval install-skill --target claude --scope user
 ```
 
-Use `--scope project` for the current project, `--target agents` for a shared Agent Skills directory, or `--path` for a custom parent directory. The [standalone skill](skills/sicilahval) includes Python helpers; an uploadable ZIP is on the [release page](https://github.com/kansoy/ottoman-personnel-tools/releases/tag/v0.1.1). A host with file access and Python execution is required; skill discovery varies by client.
+Use `--scope project` for the current project, `--target agents` for a shared Agent Skills directory, or `--path` for a custom parent directory. The [standalone skill](skills/sicilahval) includes Python helpers; an uploadable ZIP is on the [release page](https://github.com/kansoy/ottoman-personnel-tools/releases/tag/v0.1.2). A host with file access and Python execution is required; skill discovery varies by client.
 
 ## Use
 
@@ -50,7 +50,7 @@ Mechanical validation cannot prove historical accuracy or complete semantic extr
 
 ## Cite
 
-Kansoy, Fatih. 2026. *sicilahval: Evidence-linked extraction of Ottoman personnel records*. Version 0.1.1. https://github.com/kansoy/ottoman-personnel-tools.
+Kansoy, Fatih. 2026. *sicilahval: Evidence-linked extraction of Ottoman personnel records*. Version 0.1.2. https://github.com/kansoy/ottoman-personnel-tools.
 
 [CITATION.cff](CITATION.cff) · [BibTeX](docs/citation.bib) · [English methods note](docs/papers/sicilahval_en.pdf) · [Türkçe yöntem notu](docs/papers/sicilahval_tr.pdf)
 

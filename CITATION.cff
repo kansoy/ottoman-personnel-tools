@@ -5,7 +5,7 @@ title: "sicilahval: Evidence-linked extraction of Ottoman personnel records"
 authors:
   - family-names: Kansoy
     given-names: Fatih
-version: 0.1.1
+version: 0.1.2
 date-released: 2026-10-24
 url: "https://github.com/kansoy/ottoman-personnel-tools"
 repository-code: "https://github.com/kansoy/ottoman-personnel-tools"

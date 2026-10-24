@@ -1,6 +1,6 @@
 # Note verification
 
-Reviewed 24 October 2026 for version 0.1.1.
+Reviewed 24 October 2026 for version 0.1.2.
 
 Both final PDFs have three A4 pages and Fatih Kansoy in the author metadata. All six rendered pages were visually inspected after the final content update: headings, paragraphs, quotations, commands, references, page numbers and Turkish characters are legible, with no clipping or overlap. The supplied fonts are embedded.
 
@@ -12,6 +12,6 @@ The single scholarly reference was checked against the author’s university pub
 
 - Gülden Sarıyıldız (2009), “Sicill-i Ahvâl Defterleri,” *TDV İslâm Ansiklopedisi* 37: 134-136: https://avesis.istanbul.edu.tr/yayin/0b6be7b2-7c25-45cc-943c-c16c7abde025/sicill-i-ahval-defterleri
 
-The author block in both language editions links to hi@fatih.ai and https://fatih.ai. These match the author’s public website and GitHub profile. The v0.1.1 revision changes the scholarly reference and author contact links; the real source readings and software behavior are unchanged.
+The author block in both language editions links to kansoy@gmail.com and https://fatih.ai. The email is the author’s explicitly requested contact. The v0.1.2 revision replaces the PDF email; all other content, real source readings and software behavior are unchanged.
 
 The notes include short excerpts from the two owner-approved real examples. The complete research corpus, original scans and research-specific tables are excluded.
