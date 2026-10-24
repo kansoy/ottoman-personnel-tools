@@ -1,0 +1,7 @@
+recursive-include src/sicilahval *.json *.md *.py *.yaml
+recursive-include src/sicilahval/examples *.txt
+recursive-include personnel_evidence *.json *.txt
+recursive-include examples/sicilahval *.json *.txt *.md *.csv *.sqlite
+include examples/__init__.py examples/synthetic_example.py
+include LICENSE NOTICE SOURCE_ATTRIBUTION.md README.tr.md CITATION.cff
+include src/sicilahval/skill/LICENSE src/sicilahval/skill/NOTICE

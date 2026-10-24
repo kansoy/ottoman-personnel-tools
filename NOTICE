@@ -1,10 +1,11 @@
-Personnel Evidence Toolkit
+sicilahval and Personnel Evidence Toolkit
 Copyright 2026 Fatih Kansoy
 
 Extracted from the Ottoman Bureaucracy research project, developed and
 maintained under Fatih Kansoy's direction with AI-assisted software work.
 https://ottomanbureaucracy.com
 
-Only the software and synthetic examples/tests in this repository are included.
-No research dataset, archival image, scholarly publication or historical source
-quotation is supplied. See SOURCE_ATTRIBUTION.md and SOURCE_MANIFEST.json.
+The repository includes software, skill instructions, selected real examples, regression tests
+and the author's bilingual methods notes. The full input documents and private research dataset are not supplied;
+selected historical transcription excerpts carry their own source attribution. See SOURCE_ATTRIBUTION.md and
+SOURCE_MANIFEST.json for the unchanged legacy module's provenance.

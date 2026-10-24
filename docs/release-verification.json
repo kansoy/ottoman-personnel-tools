@@ -1,0 +1,65 @@
+{
+  "version": "0.1.0",
+  "python_tested": "3.14.0",
+  "unit_tests_passed": 34,
+  "installed_package_matches_source_files": 24,
+  "all_match": true,
+  "artifacts": {
+    "sicilahval-0.1.0-py3-none-any.whl": {
+      "sha256": "45838f7dad56f96b05765ad53fbff4c057930da07568258ede4fd191a4d5da05",
+      "bytes": 108712
+    },
+    "sicilahval-0.1.0.tar.gz": {
+      "sha256": "7ae010105c243cbc9580b1087c196c7091d6b8f087b1226371dd8801ed9bab71",
+      "bytes": 259967
+    }
+  },
+  "real_demo_counts": {
+    "manuk": {
+      "records": 1,
+      "facts": 33,
+      "events": 14,
+      "dates": 14,
+      "payments": 6
+    },
+    "zenop": {
+      "records": 1,
+      "facts": 38,
+      "events": 21,
+      "dates": 25,
+      "payments": 10
+    }
+  },
+  "standalone_real_demo_counts": {
+    "manuk": {
+      "records": 1,
+      "facts": 33,
+      "events": 14,
+      "dates": 14,
+      "payments": 6
+    },
+    "zenop": {
+      "records": 1,
+      "facts": 38,
+      "events": 21,
+      "dates": 25,
+      "payments": 10
+    }
+  },
+  "stdlib_runtime": true,
+  "formats": [
+    "TXT",
+    "Markdown",
+    "DOCX",
+    "text PDF (optional pypdf)",
+    "HTML/HTM",
+    "ODT",
+    "common RTF"
+  ],
+  "real_sources_are_transcriptions_not_facsimile_inspections": true,
+  "unseen_document_accuracy_benchmark": false,
+  "no_network_or_model_used_for_cached_demos": true,
+  "skill_zip_sha256": "0193d732ead5691052a48ce48718880b5f11ab3ae9f96d0fef9c906b2c4ea82e",
+  "cff_schema_valid": true,
+  "skill_frontmatter_valid": true
+}

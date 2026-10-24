@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sicilahval"
+version = "0.1.0"
+description = "Source-grounded Sicill-i Ahval extraction helpers and bilingual LLM skill"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "Apache-2.0"
+license-files = ["LICENSE", "NOTICE"]
+authors = [{name = "Fatih Kansoy"}]
+keywords = ["Ottoman", "Sicill-i Ahval", "digital humanities", "prosopography"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Topic :: Text Processing",
+]
+
+[project.optional-dependencies]
+pdf = ["pypdf>=5,<7"]
+dev = ["build>=1.2", "jsonschema>=4.20"]
+
+[project.urls]
+Homepage = "https://github.com/kansoy/ottoman-personnel-tools"
+Repository = "https://github.com/kansoy/ottoman-personnel-tools"
+Issues = "https://github.com/kansoy/ottoman-personnel-tools/issues"
+
+[project.scripts]
+sicilahval = "sicilahval.cli:main"
+
+[tool.setuptools]
+packages = ["sicilahval", "personnel_evidence"]
+package-dir = {sicilahval = "src/sicilahval", personnel_evidence = "personnel_evidence"}
+include-package-data = false
+
+[tool.setuptools.package-data]
+sicilahval = ["schema.json", "skill/*", "skill/**/*", "examples/**/*"]
+personnel_evidence = ["schema.json", "prompt.txt"]

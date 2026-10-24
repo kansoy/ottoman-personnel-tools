@@ -1,0 +1,116 @@
+{
+  "schema_version": "1.0",
+  "source_id": "src-72d78523d81b049c",
+  "sha256": "72d78523d81b049c770f74705b8524fe590693202dffc6bd824b9c1cb7ef1923",
+  "file_name": "manuk.txt",
+  "format": "txt",
+  "language": "en",
+  "metadata": {
+    "title": "Manuk Filcancıyan / Mahmut Süreyya",
+    "author": null,
+    "citation": "User-supplied Latin-script transcription, Ermeni Memurlar.docx, selected biography. Supplied archival reference: DH_SAİD_8_86; 167. Compiler and compilation date unverified; no original facsimile inspection.",
+    "url": null,
+    "original_document_sha256": "80b53fc15c5c31f8aea43f00b546ee77a52fc30d63e7fcdb82d3e602f718c45e",
+    "publication_scope": "Selected real example explicitly approved by the document owner; the complete source compilation and research dataset are not included."
+  },
+  "warnings": [],
+  "segments": [
+    {
+      "text": "MANUK FİLCANCIYAN EFENDİ (1259)",
+      "locator": {
+        "part": "text",
+        "line": 2
+      },
+      "segment_id": "s000001"
+    },
+    {
+      "text": "Filcancı esnafından Karabet Ağa'nın oğludur.",
+      "locator": {
+        "part": "text",
+        "line": 4
+      },
+      "segment_id": "s000002"
+    },
+    {
+      "text": "Bin iki yüz elli dokuz sene-i Hicriyesi'nde Dersaadet'te tevellüt eylemiştir.",
+      "locator": {
+        "part": "text",
+        "line": 6
+      },
+      "segment_id": "s000003"
+    },
+    {
+      "text": "Hasköy Ermeni Mektebi'nde mukaddeme-i ulûmla hesap ve coğrafya ve tarih tahsil etmiştir. Fransızca okur, yazar, Ermenice kitabet ve Türkçe tekellüm eder.",
+      "locator": {
+        "part": "text",
+        "line": 8
+      },
+      "segment_id": "s000004"
+    },
+    {
+      "text": "Bin iki yüz seksen iki senesi Rebiülahirinde yirmi üç yaşında olduğu halde Telgraf Mektebi'ne duhul edip seksen altı senesi Muharremi gurresinde yedi yüz yirmi kuruş aylıkla Diyarbakır Telgrafhanesi Muhaberat-ı Ecnebiye Memuriyeti'ne nasb olunarak seksen yedi Rebiülahirinin on dördünde dört yüz seksen kuruş maaş ile Beyoğlu Telgraf Merkezi'ne tahvil-i memuriyeti vuku bulmuş ve doksan üç senesi Zilkadesinin yirmi altısında hasbe't-teşkilat maaşı yedi yüz elli kuruşa terakki ve doksan yedi senesi Rebiülahirinin ikisinde altı yüz kuruşa tedenni ederek el-haletü hazihi mikdar-ı mezbur maaş ile mezkur merkezde istihdam olunmakta bulunmuştur.",
+      "locator": {
+        "part": "text",
+        "line": 10
+      },
+      "segment_id": "s000005"
+    },
+    {
+      "text": "Ber-minval-i muharrer bulunduğu memuriyetlerden infikakı nakil ve tahvil suretleriyle vukua gelerek vezaif-i memuriyetinden dolayı muhakeme altına alınmamıştır.",
+      "locator": {
+        "part": "text",
+        "line": 12
+      },
+      "segment_id": "s000006"
+    },
+    {
+      "text": "Dersaadet Telgraf ve Posta Başmüdürü izzetli Aziz Efendi tarafından yazılan şerhde işbu tercüme-i hâl varakasının mukarin-i sıhhat olduğu tasdik kılındığı gibi Telgraf ve Posta Nezareti namına olarak Muavin ve Meclis Reisi saadetli Hasan Ali Efendi canibinden ilave kılınan mütalaa dahi mumaileyh Manuk Efendi'nin işbu sicill-i ahvȃl varakası mündericatı teşkil olunan komisyonca tetkik kılınmakla muvafık-ı sıhhat olduğundan tasdik edildi yolunda bulunmuştur.",
+      "locator": {
+        "part": "text",
+        "line": 14
+      },
+      "segment_id": "s000007"
+    },
+    {
+      "text": "Fi 7 Rebiülahire sene 1302 ve fi 12 Kânunusani sene 1300",
+      "locator": {
+        "part": "text",
+        "line": 16
+      },
+      "segment_id": "s000008"
+    },
+    {
+      "text": "Mukabele-şud.",
+      "locator": {
+        "part": "text",
+        "line": 18
+      },
+      "segment_id": "s000009"
+    },
+    {
+      "text": "Mumaileyh Manuk Filcancıyan Efendi'nin maaşı bin üç yüz altı senesi Rebiülevvelinin dördünde yetmiş beş kuruş zammıyla altı yüz yetmiş beş kuruşa iblağ edilmiştir.",
+      "locator": {
+        "part": "text",
+        "line": 20
+      },
+      "segment_id": "s000010"
+    },
+    {
+      "text": "Mumaileyh bin üç yüz altı senesi Rebiülevvelinin dördünde 28 Teşrinievvel sene 1304 şeref-i İslâm ile müşerref olarak Mahmut Süreyya tesmiye kılınmış ve sene-i mezkure Zilhiccesinin yedisinde 25 Mayıs sene 1305 vefat eylemiştir.",
+      "locator": {
+        "part": "text",
+        "line": 22
+      },
+      "segment_id": "s000011"
+    },
+    {
+      "text": " DH_SAİD_8_86; 167",
+      "locator": {
+        "part": "text",
+        "line": 24
+      },
+      "segment_id": "s000012"
+    }
+  ],
+  "text_sha256": "4cccc80b28f3e3f91dcbb11e2bdc214d221cc2e4b7ce330a37cc5d9e9816a81b"
+}

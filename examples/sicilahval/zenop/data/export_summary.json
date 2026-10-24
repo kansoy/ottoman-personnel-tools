@@ -1,0 +1,30 @@
+{
+  "output": "data",
+  "database": "data/sicilahval.sqlite",
+  "counts": {
+    "records": 1,
+    "facts": 38,
+    "events": 21,
+    "dates": 25,
+    "payments": 10
+  },
+  "tables": {
+    "sources": 1,
+    "source_segments": 16,
+    "records": 1,
+    "facts": 38,
+    "events": 21,
+    "event_facts": 22,
+    "dates": 25,
+    "payments": 10,
+    "evidence": 96,
+    "coverage": 16,
+    "excluded_segments": 0
+  },
+  "csv_sqlite_cells_match": true,
+  "semantic_completeness_proven": false,
+  "example": "zenop",
+  "language": "tr",
+  "synthetic": false,
+  "basis": "Reviewed cached reading of a real source transcription; no new model extraction is performed."
+}

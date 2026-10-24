@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "Please cite sicilahval and cite the historical sources used in your extraction separately."
+type: software
+title: "sicilahval: Evidence-linked extraction of Ottoman personnel records"
+authors:
+  - family-names: Kansoy
+    given-names: Fatih
+version: 0.1.0
+date-released: 2026-10-24
+url: "https://github.com/kansoy/ottoman-personnel-tools"
+repository-code: "https://github.com/kansoy/ottoman-personnel-tools"
+license: Apache-2.0
+abstract: "A Python package and portable LLM skill for source-local Sicill-i Ahval extraction, preserving facts, events, native dates, payments, quotations and uncertainty in CSV, JSON and SQLite."
+keywords:
+  - Sicill-i Ahval
+  - Ottoman history
+  - personnel records
+  - source evidence
+  - Agent Skills

@@ -1,0 +1,148 @@
+{
+  "schema_version": "1.0",
+  "source_id": "src-7c78aeaa38350ce3",
+  "sha256": "7c78aeaa38350ce3ee22f02058d104ad2745d6f0f2d07bad79004975f989eb83",
+  "file_name": "zenop.txt",
+  "format": "txt",
+  "language": "tr",
+  "metadata": {
+    "title": "Zenop Tangaryan",
+    "author": null,
+    "citation": "User-supplied Latin-script transcription, Ermeni Memurlar.docx, selected biography. Supplied archival reference: DH_SAİD_5_356; 709. Compiler and compilation date unverified; no original facsimile inspection.",
+    "url": null,
+    "original_document_sha256": "80b53fc15c5c31f8aea43f00b546ee77a52fc30d63e7fcdb82d3e602f718c45e",
+    "publication_scope": "Selected real example explicitly approved by the document owner; the complete source compilation and research dataset are not included."
+  },
+  "warnings": [],
+  "segments": [
+    {
+      "text": "ZENOP TANGARYAN EFENDİ (1273)",
+      "locator": {
+        "part": "text",
+        "line": 2
+      },
+      "segment_id": "s000001"
+    },
+    {
+      "text": "Taraf-ı esnafdan Kirkor Tangaryan Ağa'nın mahdumudur.",
+      "locator": {
+        "part": "text",
+        "line": 4
+      },
+      "segment_id": "s000002"
+    },
+    {
+      "text": "Bin iki yüz yetmiş sene-i Hicriyesi’nde Dersaadet'te tevellüt etmiştir.",
+      "locator": {
+        "part": "text",
+        "line": 6
+      },
+      "segment_id": "s000003"
+    },
+    {
+      "text": "Ermeni Sıbyan mektebinde tedrisi mutad olan dersleri ve badehu Türkçe ve Fransızca ve hesap ve coğrafya ve tarih okumuştur. Fransızca tekellüm ve kitabet eder.",
+      "locator": {
+        "part": "text",
+        "line": 8
+      },
+      "segment_id": "s000004"
+    },
+    {
+      "text": "Türkçe kitabete de âşinadır.",
+      "locator": {
+        "part": "text",
+        "line": 10
+      },
+      "segment_id": "s000005"
+    },
+    {
+      "text": "Bin iki yüz seksen yedi Şevvalinde on dört yaşında iken Telgraf ve Posta Nezaret-i Aliyyesi mektebine mülazemeten dehalet etmiştir. Seksen dokuz sene-i Hicriyesi evasıtında üç yüz elli kuruş maaşla Beyoğlu Merkezi Muhaberat-ı Ecnebiye Memuriyeti'ne bi't-ta‘yin doksan üç Zilkadesinin yirmi altısındaki umum teşkilatta maaşı altı yüz kuruşa iblağ ve doksan yedi senesi Rebiülahirindeki umum tensikatında yüz kuruşu tenzil olunmuş ve el-yevm beş yüz kuruşla memurin-i mezkurede istihdam olunmakta bulunmuştur.",
+      "locator": {
+        "part": "text",
+        "line": 12
+      },
+      "segment_id": "s000006"
+    },
+    {
+      "text": "Şimdiye kadar infisal etmemiş ve memuriyetce mugayir-i nizam hâlatta bulunmadığından taht-ı muhakemeye alınmamıştır.",
+      "locator": {
+        "part": "text",
+        "line": 14
+      },
+      "segment_id": "s000007"
+    },
+    {
+      "text": "Mumaileyhin tercüme-i hâl varakasına Dersaadet Telgraf ve Posta Başmüdürü izzetli Aziz Efendi tarafından verilen şerhde efendi-yi mumaileyhin işbu tercüme-i hâl varakasındaki ifade-i hali sıhhate mukarin ve muvafık-ı usul olduğundan tasdik edildi ve nezaret namına olarak Muavin ve Meclis Reisi saadetli Hasan Âli Efendi tarafından ilave olunan mütalaada dahi işbu varaka mündericatı teşkil olunan komisyonca tetkik kılınmakla muvafık-ı sıhhat olduğundan tasdik olundu, denilmiştir.",
+      "locator": {
+        "part": "text",
+        "line": 16
+      },
+      "segment_id": "s000008"
+    },
+    {
+      "text": "Fi 20 Rebiülevvel sene 1301 ve fi 7Kânunusani sene 1299",
+      "locator": {
+        "part": "text",
+        "line": 18
+      },
+      "segment_id": "s000009"
+    },
+    {
+      "text": "Mukabele olunmuştur.",
+      "locator": {
+        "part": "text",
+        "line": 20
+      },
+      "segment_id": "s000010"
+    },
+    {
+      "text": "Mumaileyh Zenop Tangaryan Efendi'nin maaşı bin üç yüz altı senesi Rebiülevvelinin dördünde beş yüz elli kuruşa iblağ kılınmıştır.",
+      "locator": {
+        "part": "text",
+        "line": 22
+      },
+      "segment_id": "s000011"
+    },
+    {
+      "text": "Mumaileyhin maaşı bin üç yüz on bir senesi Rebiülahirinin on beşinde 15 Teşrinievvel sene 1309 beş yüz yetmiş beş kuruşa ve üç yüz on üç senesi Cemaziyelevvelinin sekizinde 15 Teşrinievvel sene 1311 altı yüz kuruşa iblağ edilmiştir.",
+      "locator": {
+        "part": "text",
+        "line": 24
+      },
+      "segment_id": "s000012"
+    },
+    {
+      "text": "Mumaileyhin maaşı bin üç yüz on dört senesi Şevvalinin dokuzunda 1 Mart sene 1313 beş yüz kırk kuruşa tenezzül eylediği Telgraf ve Posta Sicil Şubesi'nin 2 Zilhicce sene 1314 tarihli vukuat pusulasında gösterilmiştir.",
+      "locator": {
+        "part": "text",
+        "line": 26
+      },
+      "segment_id": "s000013"
+    },
+    {
+      "text": "Mumaileyhin maaşı bin üç yüz on sekiz senesi Cemaziyelevveli gurresinde 14 Eylül sene 1316 altı yüz kuruşa iblağ edildiği teb‘a-i mezkurenin 2 Cemaziyelahire sene 1319 tarihli vukuat pusulasında gösterilmiştir.",
+      "locator": {
+        "part": "text",
+        "line": 28
+      },
+      "segment_id": "s000014"
+    },
+    {
+      "text": "Mumaileyhin bin üç yüz yirmi bir senesi Şabanının on dördünde Gümüş Liyakat Madalyası ihsan buyurularak Ramazanının on ikisinde 19 Teşrinisani sene 1319 maaşı altı yüz altmış beş kuruşa iblağ ve resm-i tahlifi icra edildiği şube-i mezkurenin 16 Receb sene 1324 tarihli vukuat pusulasında bildirilmiştir.",
+      "locator": {
+        "part": "text",
+        "line": 30
+      },
+      "segment_id": "s000015"
+    },
+    {
+      "text": "DH_SAİD_5_356; 709",
+      "locator": {
+        "part": "text",
+        "line": 32
+      },
+      "segment_id": "s000016"
+    }
+  ],
+  "text_sha256": "46f26145e1262f6b40c96e29f54cea9578b1116d055a4f2425354d9d915e19fb"
+}

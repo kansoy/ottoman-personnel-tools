@@ -1,50 +1,57 @@
-# Personnel Evidence Toolkit
+# sicilahval
 
-**First open software component of [Ottoman Bureaucracy](https://ottomanbureaucracy.com), released 21 October 2026 under Apache-2.0.**
+**Fatih Kansoy** · [Türkçe](README.tr.md) · [English paper](docs/papers/sicilahval_en.pdf) · [Türkçe makale](docs/papers/sicilahval_tr.pdf)
 
-This is a functional first module extracted from the Ottoman Bureaucracy research project. It prepares explicitly selected source appearances, identifies literal monetary occurrences, binds structured readings to exact source lines and page references, checks their mechanical consistency, and exports review candidates to relational SQLite and CSV. It preserves separate calendar expressions, unknown values, explicit zero amounts and event/payment relationships.
+A Python package and LLM skill for converting complete Sicill-i Ahvâl biographies into evidence-linked **CSV, JSON and SQLite**. It retains personal/family details, education, languages, careers, native dates, payment components, legal statements, corrections and open-ended facts.
 
-It is a limited software component, not the complete research platform, an OCR engine, a model, or the approximately 50,000-official dataset. Source-local appearance IDs do not establish that two records describe the same historical person. A mechanically supported quotation does not establish historical truth or extraction completeness.
+The LLM reads and structures the source. Python prepares the text, validates quotations and links, and exports the tables. Using the skill in your existing assistant requires no separate API key.
 
-## Run locally
+## Install
 
-Use Python 3.10 or later with SQLite JSON functions. The toolkit has been tested with Python 3.13.9 and 3.14. There are no third-party Python dependencies and no installation step. Run from this directory:
-
-```sh
-python3 -m unittest discover -s tests -v
-python3 -m examples.synthetic_example --out example-output
-```
-
-The example contains wholly invented text and a hand-written structured reading. It makes no model call. The synthetic document hashes do not represent a real PDF or archival image. The example refuses to overwrite an existing output directory. Tests use temporary directories; one complete export test forbids socket creation.
-
-The example creates one source-local candidate, two events, two separate calendar records and two payment components. A literal salary of `0` remains `0`; an allowance with no recorded amount remains SQL `NULL` and a blank CSV numeric field. Multiple calendar expressions do not multiply payment rows. The derived `career_observations` view has three rows: two payment components for the dated event and one row retaining its undated event. These are not annual observations.
-
-For your own **lawfully usable** text and already obtained candidate readings:
+Python 3.10 or later:
 
 ```sh
-python3 -m personnel_evidence.intake --input appearance-pool.jsonl \
-  --appearance-id selected-source-appearance --out units.jsonl
-python3 -m personnel_evidence.export --units units.jsonl \
-  --results candidate-readings.json --out-dir new-export-directory
+python -m pip install "sicilahval @ git+https://github.com/kansoy/ottoman-personnel-tools.git@v0.1.0"
+sicilahval install-skill --target codex --scope user
+# Or: sicilahval install-skill --target claude --scope user
 ```
 
-The intake requires explicit selection, source/native-text SHA256 fields and page-labelled source segments. It rejects unreviewed source boundaries unless deliberately included as flagged candidates. Hash fields are carried and compared; this module does not fetch a PDF or independently prove its hash against an absent original. The exporter rejects mismatched result/source identifiers or source hashes and marks exported results as candidates requiring source review. It retains citation mismatches and validation issues rather than silently declaring them corrected. Use a new export directory: the inherited export function replaces its output database if the same destination is reused.
+Use `--scope project` for the current project, `--target agents` for a shared Agent Skills directory, or `--path` for a custom parent directory. The [standalone skill](skills/sicilahval) includes Python helpers; an uploadable ZIP is on the [release page](https://github.com/kansoy/ottoman-personnel-tools/releases/tag/v0.1.0). A host with file access and Python execution is required; skill discovery varies by client.
 
-## Contents and provenance
+## Use
 
-- `personnel_evidence/`: nine byte-identical files copied from the project's existing `tools/public_personnel/` module. `SOURCE_MANIFEST.json` records original relative paths and SHA256 values. Relative imports are preserved under the new package directory.
-- `schema.json` and `prompt.txt`: the existing output contract and extraction instructions. The prompt describes a desired model-assisted workflow; including it does not claim a particular model meets those requirements. No model runner is included.
-- `examples/` and `tests/`: newly written, entirely synthetic demonstration and six offline tests.
-- `LICENSE` and `NOTICE`: software licence and attribution.
+In Codex, request:
 
-The optional Anthropic runner in the parent project, its provider pricing, credential-helper support and runner-dependent reprocessing code are deliberately excluded. This toolkit has no API execution path and is not an OpenAI API integration. The parent project separately uses Codex; those workflows are outside this first module. There are no external runtime imports, network clients, credentials, real personnel records, publication text, scans, saved model responses or usage logs in this repository.
+> Use $sicilahval to extract every complete biography and addition from this document. Preserve details and uncertainty. Return CSV and SQLite with an English review summary.
 
-## Licence and data boundary
+In Claude Code, invoke `/sicilahval` with the same request. Turkish and English summaries/notes are supported; original quotations and names retain their spelling. Field names stay stable.
 
-The software, schema, prompt and synthetic examples/tests in this repository are licensed under the Apache License, Version 2.0; see `LICENSE` and `NOTICE`. This grant does not cover the private parent repository, research datasets, source publications, historical records or images, none of which is distributed here. You are responsible for obtaining appropriate rights for any inputs you use with the software.
+```sh
+sicilahval prepare records.docx --out work --language en
+# The LLM reads the text and writes work/records.json.
+sicilahval validate work/records.json --source work/source.json
+sicilahval export work/records.json --source work/source.json --out data
+```
 
-The larger project aims to build a validated corpus covering approximately 50,000 Ottoman officials. This is planned coverage, not a completed dataset or a promise of processing capacity. The completed, validated research data and documentation are intended for a later public research release after construction, source verification, quality checks and rights review, under separately announced terms. Current website access terms remain in effect.
+TXT, Markdown, DOCX, text PDF, HTML, RTF and ODT are supported. Text PDFs require `pypdf`; the other readers use the Python standard library. For scans and images, the skill uses an available transcription/OCR workflow and retains its review limits. See [tested formats](docs/validation.md).
 
-## Contributing
+## Examples and checks
 
-This is a new public module; no broad software adoption or historical extraction accuracy is claimed. Issues and pull requests are welcome, especially reproducible bugs, source-grounding checks, calendar preservation and safer export behaviour. Use invented fixtures with no real source quotations, research records, credentials or private inputs. Run the offline tests before proposing a change. For software provenance and scope, see `SOURCE_ATTRIBUTION.md`.
+```sh
+sicilahval demo --out example-output --language en
+python -m unittest discover -s tests -v
+```
+
+[Two real records](examples/sicilahval) show Manuk Filcancıyan’s schooling, appointments, pay changes and later name/faith change, and Zenop Tangaryan’s career with conflicting birth-year statements. The supplied transcription and exact archival references accompany the readings. [Validation notes](docs/validation.md) report the checks actually run.
+
+The output contains linked records, facts, events, dates, payments, evidence, coverage and source segments. Unknown values remain distinct from zero; source claims remain distinct from inference. Research classifications, numeric place/job codes, identity merging and annual panels are separate tasks.
+
+Mechanical validation cannot prove historical accuracy or complete semantic extraction. Review difficult readings against the source. [Reading rules](src/sicilahval/skill/references/workflow.md) · [Schema](src/sicilahval/schema.json).
+
+## Cite
+
+Kansoy, Fatih. 2026. *sicilahval: Evidence-linked extraction of Ottoman personnel records*. Version 0.1.0. https://github.com/kansoy/ottoman-personnel-tools.
+
+[CITATION.cff](CITATION.cff) · [BibTeX](docs/citation.bib) · [English methods note](docs/papers/sicilahval_en.pdf) · [Türkçe yöntem notu](docs/papers/sicilahval_tr.pdf)
+
+Cite historical publications and archival records separately. Apache-2.0 covers the software; the private [Ottoman Bureaucracy](https://ottomanbureaucracy.com) dataset is not distributed here; only the two selected transcription examples are included. The earlier `personnel_evidence` module is preserved: [provenance](SOURCE_ATTRIBUTION.md).

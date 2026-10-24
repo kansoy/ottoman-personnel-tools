@@ -1,0 +1,4 @@
+interface:
+  display_name: "sicilahval"
+  short_description: "Extract Ottoman personnel records with source evidence"
+  default_prompt: "Use $sicilahval to extract complete personnel records into evidence-linked CSV and SQLite, following my Turkish or English preference."

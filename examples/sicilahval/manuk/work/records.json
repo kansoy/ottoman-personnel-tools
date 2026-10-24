@@ -1,0 +1,1413 @@
+{
+  "schema_version": "1.0",
+  "source_id": "src-72d78523d81b049c",
+  "language": "en",
+  "records": [
+    {
+      "record_id": "manuk-r1",
+      "name_raw": "MANUK FİLCANCIYAN EFENDİ",
+      "segment_ids": [
+        "s000001",
+        "s000002",
+        "s000003",
+        "s000004",
+        "s000005",
+        "s000006",
+        "s000007",
+        "s000008",
+        "s000009",
+        "s000010",
+        "s000011",
+        "s000012"
+      ],
+      "facts": [
+        {
+          "fact_id": "manuk-r1-f001",
+          "category": "identity",
+          "key": "name_at_heading",
+          "value_raw": "MANUK FİLCANCIYAN EFENDİ",
+          "value": "Manuk Filcancıyan Efendi",
+          "certainty": "direct",
+          "evidence": [
+            {
+              "segment_id": "s000001",
+              "quote": "MANUK FİLCANCIYAN EFENDİ (1259)"
+            }
+          ],
+          "note": ""
+        },
+        {
+          "fact_id": "manuk-r1-f002",
+          "category": "source_annotation",
+          "key": "heading_year_annotation",
+          "value_raw": "1259",
+          "value": 1259,
+          "certainty": "direct",
+          "evidence": [
+            {
+              "segment_id": "s000001",
+              "quote": "MANUK FİLCANCIYAN EFENDİ (1259)"
+            }
+          ],
+          "note": "The heading number is preserved as a source annotation; its function is not explicitly labelled here. The body separately states an AH 1259 birth."
+        },
+        {
+          "fact_id": "manuk-r1-f003",
+          "category": "family",
+          "key": "father_name",
+          "value_raw": "Karabet Ağa'nın",
+          "value": "Karabet Ağa",
+          "certainty": "direct",
+          "evidence": [
+            {
+              "segment_id": "s000002",
+              "quote": "Filcancı esnafından Karabet Ağa'nın oğludur."
+            }
+          ],
+          "note": ""
+        },
+        {
+          "fact_id": "manuk-r1-f004",
+          "category": "family",
+          "key": "father_trade_group",
+          "value_raw": "Filcancı esnafından",
+          "value": {
+            "trade_raw": "Filcancı",
+            "group_raw": "esnaf"
+          },
+          "certainty": "direct",
+          "evidence": [
+            {
+              "segment_id": "s000002",
+              "quote": "Filcancı esnafından Karabet Ağa'nın oğludur."
+            }
+          ],
+          "note": "The trade wording is retained without choosing a modern occupational code or a more specific English translation."
+        },
+        {
+          "fact_id": "manuk-r1-f005",
+          "category": "birth",
+          "key": "birth_date_statement",
+          "value_raw": "Bin iki yüz elli dokuz sene-i Hicriyesi'nde",
+          "value": {
+            "hijri_year": 1259
+          },
+          "certainty": "direct",
+          "evidence": [
+            {
+              "segment_id": "s000003",
+              "quote": "Bin iki yüz elli dokuz sene-i Hicriyesi'nde Dersaadet'te tevellüt eylemiştir."
+            }
+          ],
+          "note": "",
+          "dates": [
+            {
+              "date_id": "manuk-r1-d001",
+              "raw": "Bin iki yüz elli dokuz sene-i Hicriyesi'nde",
+              "calendar": "hijri",
+              "year": 1259,
+              "month": null,
+              "day": null,
+              "precision": "year",
+              "certainty": "direct",
+              "evidence": [
+                {
+                  "segment_id": "s000003",
+                  "quote": "Bin iki yüz elli dokuz sene-i Hicriyesi'nde Dersaadet'te tevellüt eylemiştir."
+                }
+              ],
+              "note": "",
+              "role": "birth"
+            }
+          ]
+        },
+        {
+          "fact_id": "manuk-r1-f006",
+          "category": "birth",
+          "key": "birth_place",
+          "value_raw": "Dersaadet'te",
+          "value": "Dersaadet",
+          "certainty": "direct",
+          "evidence": [
+            {
+              "segment_id": "s000003",
+              "quote": "Bin iki yüz elli dokuz sene-i Hicriyesi'nde Dersaadet'te tevellüt eylemiştir."
+            }
+          ],
+          "note": ""
+        },
+        {
+          "fact_id": "manuk-r1-f007",
+          "category": "education",
+          "key": "school",
+          "value_raw": "Hasköy Ermeni Mektebi'nde",
+          "value": "Hasköy Ermeni Mektebi",
+          "certainty": "direct",
+          "evidence": [
+            {
+              "segment_id": "s000004",
+              "quote": "Hasköy Ermeni Mektebi'nde mukaddeme-i ulûmla hesap ve coğrafya ve tarih tahsil etmiştir. Fransızca okur, yazar, Ermenice kitabet ve Türkçe tekellüm eder."
+            }
+          ],
+          "note": ""
+        },
+        {
+          "fact_id": "manuk-r1-f008",
+          "category": "education",
+          "key": "subject_studied",
+          "value_raw": "mukaddeme-i ulûmla",
+          "value": "introductory learning",
+          "certainty": "direct",
+          "evidence": [
+            {
+              "segment_id": "s000004",
+              "quote": "Hasköy Ermeni Mektebi'nde mukaddeme-i ulûmla hesap ve coğrafya ve tarih tahsil etmiştir. Fransızca okur, yazar, Ermenice kitabet ve Türkçe tekellüm eder."
+            }
+          ],
+          "note": "",
+          "details": {
+            "school_fact_id": "manuk-r1-f007"
+          }
+        },
+        {
+          "fact_id": "manuk-r1-f009",
+          "category": "education",
+          "key": "subject_studied",
+          "value_raw": "hesap",
+          "value": "arithmetic",
+          "certainty": "direct",
+          "evidence": [
+            {
+              "segment_id": "s000004",
+              "quote": "Hasköy Ermeni Mektebi'nde mukaddeme-i ulûmla hesap ve coğrafya ve tarih tahsil etmiştir. Fransızca okur, yazar, Ermenice kitabet ve Türkçe tekellüm eder."
+            }
+          ],
+          "note": "",
+          "details": {
+            "school_fact_id": "manuk-r1-f007"
+          }
+        },
+        {
+          "fact_id": "manuk-r1-f010",
+          "category": "education",
+          "key": "subject_studied",
+          "value_raw": "coğrafya",
+          "value": "geography",
+          "certainty": "direct",
+          "evidence": [
+            {
+              "segment_id": "s000004",
+              "quote": "Hasköy Ermeni Mektebi'nde mukaddeme-i ulûmla hesap ve coğrafya ve tarih tahsil etmiştir. Fransızca okur, yazar, Ermenice kitabet ve Türkçe tekellüm eder."
+            }
+          ],
+          "note": "",
+          "details": {
+            "school_fact_id": "manuk-r1-f007"
+          }
+        },
+        {
+          "fact_id": "manuk-r1-f011",
+          "category": "education",
+          "key": "subject_studied",
+          "value_raw": "tarih",
+          "value": "history",
+          "certainty": "direct",
+          "evidence": [
+            {
+              "segment_id": "s000004",
+              "quote": "Hasköy Ermeni Mektebi'nde mukaddeme-i ulûmla hesap ve coğrafya ve tarih tahsil etmiştir. Fransızca okur, yazar, Ermenice kitabet ve Türkçe tekellüm eder."
+            }
+          ],
+          "note": "",
+          "details": {
+            "school_fact_id": "manuk-r1-f007"
+          }
+        },
+        {
+          "fact_id": "manuk-r1-f012",
+          "category": "language",
+          "key": "claimed_competence",
+          "value_raw": "Fransızca okur",
+          "value": {
+            "language": "Fransızca",
+            "competence": "reads"
+          },
+          "certainty": "direct",
+          "evidence": [
+            {
+              "segment_id": "s000004",
+              "quote": "Hasköy Ermeni Mektebi'nde mukaddeme-i ulûmla hesap ve coğrafya ve tarih tahsil etmiştir. Fransızca okur, yazar, Ermenice kitabet ve Türkçe tekellüm eder."
+            }
+          ],
+          "note": "The stated mode is retained; no claim is made about unmentioned modes."
+        },
+        {
+          "fact_id": "manuk-r1-f013",
+          "category": "language",
+          "key": "claimed_competence",
+          "value_raw": "Fransızca okur, yazar",
+          "value": {
+            "language": "Fransızca",
+            "competence": "writes"
+          },
+          "certainty": "direct",
+          "evidence": [
+            {
+              "segment_id": "s000004",
+              "quote": "Hasköy Ermeni Mektebi'nde mukaddeme-i ulûmla hesap ve coğrafya ve tarih tahsil etmiştir. Fransızca okur, yazar, Ermenice kitabet ve Türkçe tekellüm eder."
+            }
+          ],
+          "note": "The stated mode is retained; no claim is made about unmentioned modes."
+        },
+        {
+          "fact_id": "manuk-r1-f014",
+          "category": "language",
+          "key": "claimed_competence",
+          "value_raw": "Ermenice kitabet",
+          "value": {
+            "language": "Ermenice",
+            "competence": "writes"
+          },
+          "certainty": "direct",
+          "evidence": [
+            {
+              "segment_id": "s000004",
+              "quote": "Hasköy Ermeni Mektebi'nde mukaddeme-i ulûmla hesap ve coğrafya ve tarih tahsil etmiştir. Fransızca okur, yazar, Ermenice kitabet ve Türkçe tekellüm eder."
+            }
+          ],
+          "note": "The stated mode is retained; no claim is made about unmentioned modes."
+        },
+        {
+          "fact_id": "manuk-r1-f015",
+          "category": "language",
+          "key": "claimed_competence",
+          "value_raw": "Türkçe tekellüm",
+          "value": {
+            "language": "Türkçe",
+            "competence": "speaks"
+          },
+          "certainty": "direct",
+          "evidence": [
+            {
+              "segment_id": "s000004",
+              "quote": "Hasköy Ermeni Mektebi'nde mukaddeme-i ulûmla hesap ve coğrafya ve tarih tahsil etmiştir. Fransızca okur, yazar, Ermenice kitabet ve Türkçe tekellüm eder."
+            }
+          ],
+          "note": "The stated mode is retained; no claim is made about unmentioned modes."
+        },
+        {
+          "fact_id": "manuk-r1-f016",
+          "category": "education",
+          "key": "school_entry",
+          "value_raw": "Telgraf Mektebi'ne duhul",
+          "value": "Telgraf Mektebi",
+          "certainty": "direct",
+          "evidence": [
+            {
+              "segment_id": "s000005",
+              "quote": "Bin iki yüz seksen iki senesi Rebiülahirinde yirmi üç yaşında olduğu halde Telgraf Mektebi'ne duhul edip seksen altı senesi Muharremi gurresinde yedi yüz yirmi kuruş aylıkla Diyarbakır Telgrafhanesi Muhaberat-ı Ecnebiye Memuriyeti'ne nasb olunarak seksen yedi Rebiülahirinin on dördünde dört yüz seksen kuruş maaş ile Beyoğlu Telgraf Merkezi'ne tahvil-i memuriyeti vuku bulmuş ve doksan üç senesi Zilkadesinin yirmi altısında hasbe't-teşkilat maaşı yedi yüz elli kuruşa terakki ve doksan yedi senesi Rebiülahirinin ikisinde altı yüz kuruşa tedenni ederek el-haletü hazihi mikdar-ı mezbur maaş ile mezkur merkezde istihdam olunmakta bulunmuştur."
+            }
+          ],
+          "note": ""
+        },
+        {
+          "fact_id": "manuk-r1-f017",
+          "category": "age",
+          "key": "age_at_school_entry",
+          "value_raw": "yirmi üç yaşında",
+          "value": 23,
+          "certainty": "direct",
+          "evidence": [
+            {
+              "segment_id": "s000005",
+              "quote": "Bin iki yüz seksen iki senesi Rebiülahirinde yirmi üç yaşında olduğu halde Telgraf Mektebi'ne duhul edip seksen altı senesi Muharremi gurresinde yedi yüz yirmi kuruş aylıkla Diyarbakır Telgrafhanesi Muhaberat-ı Ecnebiye Memuriyeti'ne nasb olunarak seksen yedi Rebiülahirinin on dördünde dört yüz seksen kuruş maaş ile Beyoğlu Telgraf Merkezi'ne tahvil-i memuriyeti vuku bulmuş ve doksan üç senesi Zilkadesinin yirmi altısında hasbe't-teşkilat maaşı yedi yüz elli kuruşa terakki ve doksan yedi senesi Rebiülahirinin ikisinde altı yüz kuruşa tedenni ederek el-haletü hazihi mikdar-ı mezbur maaş ile mezkur merkezde istihdam olunmakta bulunmuştur."
+            }
+          ],
+          "note": "This is the source age at school entry, not a recomputed exact attained age."
+        },
+        {
+          "fact_id": "manuk-r1-f018",
+          "category": "employment",
+          "key": "appointment_office",
+          "value_raw": "Diyarbakır Telgrafhanesi Muhaberat-ı Ecnebiye Memuriyeti'ne",
+          "value": {
+            "institution": "Diyarbakır Telgrafhanesi",
+            "office": "Muhaberat-ı Ecnebiye Memuriyeti",
+            "place": "Diyarbakır"
+          },
+          "certainty": "direct",
+          "evidence": [
+            {
+              "segment_id": "s000005",
+              "quote": "Bin iki yüz seksen iki senesi Rebiülahirinde yirmi üç yaşında olduğu halde Telgraf Mektebi'ne duhul edip seksen altı senesi Muharremi gurresinde yedi yüz yirmi kuruş aylıkla Diyarbakır Telgrafhanesi Muhaberat-ı Ecnebiye Memuriyeti'ne nasb olunarak seksen yedi Rebiülahirinin on dördünde dört yüz seksen kuruş maaş ile Beyoğlu Telgraf Merkezi'ne tahvil-i memuriyeti vuku bulmuş ve doksan üç senesi Zilkadesinin yirmi altısında hasbe't-teşkilat maaşı yedi yüz elli kuruşa terakki ve doksan yedi senesi Rebiülahirinin ikisinde altı yüz kuruşa tedenni ederek el-haletü hazihi mikdar-ı mezbur maaş ile mezkur merkezde istihdam olunmakta bulunmuştur."
+            }
+          ],
+          "note": ""
+        },
+        {
+          "fact_id": "manuk-r1-f019",
+          "category": "employment",
+          "key": "transfer_destination",
+          "value_raw": "Beyoğlu Telgraf Merkezi'ne",
+          "value": {
+            "institution": "Beyoğlu Telgraf Merkezi",
+            "place": "Beyoğlu"
+          },
+          "certainty": "direct",
+          "evidence": [
+            {
+              "segment_id": "s000005",
+              "quote": "Bin iki yüz seksen iki senesi Rebiülahirinde yirmi üç yaşında olduğu halde Telgraf Mektebi'ne duhul edip seksen altı senesi Muharremi gurresinde yedi yüz yirmi kuruş aylıkla Diyarbakır Telgrafhanesi Muhaberat-ı Ecnebiye Memuriyeti'ne nasb olunarak seksen yedi Rebiülahirinin on dördünde dört yüz seksen kuruş maaş ile Beyoğlu Telgraf Merkezi'ne tahvil-i memuriyeti vuku bulmuş ve doksan üç senesi Zilkadesinin yirmi altısında hasbe't-teşkilat maaşı yedi yüz elli kuruşa terakki ve doksan yedi senesi Rebiülahirinin ikisinde altı yüz kuruşa tedenni ederek el-haletü hazihi mikdar-ı mezbur maaş ile mezkur merkezde istihdam olunmakta bulunmuştur."
+            }
+          ],
+          "note": ""
+        },
+        {
+          "fact_id": "manuk-r1-f020",
+          "category": "payment_context",
+          "key": "salary_increase_reason",
+          "value_raw": "hasbe't-teşkilat",
+          "value": "administrative reorganisation",
+          "certainty": "direct",
+          "evidence": [
+            {
+              "segment_id": "s000005",
+              "quote": "Bin iki yüz seksen iki senesi Rebiülahirinde yirmi üç yaşında olduğu halde Telgraf Mektebi'ne duhul edip seksen altı senesi Muharremi gurresinde yedi yüz yirmi kuruş aylıkla Diyarbakır Telgrafhanesi Muhaberat-ı Ecnebiye Memuriyeti'ne nasb olunarak seksen yedi Rebiülahirinin on dördünde dört yüz seksen kuruş maaş ile Beyoğlu Telgraf Merkezi'ne tahvil-i memuriyeti vuku bulmuş ve doksan üç senesi Zilkadesinin yirmi altısında hasbe't-teşkilat maaşı yedi yüz elli kuruşa terakki ve doksan yedi senesi Rebiülahirinin ikisinde altı yüz kuruşa tedenni ederek el-haletü hazihi mikdar-ı mezbur maaş ile mezkur merkezde istihdam olunmakta bulunmuştur."
+            }
+          ],
+          "note": ""
+        },
+        {
+          "fact_id": "manuk-r1-f021",
+          "category": "employment",
+          "key": "current_employment_at_statement",
+          "value_raw": "el-haletü hazihi mikdar-ı mezbur maaş ile mezkur merkezde istihdam olunmakta bulunmuştur",
+          "value": {
+            "institution": "Beyoğlu Telgraf Merkezi",
+            "status": "employed at the time of the statement"
+          },
+          "certainty": "direct",
+          "evidence": [
+            {
+              "segment_id": "s000005",
+              "quote": "Bin iki yüz seksen iki senesi Rebiülahirinde yirmi üç yaşında olduğu halde Telgraf Mektebi'ne duhul edip seksen altı senesi Muharremi gurresinde yedi yüz yirmi kuruş aylıkla Diyarbakır Telgrafhanesi Muhaberat-ı Ecnebiye Memuriyeti'ne nasb olunarak seksen yedi Rebiülahirinin on dördünde dört yüz seksen kuruş maaş ile Beyoğlu Telgraf Merkezi'ne tahvil-i memuriyeti vuku bulmuş ve doksan üç senesi Zilkadesinin yirmi altısında hasbe't-teşkilat maaşı yedi yüz elli kuruşa terakki ve doksan yedi senesi Rebiülahirinin ikisinde altı yüz kuruşa tedenni ederek el-haletü hazihi mikdar-ı mezbur maaş ile mezkur merkezde istihdam olunmakta bulunmuştur."
+            }
+          ],
+          "note": "Mezkur merkez refers to the previously named Beyoğlu centre; this is a statement-bound status, not an annual spell."
+        },
+        {
+          "fact_id": "manuk-r1-f022",
+          "category": "payment",
+          "key": "current_salary_referent",
+          "value_raw": "mikdar-ı mezbur maaş",
+          "value": {
+            "amount": 600,
+            "currency": "kuruş"
+          },
+          "certainty": "inferred",
+          "evidence": [
+            {
+              "segment_id": "s000005",
+              "quote": "Bin iki yüz seksen iki senesi Rebiülahirinde yirmi üç yaşında olduğu halde Telgraf Mektebi'ne duhul edip seksen altı senesi Muharremi gurresinde yedi yüz yirmi kuruş aylıkla Diyarbakır Telgrafhanesi Muhaberat-ı Ecnebiye Memuriyeti'ne nasb olunarak seksen yedi Rebiülahirinin on dördünde dört yüz seksen kuruş maaş ile Beyoğlu Telgraf Merkezi'ne tahvil-i memuriyeti vuku bulmuş ve doksan üç senesi Zilkadesinin yirmi altısında hasbe't-teşkilat maaşı yedi yüz elli kuruşa terakki ve doksan yedi senesi Rebiülahirinin ikisinde altı yüz kuruşa tedenni ederek el-haletü hazihi mikdar-ı mezbur maaş ile mezkur merkezde istihdam olunmakta bulunmuştur."
+            }
+          ],
+          "note": "The anaphoric mikdar-ı mezbur refers to the immediately preceding six-hundred-kuruş reduction. No salary is carried beyond the statement."
+        },
+        {
+          "fact_id": "manuk-r1-f023",
+          "category": "employment",
+          "key": "modes_of_separation",
+          "value_raw": "infikakı nakil ve tahvil suretleriyle vukua gelerek",
+          "value": "departures from the stated offices occurred by transfer",
+          "certainty": "direct",
+          "evidence": [
+            {
+              "segment_id": "s000006",
+              "quote": "Ber-minval-i muharrer bulunduğu memuriyetlerden infikakı nakil ve tahvil suretleriyle vukua gelerek vezaif-i memuriyetinden dolayı muhakeme altına alınmamıştır."
+            }
+          ],
+          "note": ""
+        },
+        {
+          "fact_id": "manuk-r1-f024",
+          "category": "legal",
+          "key": "no_duty_related_trial_statement",
+          "value_raw": "vezaif-i memuriyetinden dolayı muhakeme altına alınmamıştır",
+          "value": "no trial on account of official duties up to this statement",
+          "certainty": "direct",
+          "evidence": [
+            {
+              "segment_id": "s000006",
+              "quote": "Ber-minval-i muharrer bulunduğu memuriyetlerden infikakı nakil ve tahvil suretleriyle vukua gelerek vezaif-i memuriyetinden dolayı muhakeme altına alınmamıştır."
+            }
+          ],
+          "note": "This is a bounded source assertion, not a lifetime finding or a claim of innocence in all matters."
+        },
+        {
+          "fact_id": "manuk-r1-f025",
+          "category": "attestation",
+          "key": "first_attestation",
+          "value_raw": "Dersaadet Telgraf ve Posta Başmüdürü izzetli Aziz Efendi tarafından yazılan şerhde işbu tercüme-i hâl varakasının mukarin-i sıhhat olduğu tasdik kılındığı",
+          "value": {
+            "attestor": "Aziz Efendi",
+            "honorific": "izzetli",
+            "office": "Dersaadet Telgraf ve Posta Başmüdürü",
+            "claim": "biographical sheet is accurate"
+          },
+          "certainty": "direct",
+          "evidence": [
+            {
+              "segment_id": "s000007",
+              "quote": "Dersaadet Telgraf ve Posta Başmüdürü izzetli Aziz Efendi tarafından yazılan şerhde işbu tercüme-i hâl varakasının mukarin-i sıhhat olduğu tasdik kılındığı gibi Telgraf ve Posta Nezareti namına olarak Muavin ve Meclis Reisi saadetli Hasan Ali Efendi canibinden ilave kılınan mütalaa dahi mumaileyh Manuk Efendi'nin işbu sicill-i ahvȃl varakası mündericatı teşkil olunan komisyonca tetkik kılınmakla muvafık-ı sıhhat olduğundan tasdik edildi yolunda bulunmuştur."
+            }
+          ],
+          "note": ""
+        },
+        {
+          "fact_id": "manuk-r1-f026",
+          "category": "attestation",
+          "key": "ministry_attestation",
+          "value_raw": "Telgraf ve Posta Nezareti namına olarak Muavin ve Meclis Reisi saadetli Hasan Ali Efendi canibinden ilave kılınan mütalaa",
+          "value": {
+            "attestor": "Hasan Ali Efendi",
+            "honorific": "saadetli",
+            "roles": [
+              "Muavin",
+              "Meclis Reisi"
+            ],
+            "on_behalf_of": "Telgraf ve Posta Nezareti"
+          },
+          "certainty": "direct",
+          "evidence": [
+            {
+              "segment_id": "s000007",
+              "quote": "Dersaadet Telgraf ve Posta Başmüdürü izzetli Aziz Efendi tarafından yazılan şerhde işbu tercüme-i hâl varakasının mukarin-i sıhhat olduğu tasdik kılındığı gibi Telgraf ve Posta Nezareti namına olarak Muavin ve Meclis Reisi saadetli Hasan Ali Efendi canibinden ilave kılınan mütalaa dahi mumaileyh Manuk Efendi'nin işbu sicill-i ahvȃl varakası mündericatı teşkil olunan komisyonca tetkik kılınmakla muvafık-ı sıhhat olduğundan tasdik edildi yolunda bulunmuştur."
+            }
+          ],
+          "note": ""
+        },
+        {
+          "fact_id": "manuk-r1-f027",
+          "category": "attestation",
+          "key": "commission_examination_and_certification",
+          "value_raw": "işbu sicill-i ahvȃl varakası mündericatı teşkil olunan komisyonca tetkik kılınmakla muvafık-ı sıhhat olduğundan tasdik edildi",
+          "value": {
+            "examiner": "constituted commission",
+            "object": "contents of the sicill-i ahvȃl sheet",
+            "outcome": "certified as accurate"
+          },
+          "certainty": "direct",
+          "evidence": [
+            {
+              "segment_id": "s000007",
+              "quote": "Dersaadet Telgraf ve Posta Başmüdürü izzetli Aziz Efendi tarafından yazılan şerhde işbu tercüme-i hâl varakasının mukarin-i sıhhat olduğu tasdik kılındığı gibi Telgraf ve Posta Nezareti namına olarak Muavin ve Meclis Reisi saadetli Hasan Ali Efendi canibinden ilave kılınan mütalaa dahi mumaileyh Manuk Efendi'nin işbu sicill-i ahvȃl varakası mündericatı teşkil olunan komisyonca tetkik kılınmakla muvafık-ı sıhhat olduğundan tasdik edildi yolunda bulunmuştur."
+            }
+          ],
+          "note": ""
+        },
+        {
+          "fact_id": "manuk-r1-f028",
+          "category": "document_review",
+          "key": "collation_annotation",
+          "value_raw": "Mukabele-şud.",
+          "value": "collated/checked against its counterpart",
+          "certainty": "direct",
+          "evidence": [
+            {
+              "segment_id": "s000009",
+              "quote": "Mukabele-şud."
+            }
+          ],
+          "note": ""
+        },
+        {
+          "fact_id": "manuk-r1-f029",
+          "category": "religion",
+          "key": "conversion_to_islam",
+          "value_raw": "şeref-i İslâm ile müşerref olarak",
+          "value": "conversion to Islam",
+          "certainty": "direct",
+          "evidence": [
+            {
+              "segment_id": "s000011",
+              "quote": "Mumaileyh bin üç yüz altı senesi Rebiülevvelinin dördünde 28 Teşrinievvel sene 1304 şeref-i İslâm ile müşerref olarak Mahmut Süreyya tesmiye kılınmış ve sene-i mezkure Zilhiccesinin yedisinde 25 Mayıs sene 1305 vefat eylemiştir."
+            }
+          ],
+          "note": "A dated conversion is stated. No prior denomination or lifetime religion category is inferred from name or school."
+        },
+        {
+          "fact_id": "manuk-r1-f030",
+          "category": "identity",
+          "key": "new_name_on_conversion",
+          "value_raw": "Mahmut Süreyya tesmiye kılınmış",
+          "value": "Mahmut Süreyya",
+          "certainty": "direct",
+          "evidence": [
+            {
+              "segment_id": "s000011",
+              "quote": "Mumaileyh bin üç yüz altı senesi Rebiülevvelinin dördünde 28 Teşrinievvel sene 1304 şeref-i İslâm ile müşerref olarak Mahmut Süreyya tesmiye kılınmış ve sene-i mezkure Zilhiccesinin yedisinde 25 Mayıs sene 1305 vefat eylemiştir."
+            }
+          ],
+          "note": ""
+        },
+        {
+          "fact_id": "manuk-r1-f031",
+          "category": "death",
+          "key": "death_statement",
+          "value_raw": "vefat eylemiştir",
+          "value": "died",
+          "certainty": "direct",
+          "evidence": [
+            {
+              "segment_id": "s000011",
+              "quote": "Mumaileyh bin üç yüz altı senesi Rebiülevvelinin dördünde 28 Teşrinievvel sene 1304 şeref-i İslâm ile müşerref olarak Mahmut Süreyya tesmiye kılınmış ve sene-i mezkure Zilhiccesinin yedisinde 25 Mayıs sene 1305 vefat eylemiştir."
+            }
+          ],
+          "note": ""
+        },
+        {
+          "fact_id": "manuk-r1-f032",
+          "category": "source_conflict",
+          "key": "death_native_date_pair_requires_review",
+          "value_raw": "sene-i mezkure Zilhiccesinin yedisinde 25 Mayıs sene 1305",
+          "value": {
+            "hijri_claim": {
+              "year": 1306,
+              "month": 12,
+              "day": 7
+            },
+            "civil_claim": {
+              "year": 1305,
+              "month": 5,
+              "day": 25
+            },
+            "concordance": "unresolved"
+          },
+          "certainty": "unresolved",
+          "evidence": [
+            {
+              "segment_id": "s000011",
+              "quote": "Mumaileyh bin üç yüz altı senesi Rebiülevvelinin dördünde 28 Teşrinievvel sene 1304 şeref-i İslâm ile müşerref olarak Mahmut Süreyya tesmiye kılınmış ve sene-i mezkure Zilhiccesinin yedisinde 25 Mayıs sene 1305 vefat eylemiştir."
+            }
+          ],
+          "note": "The source juxtaposes these native death dates. They are retained as potentially conflicting claims; no concordance is assumed, no Gregorian conversion is supplied and neither the lunar month nor the civil date is repaired. The Hijri year is contextual; the civil calendar is contextually read as Rumi. A separate calendar/source review is required."
+        },
+        {
+          "fact_id": "manuk-r1-f033",
+          "category": "source_reference",
+          "key": "archive_reference_raw",
+          "value_raw": "DH_SAİD_8_86; 167",
+          "value": "DH_SAİD_8_86; 167",
+          "certainty": "direct",
+          "evidence": [
+            {
+              "segment_id": "s000012",
+              "quote": " DH_SAİD_8_86; 167"
+            }
+          ],
+          "note": "The exact supplied reference is preserved. The source does not explain whether 86 or 167 denotes a folio, page or other locator; no source publication metadata is supplied."
+        }
+      ],
+      "events": [
+        {
+          "event_id": "manuk-r1-e001",
+          "event_type": "birth",
+          "description_raw": "Bin iki yüz elli dokuz sene-i Hicriyesi'nde Dersaadet'te tevellüt eylemiştir.",
+          "fact_ids": [
+            "manuk-r1-f005",
+            "manuk-r1-f006"
+          ],
+          "dates": [],
+          "payments": [],
+          "certainty": "direct",
+          "evidence": [
+            {
+              "segment_id": "s000003",
+              "quote": "Bin iki yüz elli dokuz sene-i Hicriyesi'nde Dersaadet'te tevellüt eylemiştir."
+            }
+          ],
+          "note": "No day or month is supplied; no Gregorian conversion is attempted."
+        },
+        {
+          "event_id": "manuk-r1-e002",
+          "event_type": "school_enrollment",
+          "description_raw": "Bin iki yüz seksen iki senesi Rebiülahirinde yirmi üç yaşında olduğu halde Telgraf Mektebi'ne duhul edip",
+          "fact_ids": [
+            "manuk-r1-f016",
+            "manuk-r1-f017"
+          ],
+          "dates": [
+            {
+              "date_id": "manuk-r1-d002",
+              "raw": "Bin iki yüz seksen iki senesi Rebiülahirinde",
+              "calendar": "hijri",
+              "year": 1282,
+              "month": 4,
+              "day": null,
+              "precision": "month",
+              "certainty": "direct",
+              "evidence": [
+                {
+                  "segment_id": "s000005",
+                  "quote": "Bin iki yüz seksen iki senesi Rebiülahirinde yirmi üç yaşında olduğu halde Telgraf Mektebi'ne duhul edip seksen altı senesi Muharremi gurresinde yedi yüz yirmi kuruş aylıkla Diyarbakır Telgrafhanesi Muhaberat-ı Ecnebiye Memuriyeti'ne nasb olunarak seksen yedi Rebiülahirinin on dördünde dört yüz seksen kuruş maaş ile Beyoğlu Telgraf Merkezi'ne tahvil-i memuriyeti vuku bulmuş ve doksan üç senesi Zilkadesinin yirmi altısında hasbe't-teşkilat maaşı yedi yüz elli kuruşa terakki ve doksan yedi senesi Rebiülahirinin ikisinde altı yüz kuruşa tedenni ederek el-haletü hazihi mikdar-ı mezbur maaş ile mezkur merkezde istihdam olunmakta bulunmuştur."
+                }
+              ],
+              "note": "The lunar month name supplies the Hijri calendar context; no day is given.",
+              "role": "event"
+            }
+          ],
+          "payments": [],
+          "certainty": "direct",
+          "evidence": [
+            {
+              "segment_id": "s000005",
+              "quote": "Bin iki yüz seksen iki senesi Rebiülahirinde yirmi üç yaşında olduğu halde Telgraf Mektebi'ne duhul edip seksen altı senesi Muharremi gurresinde yedi yüz yirmi kuruş aylıkla Diyarbakır Telgrafhanesi Muhaberat-ı Ecnebiye Memuriyeti'ne nasb olunarak seksen yedi Rebiülahirinin on dördünde dört yüz seksen kuruş maaş ile Beyoğlu Telgraf Merkezi'ne tahvil-i memuriyeti vuku bulmuş ve doksan üç senesi Zilkadesinin yirmi altısında hasbe't-teşkilat maaşı yedi yüz elli kuruşa terakki ve doksan yedi senesi Rebiülahirinin ikisinde altı yüz kuruşa tedenni ederek el-haletü hazihi mikdar-ı mezbur maaş ile mezkur merkezde istihdam olunmakta bulunmuştur."
+            }
+          ],
+          "note": "School entry is kept separate from the later paid appointment. No pay is stated for school attendance."
+        },
+        {
+          "event_id": "manuk-r1-e003",
+          "event_type": "appointment",
+          "description_raw": "seksen altı senesi Muharremi gurresinde yedi yüz yirmi kuruş aylıkla Diyarbakır Telgrafhanesi Muhaberat-ı Ecnebiye Memuriyeti'ne nasb olunarak",
+          "fact_ids": [
+            "manuk-r1-f018"
+          ],
+          "dates": [
+            {
+              "date_id": "manuk-r1-d003",
+              "raw": "seksen altı senesi Muharremi gurresinde",
+              "calendar": "hijri",
+              "year": 1286,
+              "month": 1,
+              "day": 1,
+              "precision": "day",
+              "certainty": "inferred",
+              "evidence": [
+                {
+                  "segment_id": "s000005",
+                  "quote": "Bin iki yüz seksen iki senesi Rebiülahirinde yirmi üç yaşında olduğu halde Telgraf Mektebi'ne duhul edip seksen altı senesi Muharremi gurresinde yedi yüz yirmi kuruş aylıkla Diyarbakır Telgrafhanesi Muhaberat-ı Ecnebiye Memuriyeti'ne nasb olunarak seksen yedi Rebiülahirinin on dördünde dört yüz seksen kuruş maaş ile Beyoğlu Telgraf Merkezi'ne tahvil-i memuriyeti vuku bulmuş ve doksan üç senesi Zilkadesinin yirmi altısında hasbe't-teşkilat maaşı yedi yüz elli kuruşa terakki ve doksan yedi senesi Rebiülahirinin ikisinde altı yüz kuruşa tedenni ederek el-haletü hazihi mikdar-ı mezbur maaş ile mezkur merkezde istihdam olunmakta bulunmuştur."
+                }
+              ],
+              "note": "Abbreviated eighty-six is expanded to 1286 from the preceding 1282 chronology. Muharrem is Hijri; gurre denotes its first day. Literal 86 is retained in raw.",
+              "role": "event",
+              "alternatives": [
+                {
+                  "literal_year": 86,
+                  "reason": "Abbreviated source form; not treated as a separate calendar era."
+                }
+              ]
+            }
+          ],
+          "payments": [
+            {
+              "payment_id": "manuk-r1-p001",
+              "component": "salary",
+              "amount_raw": "yedi yüz yirmi",
+              "amount": 720,
+              "currency_raw": "kuruş",
+              "period_raw": "aylık",
+              "amount_role": "level",
+              "certainty": "direct",
+              "evidence": [
+                {
+                  "segment_id": "s000005",
+                  "quote": "seksen altı senesi Muharremi gurresinde yedi yüz yirmi kuruş aylıkla Diyarbakır Telgrafhanesi Muhaberat-ı Ecnebiye Memuriyeti'ne nasb olunarak"
+                }
+              ],
+              "note": ""
+            }
+          ],
+          "certainty": "direct",
+          "evidence": [
+            {
+              "segment_id": "s000005",
+              "quote": "Bin iki yüz seksen iki senesi Rebiülahirinde yirmi üç yaşında olduğu halde Telgraf Mektebi'ne duhul edip seksen altı senesi Muharremi gurresinde yedi yüz yirmi kuruş aylıkla Diyarbakır Telgrafhanesi Muhaberat-ı Ecnebiye Memuriyeti'ne nasb olunarak seksen yedi Rebiülahirinin on dördünde dört yüz seksen kuruş maaş ile Beyoğlu Telgraf Merkezi'ne tahvil-i memuriyeti vuku bulmuş ve doksan üç senesi Zilkadesinin yirmi altısında hasbe't-teşkilat maaşı yedi yüz elli kuruşa terakki ve doksan yedi senesi Rebiülahirinin ikisinde altı yüz kuruşa tedenni ederek el-haletü hazihi mikdar-ı mezbur maaş ile mezkur merkezde istihdam olunmakta bulunmuştur."
+            }
+          ],
+          "note": ""
+        },
+        {
+          "event_id": "manuk-r1-e004",
+          "event_type": "transfer",
+          "description_raw": "seksen yedi Rebiülahirinin on dördünde dört yüz seksen kuruş maaş ile Beyoğlu Telgraf Merkezi'ne tahvil-i memuriyeti vuku bulmuş",
+          "fact_ids": [
+            "manuk-r1-f019"
+          ],
+          "dates": [
+            {
+              "date_id": "manuk-r1-d004",
+              "raw": "seksen yedi Rebiülahirinin on dördünde",
+              "calendar": "hijri",
+              "year": 1287,
+              "month": 4,
+              "day": 14,
+              "precision": "day",
+              "certainty": "inferred",
+              "evidence": [
+                {
+                  "segment_id": "s000005",
+                  "quote": "Bin iki yüz seksen iki senesi Rebiülahirinde yirmi üç yaşında olduğu halde Telgraf Mektebi'ne duhul edip seksen altı senesi Muharremi gurresinde yedi yüz yirmi kuruş aylıkla Diyarbakır Telgrafhanesi Muhaberat-ı Ecnebiye Memuriyeti'ne nasb olunarak seksen yedi Rebiülahirinin on dördünde dört yüz seksen kuruş maaş ile Beyoğlu Telgraf Merkezi'ne tahvil-i memuriyeti vuku bulmuş ve doksan üç senesi Zilkadesinin yirmi altısında hasbe't-teşkilat maaşı yedi yüz elli kuruşa terakki ve doksan yedi senesi Rebiülahirinin ikisinde altı yüz kuruşa tedenni ederek el-haletü hazihi mikdar-ı mezbur maaş ile mezkur merkezde istihdam olunmakta bulunmuştur."
+                }
+              ],
+              "note": "Abbreviated eighty-seven is expanded to 1287 from the chronology; on dördünde is day fourteen.",
+              "role": "event"
+            }
+          ],
+          "payments": [
+            {
+              "payment_id": "manuk-r1-p002",
+              "component": "salary",
+              "amount_raw": "dört yüz seksen",
+              "amount": 480,
+              "currency_raw": "kuruş",
+              "period_raw": "",
+              "amount_role": "level",
+              "certainty": "direct",
+              "evidence": [
+                {
+                  "segment_id": "s000005",
+                  "quote": "Bin iki yüz seksen iki senesi Rebiülahirinde yirmi üç yaşında olduğu halde Telgraf Mektebi'ne duhul edip seksen altı senesi Muharremi gurresinde yedi yüz yirmi kuruş aylıkla Diyarbakır Telgrafhanesi Muhaberat-ı Ecnebiye Memuriyeti'ne nasb olunarak seksen yedi Rebiülahirinin on dördünde dört yüz seksen kuruş maaş ile Beyoğlu Telgraf Merkezi'ne tahvil-i memuriyeti vuku bulmuş ve doksan üç senesi Zilkadesinin yirmi altısında hasbe't-teşkilat maaşı yedi yüz elli kuruşa terakki ve doksan yedi senesi Rebiülahirinin ikisinde altı yüz kuruşa tedenni ederek el-haletü hazihi mikdar-ı mezbur maaş ile mezkur merkezde istihdam olunmakta bulunmuştur."
+                }
+              ],
+              "note": "The passage states a kuruş salary; it does not repeat an explicit payment period at this transfer."
+            }
+          ],
+          "certainty": "direct",
+          "evidence": [
+            {
+              "segment_id": "s000005",
+              "quote": "Bin iki yüz seksen iki senesi Rebiülahirinde yirmi üç yaşında olduğu halde Telgraf Mektebi'ne duhul edip seksen altı senesi Muharremi gurresinde yedi yüz yirmi kuruş aylıkla Diyarbakır Telgrafhanesi Muhaberat-ı Ecnebiye Memuriyeti'ne nasb olunarak seksen yedi Rebiülahirinin on dördünde dört yüz seksen kuruş maaş ile Beyoğlu Telgraf Merkezi'ne tahvil-i memuriyeti vuku bulmuş ve doksan üç senesi Zilkadesinin yirmi altısında hasbe't-teşkilat maaşı yedi yüz elli kuruşa terakki ve doksan yedi senesi Rebiülahirinin ikisinde altı yüz kuruşa tedenni ederek el-haletü hazihi mikdar-ı mezbur maaş ile mezkur merkezde istihdam olunmakta bulunmuştur."
+            }
+          ],
+          "note": "A transfer to Beyoğlu is explicit. No new more specific title is silently supplied."
+        },
+        {
+          "event_id": "manuk-r1-e005",
+          "event_type": "salary_increase",
+          "description_raw": "doksan üç senesi Zilkadesinin yirmi altısında hasbe't-teşkilat maaşı yedi yüz elli kuruşa terakki",
+          "fact_ids": [
+            "manuk-r1-f020"
+          ],
+          "dates": [
+            {
+              "date_id": "manuk-r1-d005",
+              "raw": "doksan üç senesi Zilkadesinin yirmi altısında",
+              "calendar": "hijri",
+              "year": 1293,
+              "month": 11,
+              "day": 26,
+              "precision": "day",
+              "certainty": "inferred",
+              "evidence": [
+                {
+                  "segment_id": "s000005",
+                  "quote": "Bin iki yüz seksen iki senesi Rebiülahirinde yirmi üç yaşında olduğu halde Telgraf Mektebi'ne duhul edip seksen altı senesi Muharremi gurresinde yedi yüz yirmi kuruş aylıkla Diyarbakır Telgrafhanesi Muhaberat-ı Ecnebiye Memuriyeti'ne nasb olunarak seksen yedi Rebiülahirinin on dördünde dört yüz seksen kuruş maaş ile Beyoğlu Telgraf Merkezi'ne tahvil-i memuriyeti vuku bulmuş ve doksan üç senesi Zilkadesinin yirmi altısında hasbe't-teşkilat maaşı yedi yüz elli kuruşa terakki ve doksan yedi senesi Rebiülahirinin ikisinde altı yüz kuruşa tedenni ederek el-haletü hazihi mikdar-ı mezbur maaş ile mezkur merkezde istihdam olunmakta bulunmuştur."
+                }
+              ],
+              "note": "Abbreviated ninety-three is expanded to 1293 in the established Hijri chronology.",
+              "role": "event"
+            }
+          ],
+          "payments": [
+            {
+              "payment_id": "manuk-r1-p003",
+              "component": "salary",
+              "amount_raw": "yedi yüz elli",
+              "amount": 750,
+              "currency_raw": "kuruş",
+              "period_raw": "",
+              "amount_role": "level",
+              "certainty": "direct",
+              "evidence": [
+                {
+                  "segment_id": "s000005",
+                  "quote": "Bin iki yüz seksen iki senesi Rebiülahirinde yirmi üç yaşında olduğu halde Telgraf Mektebi'ne duhul edip seksen altı senesi Muharremi gurresinde yedi yüz yirmi kuruş aylıkla Diyarbakır Telgrafhanesi Muhaberat-ı Ecnebiye Memuriyeti'ne nasb olunarak seksen yedi Rebiülahirinin on dördünde dört yüz seksen kuruş maaş ile Beyoğlu Telgraf Merkezi'ne tahvil-i memuriyeti vuku bulmuş ve doksan üç senesi Zilkadesinin yirmi altısında hasbe't-teşkilat maaşı yedi yüz elli kuruşa terakki ve doksan yedi senesi Rebiülahirinin ikisinde altı yüz kuruşa tedenni ederek el-haletü hazihi mikdar-ı mezbur maaş ile mezkur merkezde istihdam olunmakta bulunmuştur."
+                }
+              ],
+              "note": "This is the resulting salary level. The source does not explicitly state the increment amount."
+            }
+          ],
+          "certainty": "direct",
+          "evidence": [
+            {
+              "segment_id": "s000005",
+              "quote": "Bin iki yüz seksen iki senesi Rebiülahirinde yirmi üç yaşında olduğu halde Telgraf Mektebi'ne duhul edip seksen altı senesi Muharremi gurresinde yedi yüz yirmi kuruş aylıkla Diyarbakır Telgrafhanesi Muhaberat-ı Ecnebiye Memuriyeti'ne nasb olunarak seksen yedi Rebiülahirinin on dördünde dört yüz seksen kuruş maaş ile Beyoğlu Telgraf Merkezi'ne tahvil-i memuriyeti vuku bulmuş ve doksan üç senesi Zilkadesinin yirmi altısında hasbe't-teşkilat maaşı yedi yüz elli kuruşa terakki ve doksan yedi senesi Rebiülahirinin ikisinde altı yüz kuruşa tedenni ederek el-haletü hazihi mikdar-ı mezbur maaş ile mezkur merkezde istihdam olunmakta bulunmuştur."
+            }
+          ],
+          "note": ""
+        },
+        {
+          "event_id": "manuk-r1-e006",
+          "event_type": "salary_reduction",
+          "description_raw": "doksan yedi senesi Rebiülahirinin ikisinde altı yüz kuruşa tedenni",
+          "fact_ids": [],
+          "dates": [
+            {
+              "date_id": "manuk-r1-d006",
+              "raw": "doksan yedi senesi Rebiülahirinin ikisinde",
+              "calendar": "hijri",
+              "year": 1297,
+              "month": 4,
+              "day": 2,
+              "precision": "day",
+              "certainty": "inferred",
+              "evidence": [
+                {
+                  "segment_id": "s000005",
+                  "quote": "Bin iki yüz seksen iki senesi Rebiülahirinde yirmi üç yaşında olduğu halde Telgraf Mektebi'ne duhul edip seksen altı senesi Muharremi gurresinde yedi yüz yirmi kuruş aylıkla Diyarbakır Telgrafhanesi Muhaberat-ı Ecnebiye Memuriyeti'ne nasb olunarak seksen yedi Rebiülahirinin on dördünde dört yüz seksen kuruş maaş ile Beyoğlu Telgraf Merkezi'ne tahvil-i memuriyeti vuku bulmuş ve doksan üç senesi Zilkadesinin yirmi altısında hasbe't-teşkilat maaşı yedi yüz elli kuruşa terakki ve doksan yedi senesi Rebiülahirinin ikisinde altı yüz kuruşa tedenni ederek el-haletü hazihi mikdar-ı mezbur maaş ile mezkur merkezde istihdam olunmakta bulunmuştur."
+                }
+              ],
+              "note": "Abbreviated ninety-seven is expanded to 1297 in the established Hijri chronology; ikisinde is day two.",
+              "role": "event"
+            }
+          ],
+          "payments": [
+            {
+              "payment_id": "manuk-r1-p004",
+              "component": "salary",
+              "amount_raw": "altı yüz",
+              "amount": 600,
+              "currency_raw": "kuruş",
+              "period_raw": "",
+              "amount_role": "level",
+              "certainty": "direct",
+              "evidence": [
+                {
+                  "segment_id": "s000005",
+                  "quote": "Bin iki yüz seksen iki senesi Rebiülahirinde yirmi üç yaşında olduğu halde Telgraf Mektebi'ne duhul edip seksen altı senesi Muharremi gurresinde yedi yüz yirmi kuruş aylıkla Diyarbakır Telgrafhanesi Muhaberat-ı Ecnebiye Memuriyeti'ne nasb olunarak seksen yedi Rebiülahirinin on dördünde dört yüz seksen kuruş maaş ile Beyoğlu Telgraf Merkezi'ne tahvil-i memuriyeti vuku bulmuş ve doksan üç senesi Zilkadesinin yirmi altısında hasbe't-teşkilat maaşı yedi yüz elli kuruşa terakki ve doksan yedi senesi Rebiülahirinin ikisinde altı yüz kuruşa tedenni ederek el-haletü hazihi mikdar-ı mezbur maaş ile mezkur merkezde istihdam olunmakta bulunmuştur."
+                }
+              ],
+              "note": "Resulting salary level; no numerical decrement is explicitly supplied."
+            }
+          ],
+          "certainty": "direct",
+          "evidence": [
+            {
+              "segment_id": "s000005",
+              "quote": "Bin iki yüz seksen iki senesi Rebiülahirinde yirmi üç yaşında olduğu halde Telgraf Mektebi'ne duhul edip seksen altı senesi Muharremi gurresinde yedi yüz yirmi kuruş aylıkla Diyarbakır Telgrafhanesi Muhaberat-ı Ecnebiye Memuriyeti'ne nasb olunarak seksen yedi Rebiülahirinin on dördünde dört yüz seksen kuruş maaş ile Beyoğlu Telgraf Merkezi'ne tahvil-i memuriyeti vuku bulmuş ve doksan üç senesi Zilkadesinin yirmi altısında hasbe't-teşkilat maaşı yedi yüz elli kuruşa terakki ve doksan yedi senesi Rebiülahirinin ikisinde altı yüz kuruşa tedenni ederek el-haletü hazihi mikdar-ı mezbur maaş ile mezkur merkezde istihdam olunmakta bulunmuştur."
+            }
+          ],
+          "note": ""
+        },
+        {
+          "event_id": "manuk-r1-e007",
+          "event_type": "current_employment_statement",
+          "description_raw": "el-haletü hazihi mikdar-ı mezbur maaş ile mezkur merkezde istihdam olunmakta bulunmuştur",
+          "fact_ids": [
+            "manuk-r1-f021",
+            "manuk-r1-f022"
+          ],
+          "dates": [
+            {
+              "date_id": "manuk-r1-d007",
+              "raw": "el-haletü hazihi",
+              "calendar": "unknown",
+              "year": null,
+              "month": null,
+              "day": null,
+              "precision": "relative",
+              "certainty": "direct",
+              "evidence": [
+                {
+                  "segment_id": "s000005",
+                  "quote": "Bin iki yüz seksen iki senesi Rebiülahirinde yirmi üç yaşında olduğu halde Telgraf Mektebi'ne duhul edip seksen altı senesi Muharremi gurresinde yedi yüz yirmi kuruş aylıkla Diyarbakır Telgrafhanesi Muhaberat-ı Ecnebiye Memuriyeti'ne nasb olunarak seksen yedi Rebiülahirinin on dördünde dört yüz seksen kuruş maaş ile Beyoğlu Telgraf Merkezi'ne tahvil-i memuriyeti vuku bulmuş ve doksan üç senesi Zilkadesinin yirmi altısında hasbe't-teşkilat maaşı yedi yüz elli kuruşa terakki ve doksan yedi senesi Rebiülahirinin ikisinde altı yüz kuruşa tedenni ederek el-haletü hazihi mikdar-ı mezbur maaş ile mezkur merkezde istihdam olunmakta bulunmuştur."
+                }
+              ],
+              "note": "The current-status expression supplies no separate absolute event date.",
+              "role": "statement_time"
+            }
+          ],
+          "payments": [],
+          "certainty": "direct",
+          "evidence": [
+            {
+              "segment_id": "s000005",
+              "quote": "Bin iki yüz seksen iki senesi Rebiülahirinde yirmi üç yaşında olduğu halde Telgraf Mektebi'ne duhul edip seksen altı senesi Muharremi gurresinde yedi yüz yirmi kuruş aylıkla Diyarbakır Telgrafhanesi Muhaberat-ı Ecnebiye Memuriyeti'ne nasb olunarak seksen yedi Rebiülahirinin on dördünde dört yüz seksen kuruş maaş ile Beyoğlu Telgraf Merkezi'ne tahvil-i memuriyeti vuku bulmuş ve doksan üç senesi Zilkadesinin yirmi altısında hasbe't-teşkilat maaşı yedi yüz elli kuruşa terakki ve doksan yedi senesi Rebiülahirinin ikisinde altı yüz kuruşa tedenni ederek el-haletü hazihi mikdar-ı mezbur maaş ile mezkur merkezde istihdam olunmakta bulunmuştur."
+            }
+          ],
+          "note": ""
+        },
+        {
+          "event_id": "manuk-r1-e008",
+          "event_type": "service_and_legal_declaration",
+          "description_raw": "Ber-minval-i muharrer bulunduğu memuriyetlerden infikakı nakil ve tahvil suretleriyle vukua gelerek vezaif-i memuriyetinden dolayı muhakeme altına alınmamıştır.",
+          "fact_ids": [
+            "manuk-r1-f023",
+            "manuk-r1-f024"
+          ],
+          "dates": [],
+          "payments": [],
+          "certainty": "direct",
+          "evidence": [
+            {
+              "segment_id": "s000006",
+              "quote": "Ber-minval-i muharrer bulunduğu memuriyetlerden infikakı nakil ve tahvil suretleriyle vukua gelerek vezaif-i memuriyetinden dolayı muhakeme altına alınmamıştır."
+            }
+          ],
+          "note": ""
+        },
+        {
+          "event_id": "manuk-r1-e009",
+          "event_type": "attestation",
+          "description_raw": "Dersaadet Telgraf ve Posta Başmüdürü izzetli Aziz Efendi tarafından yazılan şerhde işbu tercüme-i hâl varakasının mukarin-i sıhhat olduğu tasdik kılındığı gibi Telgraf ve Posta Nezareti namına olarak Muavin ve Meclis Reisi saadetli Hasan Ali Efendi canibinden ilave kılınan mütalaa dahi mumaileyh Manuk Efendi'nin işbu sicill-i ahvȃl varakası mündericatı teşkil olunan komisyonca tetkik kılınmakla muvafık-ı sıhhat olduğundan tasdik edildi yolunda bulunmuştur.",
+          "fact_ids": [
+            "manuk-r1-f025",
+            "manuk-r1-f026",
+            "manuk-r1-f027"
+          ],
+          "dates": [],
+          "payments": [],
+          "certainty": "direct",
+          "evidence": [
+            {
+              "segment_id": "s000007",
+              "quote": "Dersaadet Telgraf ve Posta Başmüdürü izzetli Aziz Efendi tarafından yazılan şerhde işbu tercüme-i hâl varakasının mukarin-i sıhhat olduğu tasdik kılındığı gibi Telgraf ve Posta Nezareti namına olarak Muavin ve Meclis Reisi saadetli Hasan Ali Efendi canibinden ilave kılınan mütalaa dahi mumaileyh Manuk Efendi'nin işbu sicill-i ahvȃl varakası mündericatı teşkil olunan komisyonca tetkik kılınmakla muvafık-ı sıhhat olduğundan tasdik edildi yolunda bulunmuştur."
+            }
+          ],
+          "note": "The document reports these certifications; this extraction does not independently verify their historical correctness."
+        },
+        {
+          "event_id": "manuk-r1-e010",
+          "event_type": "document_dateline",
+          "description_raw": "Fi 7 Rebiülahire sene 1302 ve fi 12 Kânunusani sene 1300",
+          "fact_ids": [],
+          "dates": [
+            {
+              "date_id": "manuk-r1-d008",
+              "raw": "7 Rebiülahire sene 1302",
+              "calendar": "hijri",
+              "year": 1302,
+              "month": 4,
+              "day": 7,
+              "precision": "day",
+              "certainty": "direct",
+              "evidence": [
+                {
+                  "segment_id": "s000008",
+                  "quote": "Fi 7 Rebiülahire sene 1302 ve fi 12 Kânunusani sene 1300"
+                }
+              ],
+              "note": "",
+              "role": "document_dateline"
+            },
+            {
+              "date_id": "manuk-r1-d009",
+              "raw": "12 Kânunusani sene 1300",
+              "calendar": "rumi",
+              "year": 1300,
+              "month": 1,
+              "day": 12,
+              "precision": "day",
+              "certainty": "inferred",
+              "evidence": [
+                {
+                  "segment_id": "s000008",
+                  "quote": "Fi 7 Rebiülahire sene 1302 ve fi 12 Kânunusani sene 1300"
+                }
+              ],
+              "note": "The civil month and contemporary AH pairing support a Rumi reading; the transcription does not explicitly label this calendar.",
+              "role": "paired_document_dateline",
+              "alternatives": [
+                {
+                  "calendar": "unknown",
+                  "reason": "No explicit Rumi label in the supplied text."
+                }
+              ]
+            }
+          ],
+          "payments": [],
+          "certainty": "inferred",
+          "evidence": [
+            {
+              "segment_id": "s000008",
+              "quote": "Fi 7 Rebiülahire sene 1302 ve fi 12 Kânunusani sene 1300"
+            }
+          ],
+          "note": "The dateline follows the attestations. Its exact administrative act is not separately specified; it is kept as a document dateline rather than assigned to an appointment."
+        },
+        {
+          "event_id": "manuk-r1-e011",
+          "event_type": "collation_annotation",
+          "description_raw": "Mukabele-şud.",
+          "fact_ids": [
+            "manuk-r1-f028"
+          ],
+          "dates": [],
+          "payments": [],
+          "certainty": "direct",
+          "evidence": [
+            {
+              "segment_id": "s000009",
+              "quote": "Mukabele-şud."
+            }
+          ],
+          "note": "No separate date or named collator is given in this annotation."
+        },
+        {
+          "event_id": "manuk-r1-e012",
+          "event_type": "salary_increase",
+          "description_raw": "Mumaileyh Manuk Filcancıyan Efendi'nin maaşı bin üç yüz altı senesi Rebiülevvelinin dördünde yetmiş beş kuruş zammıyla altı yüz yetmiş beş kuruşa iblağ edilmiştir.",
+          "fact_ids": [],
+          "dates": [
+            {
+              "date_id": "manuk-r1-d010",
+              "raw": "bin üç yüz altı senesi Rebiülevvelinin dördünde",
+              "calendar": "hijri",
+              "year": 1306,
+              "month": 3,
+              "day": 4,
+              "precision": "day",
+              "certainty": "direct",
+              "evidence": [
+                {
+                  "segment_id": "s000010",
+                  "quote": "Mumaileyh Manuk Filcancıyan Efendi'nin maaşı bin üç yüz altı senesi Rebiülevvelinin dördünde yetmiş beş kuruş zammıyla altı yüz yetmiş beş kuruşa iblağ edilmiştir."
+                }
+              ],
+              "note": "",
+              "role": "event"
+            }
+          ],
+          "payments": [
+            {
+              "payment_id": "manuk-r1-p005",
+              "component": "salary",
+              "amount_raw": "yetmiş beş",
+              "amount": 75,
+              "currency_raw": "kuruş",
+              "period_raw": "",
+              "amount_role": "increment",
+              "certainty": "direct",
+              "evidence": [
+                {
+                  "segment_id": "s000010",
+                  "quote": "Mumaileyh Manuk Filcancıyan Efendi'nin maaşı bin üç yüz altı senesi Rebiülevvelinin dördünde yetmiş beş kuruş zammıyla altı yüz yetmiş beş kuruşa iblağ edilmiştir."
+                }
+              ],
+              "note": ""
+            },
+            {
+              "payment_id": "manuk-r1-p006",
+              "component": "salary",
+              "amount_raw": "altı yüz yetmiş beş",
+              "amount": 675,
+              "currency_raw": "kuruş",
+              "period_raw": "",
+              "amount_role": "level",
+              "certainty": "direct",
+              "evidence": [
+                {
+                  "segment_id": "s000010",
+                  "quote": "Mumaileyh Manuk Filcancıyan Efendi'nin maaşı bin üç yüz altı senesi Rebiülevvelinin dördünde yetmiş beş kuruş zammıyla altı yüz yetmiş beş kuruşa iblağ edilmiştir."
+                }
+              ],
+              "note": ""
+            }
+          ],
+          "certainty": "direct",
+          "evidence": [
+            {
+              "segment_id": "s000010",
+              "quote": "Mumaileyh Manuk Filcancıyan Efendi'nin maaşı bin üç yüz altı senesi Rebiülevvelinin dördünde yetmiş beş kuruş zammıyla altı yüz yetmiş beş kuruşa iblağ edilmiştir."
+            }
+          ],
+          "note": "The explicit increment and resulting level are separate payment components attached to the same event."
+        },
+        {
+          "event_id": "manuk-r1-e013",
+          "event_type": "conversion_and_name_change",
+          "description_raw": "Mumaileyh bin üç yüz altı senesi Rebiülevvelinin dördünde 28 Teşrinievvel sene 1304 şeref-i İslâm ile müşerref olarak Mahmut Süreyya tesmiye kılınmış",
+          "fact_ids": [
+            "manuk-r1-f029",
+            "manuk-r1-f030"
+          ],
+          "dates": [
+            {
+              "date_id": "manuk-r1-d011",
+              "raw": "bin üç yüz altı senesi Rebiülevvelinin dördünde",
+              "calendar": "hijri",
+              "year": 1306,
+              "month": 3,
+              "day": 4,
+              "precision": "day",
+              "certainty": "direct",
+              "evidence": [
+                {
+                  "segment_id": "s000011",
+                  "quote": "Mumaileyh bin üç yüz altı senesi Rebiülevvelinin dördünde 28 Teşrinievvel sene 1304 şeref-i İslâm ile müşerref olarak Mahmut Süreyya tesmiye kılınmış ve sene-i mezkure Zilhiccesinin yedisinde 25 Mayıs sene 1305 vefat eylemiştir."
+                }
+              ],
+              "note": "",
+              "role": "event"
+            },
+            {
+              "date_id": "manuk-r1-d012",
+              "raw": "28 Teşrinievvel sene 1304",
+              "calendar": "rumi",
+              "year": 1304,
+              "month": 10,
+              "day": 28,
+              "precision": "day",
+              "certainty": "inferred",
+              "evidence": [
+                {
+                  "segment_id": "s000011",
+                  "quote": "Mumaileyh bin üç yüz altı senesi Rebiülevvelinin dördünde 28 Teşrinievvel sene 1304 şeref-i İslâm ile müşerref olarak Mahmut Süreyya tesmiye kılınmış ve sene-i mezkure Zilhiccesinin yedisinde 25 Mayıs sene 1305 vefat eylemiştir."
+                }
+              ],
+              "note": "Civil-month date paired with the AH expression; Rumi is a contextual calendar interpretation, not an explicit source label.",
+              "role": "paired_event",
+              "alternatives": [
+                {
+                  "calendar": "unknown",
+                  "reason": "No explicit calendar label."
+                }
+              ]
+            }
+          ],
+          "payments": [],
+          "certainty": "direct",
+          "evidence": [
+            {
+              "segment_id": "s000011",
+              "quote": "Mumaileyh bin üç yüz altı senesi Rebiülevvelinin dördünde 28 Teşrinievvel sene 1304 şeref-i İslâm ile müşerref olarak Mahmut Süreyya tesmiye kılınmış ve sene-i mezkure Zilhiccesinin yedisinde 25 Mayıs sene 1305 vefat eylemiştir."
+            }
+          ],
+          "note": ""
+        },
+        {
+          "event_id": "manuk-r1-e014",
+          "event_type": "death",
+          "description_raw": "sene-i mezkure Zilhiccesinin yedisinde 25 Mayıs sene 1305 vefat eylemiştir",
+          "fact_ids": [
+            "manuk-r1-f031",
+            "manuk-r1-f032"
+          ],
+          "dates": [
+            {
+              "date_id": "manuk-r1-d013",
+              "raw": "sene-i mezkure Zilhiccesinin yedisinde",
+              "calendar": "hijri",
+              "year": 1306,
+              "month": 12,
+              "day": 7,
+              "precision": "day",
+              "certainty": "inferred",
+              "evidence": [
+                {
+                  "segment_id": "s000011",
+                  "quote": "Mumaileyh bin üç yüz altı senesi Rebiülevvelinin dördünde 28 Teşrinievvel sene 1304 şeref-i İslâm ile müşerref olarak Mahmut Süreyya tesmiye kılınmış ve sene-i mezkure Zilhiccesinin yedisinde 25 Mayıs sene 1305 vefat eylemiştir."
+                }
+              ],
+              "note": "Sene-i mezkure is resolved to the Hijri year 1306 introduced earlier in this sentence; the lunar month Zilhicce supports this antecedent rather than civil year 1304.",
+              "role": "event",
+              "alternatives": [
+                {
+                  "year": null,
+                  "reason": "A purely literal transcription leaves the relative year unexpanded."
+                }
+              ]
+            },
+            {
+              "date_id": "manuk-r1-d014",
+              "raw": "25 Mayıs sene 1305",
+              "calendar": "rumi",
+              "year": 1305,
+              "month": 5,
+              "day": 25,
+              "precision": "day",
+              "certainty": "inferred",
+              "evidence": [
+                {
+                  "segment_id": "s000011",
+                  "quote": "Mumaileyh bin üç yüz altı senesi Rebiülevvelinin dördünde 28 Teşrinievvel sene 1304 şeref-i İslâm ile müşerref olarak Mahmut Süreyya tesmiye kılınmış ve sene-i mezkure Zilhiccesinin yedisinde 25 Mayıs sene 1305 vefat eylemiştir."
+                }
+              ],
+              "note": "Civil-month date paired with a Hijri death date; Rumi calendar inferred from context and not independently converted.",
+              "role": "paired_event",
+              "alternatives": [
+                {
+                  "calendar": "unknown",
+                  "reason": "No explicit calendar label."
+                }
+              ]
+            }
+          ],
+          "payments": [],
+          "certainty": "direct",
+          "evidence": [
+            {
+              "segment_id": "s000011",
+              "quote": "Mumaileyh bin üç yüz altı senesi Rebiülevvelinin dördünde 28 Teşrinievvel sene 1304 şeref-i İslâm ile müşerref olarak Mahmut Süreyya tesmiye kılınmış ve sene-i mezkure Zilhiccesinin yedisinde 25 Mayıs sene 1305 vefat eylemiştir."
+            }
+          ],
+          "note": ""
+        }
+      ],
+      "coverage": [
+        {
+          "segment_id": "s000001",
+          "status": "extracted",
+          "item_ids": [
+            "manuk-r1-f001",
+            "manuk-r1-f002"
+          ],
+          "note": "Heading name and the unlabeled 1259 annotation are retained separately."
+        },
+        {
+          "segment_id": "s000002",
+          "status": "extracted",
+          "item_ids": [
+            "manuk-r1-f003",
+            "manuk-r1-f004"
+          ],
+          "note": "Father and exact trade/group wording retained."
+        },
+        {
+          "segment_id": "s000003",
+          "status": "extracted",
+          "item_ids": [
+            "manuk-r1-f005",
+            "manuk-r1-d001",
+            "manuk-r1-f006",
+            "manuk-r1-e001"
+          ],
+          "note": "AH birth year and Dersaadet birthplace retained; no unsupported day or conversion."
+        },
+        {
+          "segment_id": "s000004",
+          "status": "extracted",
+          "item_ids": [
+            "manuk-r1-f007",
+            "manuk-r1-f008",
+            "manuk-r1-f009",
+            "manuk-r1-f010",
+            "manuk-r1-f011",
+            "manuk-r1-f012",
+            "manuk-r1-f013",
+            "manuk-r1-f014",
+            "manuk-r1-f015"
+          ],
+          "note": "School, all four subject groups and the four stated language modes retained."
+        },
+        {
+          "segment_id": "s000005",
+          "status": "extracted",
+          "item_ids": [
+            "manuk-r1-f016",
+            "manuk-r1-f017",
+            "manuk-r1-f018",
+            "manuk-r1-f019",
+            "manuk-r1-f020",
+            "manuk-r1-f021",
+            "manuk-r1-f022",
+            "manuk-r1-e002",
+            "manuk-r1-d002",
+            "manuk-r1-e003",
+            "manuk-r1-d003",
+            "manuk-r1-p001",
+            "manuk-r1-e004",
+            "manuk-r1-d004",
+            "manuk-r1-p002",
+            "manuk-r1-e005",
+            "manuk-r1-d005",
+            "manuk-r1-p003",
+            "manuk-r1-e006",
+            "manuk-r1-d006",
+            "manuk-r1-p004",
+            "manuk-r1-e007",
+            "manuk-r1-d007"
+          ],
+          "note": "School entry and age, appointment, transfer, reorganisation raise, reduction and present employment are distinct; all native date expressions and pay assertions are retained."
+        },
+        {
+          "segment_id": "s000006",
+          "status": "extracted",
+          "item_ids": [
+            "manuk-r1-f023",
+            "manuk-r1-f024",
+            "manuk-r1-e008"
+          ],
+          "note": "Transfer modes of separation and the bounded absence-of-trial statement retained."
+        },
+        {
+          "segment_id": "s000007",
+          "status": "extracted",
+          "item_ids": [
+            "manuk-r1-f025",
+            "manuk-r1-f026",
+            "manuk-r1-f027",
+            "manuk-r1-e009"
+          ],
+          "note": "Both named attestations, their roles, the commission examination and reported certification retained."
+        },
+        {
+          "segment_id": "s000008",
+          "status": "extracted",
+          "item_ids": [
+            "manuk-r1-e010",
+            "manuk-r1-d008",
+            "manuk-r1-d009"
+          ],
+          "note": "Native document dateline pair retained; calendar interpretation and event attachment limits are explicit."
+        },
+        {
+          "segment_id": "s000009",
+          "status": "extracted",
+          "item_ids": [
+            "manuk-r1-f028",
+            "manuk-r1-e011"
+          ],
+          "note": "Collation/check annotation retained without inventing a reviewer or date."
+        },
+        {
+          "segment_id": "s000010",
+          "status": "extracted",
+          "item_ids": [
+            "manuk-r1-e012",
+            "manuk-r1-d010",
+            "manuk-r1-p005",
+            "manuk-r1-p006"
+          ],
+          "note": "Later salary increase retains both the 75 increment and 675 salary level and its date."
+        },
+        {
+          "segment_id": "s000011",
+          "status": "extracted",
+          "item_ids": [
+            "manuk-r1-f029",
+            "manuk-r1-f030",
+            "manuk-r1-f031",
+            "manuk-r1-f032",
+            "manuk-r1-e013",
+            "manuk-r1-d011",
+            "manuk-r1-d012",
+            "manuk-r1-e014",
+            "manuk-r1-d013",
+            "manuk-r1-d014"
+          ],
+          "note": "Later conversion, Mahmut Süreyya name, death and both native date pairs retained; relative-year interpretation is explicit."
+        },
+        {
+          "segment_id": "s000012",
+          "status": "extracted",
+          "item_ids": [
+            "manuk-r1-f033"
+          ],
+          "note": "Archive locator retained exactly; no unlabeled locator component is reclassified as a page or folio."
+        }
+      ],
+      "notes": [
+        "Fresh semantic LLM reading of the supplied complete Latin-script transcription, including every later addition and the archive-reference note. No previous structured file or historical baseline was used.",
+        "No original Ottoman image, source publication bibliography or independent calendar conversion was available. Exact quotation matching tests attachment to this transcription only.",
+        "The death pair (contextual AH 1306 Zilhicce 7 and civil 1305 Mayıs 25) is retained as a potential date conflict requiring review. Native pairing is not evidence of concordance; neither date is silently repaired.",
+        "A separate reverse-order rereading checked death and conversion, the increment/level distinction, the dateline and attestation, then the opening employment, education and family claims.",
+        "Credit: Fatih Kansoy, sicilahval. Actual supplied source citation: DH_SAİD_8_86; 167; publication author/title were not supplied."
+      ],
+      "boundary_status": "reviewed",
+      "citation_raw": "DH_SAİD_8_86; 167"
+    }
+  ],
+  "excluded_segments": []
+}

@@ -1,0 +1,110 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/kansoy/ottoman-personnel-tools/schema/sicilahval-1.0.json",
+  "title": "Sicilahval source-local extraction",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "source_id", "language", "records", "excluded_segments"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "source_id": {"type": "string", "minLength": 1},
+    "language": {"enum": ["en", "tr"]},
+    "records": {"type": "array", "items": {"$ref": "#/$defs/record"}},
+    "excluded_segments": {"type": "array", "items": {"type": "object", "additionalProperties": false,
+      "required": ["segment_id", "reason"], "properties": {
+        "segment_id": {"type": "string"}, "reason": {"type": "string", "minLength": 1}
+      }}},
+    "notes": {"type": "array", "items": {"type": "string"}}
+  },
+  "$defs": {
+    "evidence": {"type": "array", "minItems": 1, "items": {"type": "object", "additionalProperties": false,
+      "required": ["segment_id", "quote"], "properties": {
+        "segment_id": {"type": "string", "minLength": 1},
+        "quote": {"type": "string", "minLength": 1}
+      }}},
+    "certainty": {"enum": ["direct", "inferred", "uncertain", "unresolved"]},
+    "date": {"type": "object", "additionalProperties": false,
+      "required": ["date_id", "raw", "calendar", "year", "month", "day", "precision", "certainty", "evidence", "note"],
+      "properties": {
+        "date_id": {"type": "string", "minLength": 1},
+        "raw": {"type": "string"},
+        "calendar": {"enum": ["hijri", "rumi", "gregorian", "julian", "unknown", "other"]},
+        "year": {"type": ["integer", "null"]},
+        "month": {"type": ["integer", "null"], "minimum": 1, "maximum": 12},
+        "day": {"type": ["integer", "null"], "minimum": 1, "maximum": 31},
+        "precision": {"enum": ["day", "month", "year", "range", "relative", "unknown"]},
+        "certainty": {"$ref": "#/$defs/certainty"},
+        "evidence": {"$ref": "#/$defs/evidence"},
+        "note": {"type": "string"},
+        "role": {"type": "string"},
+        "alternatives": {"type": "array", "items": {}},
+        "details": {"type": "object"}
+      }},
+    "fact": {"type": "object", "additionalProperties": false,
+      "required": ["fact_id", "category", "key", "value_raw", "value", "certainty", "evidence", "note"],
+      "properties": {
+        "fact_id": {"type": "string", "minLength": 1},
+        "category": {"type": "string", "minLength": 1},
+        "key": {"type": "string", "minLength": 1},
+        "value_raw": {"type": "string"},
+        "value": {},
+        "certainty": {"$ref": "#/$defs/certainty"},
+        "evidence": {"$ref": "#/$defs/evidence"},
+        "note": {"type": "string"},
+        "dates": {"type": "array", "items": {"$ref": "#/$defs/date"}},
+        "alternatives": {"type": "array", "items": {}},
+        "details": {"type": "object"}
+      }},
+    "payment": {"type": "object", "additionalProperties": false,
+      "required": ["payment_id", "component", "amount_raw", "amount", "currency_raw", "period_raw", "amount_role", "certainty", "evidence", "note"],
+      "properties": {
+        "payment_id": {"type": "string", "minLength": 1},
+        "component": {"type": "string", "minLength": 1},
+        "amount_raw": {"type": "string"},
+        "amount": {"type": ["number", "string", "null"]},
+        "currency_raw": {"type": "string"},
+        "period_raw": {"type": "string"},
+        "amount_role": {"enum": ["level", "increment", "decrement", "allowance", "fee", "arrears", "deduction", "total", "unknown"]},
+        "certainty": {"$ref": "#/$defs/certainty"},
+        "evidence": {"$ref": "#/$defs/evidence"},
+        "note": {"type": "string"},
+        "alternatives": {"type": "array", "items": {}},
+        "details": {"type": "object"}
+      }},
+    "event": {"type": "object", "additionalProperties": false,
+      "required": ["event_id", "event_type", "description_raw", "fact_ids", "dates", "payments", "certainty", "evidence", "note"],
+      "properties": {
+        "event_id": {"type": "string", "minLength": 1},
+        "event_type": {"type": "string", "minLength": 1},
+        "description_raw": {"type": "string"},
+        "fact_ids": {"type": "array", "items": {"type": "string"}},
+        "dates": {"type": "array", "items": {"$ref": "#/$defs/date"}},
+        "payments": {"type": "array", "items": {"$ref": "#/$defs/payment"}},
+        "certainty": {"$ref": "#/$defs/certainty"},
+        "evidence": {"$ref": "#/$defs/evidence"},
+        "note": {"type": "string"},
+        "details": {"type": "object"},
+        "alternatives": {"type": "array", "items": {}}
+      }},
+    "record": {"type": "object", "additionalProperties": false,
+      "required": ["record_id", "name_raw", "segment_ids", "facts", "events", "coverage", "notes"],
+      "properties": {
+        "record_id": {"type": "string", "minLength": 1},
+        "name_raw": {"type": "string", "minLength": 1},
+        "segment_ids": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+        "facts": {"type": "array", "items": {"$ref": "#/$defs/fact"}},
+        "events": {"type": "array", "items": {"$ref": "#/$defs/event"}},
+        "coverage": {"type": "array", "items": {"type": "object", "additionalProperties": false,
+          "required": ["segment_id", "status", "item_ids", "note"], "properties": {
+            "segment_id": {"type": "string"},
+            "status": {"enum": ["extracted", "nonbiographical", "unresolved"]},
+            "item_ids": {"type": "array", "items": {"type": "string"}},
+            "note": {"type": "string"}
+          }}},
+        "notes": {"type": "array", "items": {"type": "string"}},
+        "boundary_status": {"enum": ["reviewed", "uncertain"]},
+        "citation_raw": {"type": "string"},
+        "details": {"type": "object"}
+      }}
+  }
+}

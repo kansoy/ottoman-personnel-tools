@@ -1,0 +1,87 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[english]{babel}
+\usepackage{kansoy}
+\hypersetup{pdftitle={sicilahval: From personnel biographies to auditable data},pdfauthor={Fatih Kansoy},pdfsubject={Software note, version 0.1.0},pdfkeywords={Sicill-i Ahval, Ottoman personnel, historical data, LLM skill, source evidence}}
+\begin{document}
+\noteTitle{From personnel biographies to auditable data}{Software note}{Version 0.1.0}{24 October 2026}
+
+\textbf{sicilahval} is a Python package and a portable language-model skill for converting Sicill-i Ahvâl transcriptions into structured records, CSV tables and SQLite. Fatih Kansoy developed it from workflows used to review Ottoman personnel biographies, including Jewish and Armenian officials. It records source statements and their evidence before researchers construct analysis variables.
+
+\section{Why this tool}
+Studies of officials born in a particular town have produced valuable transcriptions and biographical accounts. The studies of Bergama and Gümüşhane are two examples (Başaran 2013; Saylan 2016). Researchers who reuse such material still need to separate appointments, dates, pay changes, education and other details from prose. Different spreadsheets can record the same statement in incompatible ways or omit details that did not serve the first study.
+
+The aim is to make this structuring step reusable and inspectable. A record should retain the complete biography, later additions, archival references and unresolved readings. A short summary or one fixed research spreadsheet cannot serve that purpose. The software therefore exports linked tables and the full structured JSON rather than imposing a single set of research columns.
+
+\section{What is recorded}
+A source-local record holds facts, events and coverage decisions. Facts can describe names, relatives, birthplace, education, languages, publications, honours or any other detail. Events retain appointments, transfers, concurrent posts, leave, retirement, death and proceedings. Dates and payment components remain attached to the relevant statement.
+
+Every extracted assertion links to an exact source quotation and a tagged source segment. The schema permits arbitrary fact types and additional details, so an unfamiliar item need not be discarded to fit a short list of fields. CSV tables cover records, facts, events, dates, payments, evidence, source segments and coverage. JSON and SQLite retain the linked structure.
+
+Three states must remain distinct: what the source explicitly says, a proposed inference, and an unresolved reading. An inference needs a reason and its supporting evidence; conflicting alternatives remain visible. A source-local ID identifies an appearance in the supplied text. It does not prove that appearances in different documents describe the same person.
+
+\section{Division of work}
+The host language model reads and structures the source using the skill. Python prepares tagged text, validates the structured result and exports it. The package makes no model API calls and requires no API key. Its validation checks structure and evidence links; it cannot establish historical truth or guarantee that the reader noticed every detail.
+
+\newpage
+\section{Reading rules that matter}
+\begin{itemize}
+\item Read a whole biography and its additions before deciding its boundaries. Keep repeated copies distinguishable from evidence about another person.
+\item Retain the native date wording and its calendar. Do not force an unspecified year into Hijri, Rumi or Gregorian chronology. Keep a proposed correction separate from the literal reading.
+\item Distinguish a salary level, an increment, an allowance and a one-off payment. Unknown pay remains unknown; an explicit zero remains zero. \emph{Mülazemet} alone does not establish unpaid service.
+\item Preserve a changed name, corrected birth year or change of faith with its stated timing. Do not apply the later state to an earlier event.
+\item Record an inquiry, allegation, judgment and acquittal separately. A proceeding does not establish guilt.
+\end{itemize}
+
+\section{Two real records}
+The examples use selected Latin-script transcriptions supplied with \emph{Ermeni Memurlar.docx}. Archival references below are retained verbatim; the original register images were not inspected for this demonstration.
+
+\textbf{1. Manuk Filcancıyan: school, office and a dated change.}
+\sourcequote{Bin iki yüz seksen iki senesi Rebiülahirinde yirmi üç yaşında olduğu halde Telgraf Mektebi'ne duhul edip \ldots\ seksen altı senesi Muharremi gurresinde yedi yüz yirmi kuruş aylıkla Diyarbakır Telgrafhanesi Muhaberat-ı Ecnebiye Memuriyeti'ne nasb olunarak}
+The reading keeps school entry in AH 1282 separate from the paid appointment in AH 1286 at 720 kuruş. A later addition states a 75-kuruş increase to 675, and a conversion/name change to Mahmut Süreyya, both on 4 Rebiülevvel AH 1306. Payment components and the dated identity change remain distinct. A conflicting native death-date pair is flagged without repair. Supplied reference: \texttt{DH\_SAİD\_8\_86; 167}.
+
+\textbf{2. Zenop Tangaryan: competing birth statements.}
+\sourcequote{ZENOP TANGARYAN EFENDİ (1273) \ldots\ Bin iki yüz yetmiş sene-i Hicriyesi'nde Dersaadet'te tevellüt etmiştir.}
+The heading gives 1273; the birth sentence gives AH 1270. Another passage reports entry in AH 1287 at age fourteen. Both birth assertions and the age remain available with a conflict note. Neither year is silently replaced to make subtraction agree. The record's later salaries, medal, oath and report dates are also retained. Supplied reference: \texttt{DH\_SAİD\_5\_356; 709}.
+
+Person matching, place/job classifications, calendar conversion and annual panels are later research tasks.
+
+\section{Coverage and review}
+Each source segment receives a coverage decision, with retained assertions or a reason for exclusion. This makes omissions easier to inspect. A coverage claim is still a reader's claim: compare it with the full source, especially tables, footnotes, continuations and short additions.
+
+Review disputed names, amounts, calendars and biography boundaries before wider use. Keep unresolved items with their passages.
+
+\newpage
+\section{Use}
+Python 3.10 or later is required. Install the tagged release:
+\begin{Code}
+python -m pip install \
+  "git+https://github.com/kansoy/ottoman-personnel-tools.git@v0.1.0"
+sicilahval install-skill --target codex --scope user
+\end{Code}
+Use \verb|--target claude| for Claude Code. Other hosts need Agent Skills and Python execution.
+
+\begin{Code}
+sicilahval prepare biography.docx --out work --language en
+\end{Code}
+Ask the installed skill to read the complete tagged source and write \texttt{work/records.json}. Request Turkish with \verb|--language tr|. Source wording and native names stay unchanged; the selected language controls explanations and review notes.
+
+\begin{Code}
+sicilahval validate work/records.json --source work/source.json
+sicilahval export work/records.json --source work/source.json \
+  --out data
+\end{Code}
+Run a real-record example with \verb|sicilahval demo --out demo --language en|. The repository lists formats, installation paths and the schema.
+
+\section{Limits and reproducibility}
+TXT, Markdown, DOCX, text PDF, HTML, RTF and ODT are supported. Scans need checked transcription or OCR. Retain the original file, source reference, tool/model versions and review decisions.
+
+The selected real readings were checked against their transcriptions. Regression tests also check validation and export; neither establishes an extraction accuracy rate. The public release includes these two examples, not the full research corpus.
+
+\section{Citation and availability}
+\smallref{Kansoy, Fatih. 2026. \emph{sicilahval: From personnel biographies to auditable data}. Software and technical note, version 0.1.0. \url{https://github.com/kansoy/ottoman-personnel-tools/releases/tag/v0.1.0}.}
+\smallref{Use the repository's \texttt{CITATION.cff} for software citation. Cite the source publications separately; this tool does not replace their scholarly credit. Software and skill: Apache-2.0. Historical excerpts retain their source attribution.}
+
+\section{References}
+\smallref{Başaran, Mehmet. 2013. \emph{Sicill-i Ahval Defterlerine Göre Bergama Doğumlu Memurlar (1827-1892)}. Tarih İncelemeleri Dergisi 28(1): 77-103. \url{https://dergipark.org.tr/tr/pub/egetid/article/69126}.}
+\smallref{Saylan, Kemal. 2016. \emph{Sicill-i Ahval Defterlerine Göre Gümüşhane Doğumlu Memurlar Hakkında Bazı Tespitler}. Mavi Atlas 7: 76-94. \url{https://doi.org/10.18795/ma.64038}.}
+\end{document}

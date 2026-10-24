@@ -1,0 +1,87 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[turkish]{babel}
+\usepackage{kansoy}
+\hypersetup{pdftitle={sicilahval: Memur biyografilerinden denetlenebilir veriye},pdfauthor={Fatih Kansoy},pdfsubject={Yazılım notu, sürüm 0.1.0},pdfkeywords={Sicill-i Ahval, Osmanlı memurları, tarihsel veri, LLM becerisi, kaynak kanıtı}}
+\begin{document}
+\noteTitle{Memur biyografilerinden denetlenebilir veriye}{Yazılım notu}{Sürüm 0.1.0}{24 Ekim 2026}
+
+\textbf{sicilahval}, Sicill-i Ahvâl transkripsiyonlarını yapılandırılmış kayıtlara, CSV tablolarına ve SQLite veritabanına dönüştüren bir Python paketi ve taşınabilir dil modeli becerisidir. Fatih Kansoy tarafından, Musevi ve Ermeni memurlar dâhil Osmanlı memur biyografilerinin incelenmesinde kullanılan iş akışlarından geliştirilmiştir. Araştırma değişkenleri oluşturulmadan önce kaynakta belirtilen bilgileri ve dayanaklarını kaydeder.
+
+\section{Neden gerekli?}
+Belirli bir şehirde doğan memurları inceleyen çalışmalar değerli transkripsiyonlar ve biyografiler sunmaktadır. Bergama ve Gümüşhane üzerine çalışmalar iki örnektir (Başaran 2013; Saylan 2016). Bu malzemeyi yeniden kullanmak isteyen araştırmacının atamaları, tarihleri, maaş değişikliklerini, eğitimi ve diğer ayrıntıları metinden yeniden ayırması gerekir. Farklı elektronik tablolar aynı ifadeyi farklı biçimlerde kaydedebilir veya ilk araştırmanın sorusuyla ilgisiz ayrıntıları dışarıda bırakabilir.
+
+Amaç, bu yapılandırma aşamasını yeniden kullanılabilir ve denetlenebilir kılmaktır. Kayıt; biyografinin tamamını, sonradan eklenen bilgileri, arşiv künyelerini ve çözülemeyen okumaları korumalıdır. Kısa bir özet veya tek araştırmaya göre düzenlenmiş sabit bir tablo bu ihtiyacı karşılayamaz. Bu nedenle yazılım, zorunlu bir araştırma sütunları listesi yerine ilişkili tablolar ve yapılandırılmış JSON üretir.
+
+\section{Neler kaydedilir?}
+Her kaynak içi kayıt; olguları, olayları ve kapsam kararlarını içerir. Adlar, yakınlar, doğum yeri, eğitim, diller, yayınlar, nişanlar ve diğer ayrıntılar olgu olarak kaydedilebilir. Atama, nakil, eşzamanlı görev, izin, emeklilik, ölüm ve soruşturma gibi olaylar ayrı tutulur. Tarihler ve ödeme kalemleri ilgili ifadeye bağlanır.
+
+Çıkarılan her iddia, kaynaktan alınmış tam bir alıntıya ve etiketlenmiş metin parçasına bağlanır. Şema, serbest olgu türlerine ve ek ayrıntılara izin verir; alışılmadık bir bilgi, hazır alanı bulunmadığı için atılmak zorunda değildir. Kayıtlar, olgular, olaylar, tarihler, ödemeler, kanıtlar, kaynak parçaları ve kapsam için CSV tabloları üretilir. JSON ve SQLite bu ilişkileri korur.
+
+Kaynağın açık ifadesi, önerilen çıkarım ve çözülemeyen okuma birbirinden ayrılır. Çıkarımın gerekçesi ve dayanağı yazılır; çelişen seçenekler görünür kalır. Kaynak içi kimlik, verilen metindeki bir kaydı tanımlar. Farklı belgelerdeki kayıtların aynı kişiye ait olduğunu kanıtlamaz.
+
+\section{İş bölümü}
+Dil modeli, beceri yönergeleriyle kaynağı okur ve yapılandırır. Python metni hazırlar, sonucu doğrular ve dışa aktarır. Paket model API çağrısı yapmaz; API anahtarı istemez. Doğrulama, yapıyı ve kanıt bağlantılarını denetler. Tarihsel doğruluğu veya okuyucunun bütün ayrıntıları fark ettiğini garanti etmez.
+
+\newpage
+\section{Temel okuma kuralları}
+\begin{itemize}
+\item Kayıt sınırlarını belirlemeden önce biyografinin tamamını ve eklerini okuyun. Aynı metnin tekrarını başka bir kişiye ait kayıttan ayırın.
+\item Tarihin özgün ifadesini ve takvimini koruyun. Takvimi belirtilmeyen bir yılı zorunlu olarak Hicrî, Rumî veya Miladî saymayın. Önerilen düzeltmeyi kaynakta yazılı biçimden ayrı tutun.
+\item Maaş tutarını, zammı, tahsisatı ve tek seferlik ödemeyi ayırın. Bilinmeyen ödeme bilinmeyen olarak, açıkça sıfır olan sıfır olarak kalır. \emph{Mülazemet} tek başına ücretsiz hizmeti kanıtlamaz.
+\item Ad, doğum yılı veya din değişikliğini belirtilen zamanı ile koruyun. Sonraki durumu önceki olaya taşımayın.
+\item Soruşturma, suçlama, hüküm ve beraati ayrı kaydedin. Soruşturma geçirmiş olmak suçluluğu göstermez.
+\end{itemize}
+
+\section{İki gerçek kayıt}
+Örnekler, \emph{Ermeni Memurlar.docx} ile sağlanan Latin harfli çevriyazılardan seçilmiştir. Aşağıdaki arşiv künyeleri aynen korunur; bu gösterim için özgün defter görüntüleri incelenmemiştir.
+
+\textbf{1. Manuk Filcancıyan: okul, görev ve tarihli değişiklik.}
+\sourcequote{Bin iki yüz seksen iki senesi Rebiülahirinde yirmi üç yaşında olduğu halde Telgraf Mektebi'ne duhul edip \ldots\ seksen altı senesi Muharremi gurresinde yedi yüz yirmi kuruş aylıkla Diyarbakır Telgrafhanesi Muhaberat-ı Ecnebiye Memuriyeti'ne nasb olunarak}
+Okuma, Hicrî 1282'deki okul girişini Hicrî 1286'da 720 kuruş aylıkla başlayan görevden ayırır. Sonraki ekte, 75 kuruş zamla maaşın 675'e çıkarılması ile ihtida ederek Mahmut Süreyya adını alması aynı tarihe, 4 Rebiülevvel 1306'ya bağlanır. Ödeme bileşenleri ve tarihli kimlik değişikliği ayrı tutulur. Çelişen özgün ölüm tarihleri düzeltilmeden işaretlenir. Verilen künye: \texttt{DH\_SAİD\_8\_86; 167}.
+
+\textbf{2. Zenop Tangaryan: çelişen doğum ifadeleri.}
+\sourcequote{ZENOP TANGARYAN EFENDİ (1273) \ldots\ Bin iki yüz yetmiş sene-i Hicriyesi'nde Dersaadet'te tevellüt etmiştir.}
+Başlıkta 1273, doğum cümlesinde Hicrî 1270 yazılıdır. Başka bir cümlede Hicrî 1287'de on dört yaşında giriş yaptığı belirtilir. Her iki doğum ifadesi ve yaş, çelişki notuyla korunur. Çıkarma işlemi uyumlu olsun diye yıllardan biri sessizce değiştirilmez. Sonraki maaşlar, madalya, yemin ve bildirim tarihleri de kaydedilir. Verilen künye: \texttt{DH\_SAİD\_5\_356; 709}.
+
+Kişi eşleştirme, yer/görev sınıfları, takvim dönüşümü ve kişi-yıl panelleri sonraki araştırma aşamalarıdır.
+
+\section{Kapsam ve kontrol}
+Her kaynak parçası için kapsam kararı verilir: hangi iddiaların kaydedildiği veya parçanın neden dışarıda bırakıldığı belirtilir. Böylece atlanan bilgiler daha kolay incelenir. Kapsamın tamamlandığı beyanı yine okuyucunun beyanıdır; tabloları, dipnotları, devam sayfalarını ve kısa ekleri asıl kaynakla karşılaştırın.
+
+Tartışmalı adları, tutarları, takvimleri ve biyografi sınırlarını kullanımdan önce kontrol edin. Çözülemeyen noktaları alıntılarıyla birlikte koruyun.
+
+\newpage
+\section{Kullanım}
+Python 3.10 veya üzeri gerekir. Etiketlenmiş sürümü kurun:
+\begin{Code}
+python -m pip install \
+  "git+https://github.com/kansoy/ottoman-personnel-tools.git@v0.1.0"
+sicilahval install-skill --target codex --scope user
+\end{Code}
+Claude Code için \verb|--target claude| kullanın. Diğer ortamlar Agent Skills ve Python çalıştırmayı desteklemelidir.
+
+\begin{Code}
+sicilahval prepare biyografi.docx --out work --language tr
+\end{Code}
+Beceriden kaynağın tamamını okuyup \texttt{work/records.json} yazmasını isteyin. İngilizce için \verb|--language en| kullanın. Kaynak ifadeleri ve özgün adlar korunur.
+
+\begin{Code}
+sicilahval validate work/records.json --source work/source.json
+sicilahval export work/records.json --source work/source.json \
+  --out data
+\end{Code}
+Gerçek kayıt örneğini \verb|sicilahval demo --out demo --language tr| ile deneyin. Biçimler, kurulum yolları ve şema depodadır.
+
+\section{Sınırlar ve yeniden üretilebilirlik}
+TXT, Markdown, DOCX, metin PDF, HTML, RTF ve ODT desteklenir. Taramalar denetlenmiş çevriyazı veya OCR gerektirir. Özgün dosyayı, kaynak künyesini, araç/model sürümlerini ve kontrol kararlarını saklayın.
+
+Seçilen gerçek okumalar çevriyazılarla karşılaştırılmıştır. Regresyon testleri ayrıca doğrulama ve dışa aktarmayı sınar; bunlar bilgi çıkarımının doğruluk oranını ölçmez. Açık sürümde yalnızca bu iki örnek bulunur; araştırma derleminin bütünü paylaşılmaz.
+
+\section{Atıf ve erişim}
+\smallref{Kansoy, Fatih. 2026. \emph{sicilahval: Memur biyografilerinden denetlenebilir veriye}. Yazılım ve teknik not, sürüm 0.1.0. \url{https://github.com/kansoy/ottoman-personnel-tools/releases/tag/v0.1.0}.}
+\smallref{Yazılım atfı için deponun \texttt{CITATION.cff} dosyasını kullanın. Kaynak yayınlara ayrıca atıf verin; araç bu çalışmaların bilimsel katkısının yerine geçmez. Yazılım ve beceri: Apache-2.0. Tarihsel parçalar kaynak künyeleriyle sunulur.}
+
+\section{Kaynakça}
+\smallref{Başaran, Mehmet. 2013. \emph{Sicill-i Ahval Defterlerine Göre Bergama Doğumlu Memurlar (1827-1892)}. Tarih İncelemeleri Dergisi 28(1): 77-103. \url{https://dergipark.org.tr/tr/pub/egetid/article/69126}.}
+\smallref{Saylan, Kemal. 2016. \emph{Sicill-i Ahval Defterlerine Göre Gümüşhane Doğumlu Memurlar Hakkında Bazı Tespitler}. Mavi Atlas 7: 76-94. \url{https://doi.org/10.18795/ma.64038}.}
+\end{document}

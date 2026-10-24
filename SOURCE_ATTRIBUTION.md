@@ -1,5 +1,13 @@
 # Source attribution and scope
 
+## sicilahval, 24 October 2026
+
+`src/sicilahval/`, its portable skill, selected real examples, tests and bilingual methods notes are a new general-purpose extraction workflow by Fatih Kansoy, developed with AI-assisted software work. The design draws on source-review lessons from Jewish and Armenian personnel records: complete biographies and additions, calendar conflicts, payment components, legal wording and explicit inference. The full private documents, corpus, identity decisions and research-specific classification tables are not distributed. Two selected source transcriptions and their new-format readings are included with exact archival references at the owner’s explicit request. New code does not impose the research project's 92-column panel.
+
+The methods notes cite published cohort studies as motivation; their texts and datasets are not bundled. Invented fixtures remain confined to regression testing; the public demonstrations use actual source records. Software credit does not replace citation of a source publication or archival record.
+
+## Earlier Personnel Evidence Toolkit, 21 October 2026
+
 The copied implementation originated in the **Ottoman Bureaucracy** research project, developed and maintained under Fatih Kansoy's direction with AI-assisted software work. The existing module is at `OttomanWage/bureaucracy/tools/public_personnel/` in the private research workspace. `SOURCE_MANIFEST.json` identifies each selected source file and its exact source/candidate SHA256 values.
 
 The project owner approved this selected software release under Apache-2.0 on 21 October 2026. This statement describes software provenance and project maintenance; it does not claim authorship or ownership of underlying archival records or scholarly sources. Those materials are excluded from the release.

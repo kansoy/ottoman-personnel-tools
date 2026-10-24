@@ -1,0 +1,18 @@
+{
+  "valid": true,
+  "errors": [],
+  "warnings": [
+    "Quotation and coverage checks do not prove semantic completeness or historical accuracy."
+  ],
+  "counts": {
+    "records": 1,
+    "facts": 38,
+    "events": 21,
+    "dates": 25,
+    "payments": 10
+  },
+  "source_id": "src-7c78aeaa38350ce3",
+  "source_segments": 16,
+  "excluded_segments": 0,
+  "claim": "Mechanical structure, exact evidence attachment and declared coverage only."
+}

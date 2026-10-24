@@ -1,0 +1,13 @@
+﻿record_id,segment_id,status,item_ids_json,note
+manuk-r1,s000001,extracted,"[""manuk-r1-f001"",""manuk-r1-f002""]",Heading name and the unlabeled 1259 annotation are retained separately.
+manuk-r1,s000002,extracted,"[""manuk-r1-f003"",""manuk-r1-f004""]",Father and exact trade/group wording retained.
+manuk-r1,s000003,extracted,"[""manuk-r1-f005"",""manuk-r1-d001"",""manuk-r1-f006"",""manuk-r1-e001""]",AH birth year and Dersaadet birthplace retained; no unsupported day or conversion.
+manuk-r1,s000004,extracted,"[""manuk-r1-f007"",""manuk-r1-f008"",""manuk-r1-f009"",""manuk-r1-f010"",""manuk-r1-f011"",""manuk-r1-f012"",""manuk-r1-f013"",""manuk-r1-f014"",""manuk-r1-f015""]","School, all four subject groups and the four stated language modes retained."
+manuk-r1,s000005,extracted,"[""manuk-r1-f016"",""manuk-r1-f017"",""manuk-r1-f018"",""manuk-r1-f019"",""manuk-r1-f020"",""manuk-r1-f021"",""manuk-r1-f022"",""manuk-r1-e002"",""manuk-r1-d002"",""manuk-r1-e003"",""manuk-r1-d003"",""manuk-r1-p001"",""manuk-r1-e004"",""manuk-r1-d004"",""manuk-r1-p002"",""manuk-r1-e005"",""manuk-r1-d005"",""manuk-r1-p003"",""manuk-r1-e006"",""manuk-r1-d006"",""manuk-r1-p004"",""manuk-r1-e007"",""manuk-r1-d007""]","School entry and age, appointment, transfer, reorganisation raise, reduction and present employment are distinct; all native date expressions and pay assertions are retained."
+manuk-r1,s000006,extracted,"[""manuk-r1-f023"",""manuk-r1-f024"",""manuk-r1-e008""]",Transfer modes of separation and the bounded absence-of-trial statement retained.
+manuk-r1,s000007,extracted,"[""manuk-r1-f025"",""manuk-r1-f026"",""manuk-r1-f027"",""manuk-r1-e009""]","Both named attestations, their roles, the commission examination and reported certification retained."
+manuk-r1,s000008,extracted,"[""manuk-r1-e010"",""manuk-r1-d008"",""manuk-r1-d009""]",Native document dateline pair retained; calendar interpretation and event attachment limits are explicit.
+manuk-r1,s000009,extracted,"[""manuk-r1-f028"",""manuk-r1-e011""]",Collation/check annotation retained without inventing a reviewer or date.
+manuk-r1,s000010,extracted,"[""manuk-r1-e012"",""manuk-r1-d010"",""manuk-r1-p005"",""manuk-r1-p006""]",Later salary increase retains both the 75 increment and 675 salary level and its date.
+manuk-r1,s000011,extracted,"[""manuk-r1-f029"",""manuk-r1-f030"",""manuk-r1-f031"",""manuk-r1-f032"",""manuk-r1-e013"",""manuk-r1-d011"",""manuk-r1-d012"",""manuk-r1-e014"",""manuk-r1-d013"",""manuk-r1-d014""]","Later conversion, Mahmut Süreyya name, death and both native date pairs retained; relative-year interpretation is explicit."
+manuk-r1,s000012,extracted,"[""manuk-r1-f033""]",Archive locator retained exactly; no unlabeled locator component is reclassified as a page or folio.
