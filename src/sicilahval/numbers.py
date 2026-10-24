@@ -75,6 +75,17 @@ def number_spans(text: str) -> list[tuple[int, int, set[Decimal]]]:
     raw = fold(text)
     for match in re.finditer(r"(?<!\w)[+-]?\d+(?:[.,]\d+)?(?!\w)", raw):
         matches.append((match.start(), match.end(), literal_values(match.group())))
+    # Transcriptions can omit the space in "Zilhicce1299". Recognize only
+    # complete four-digit years after named months, not arbitrary word suffixes
+    # or a shortened part of a longer digit token. Keep source offsets intact.
+    months = ("muharrem", "safer", "rebiulevvel", "rebiulahir", "cemaziyelevvel",
+              "cemaziyelahir", "receb", "recep", "saban", "ramazan", "sevval",
+              "zilkade", "zilhicce", "kanunusani", "subat", "mart", "nisan",
+              "mayis", "haziran", "temmuz", "agustos", "eylul", "tesrinievvel",
+              "tesrinisani", "kanunuevvel")
+    pattern = r"(?<!\w)(?:" + "|".join(months) + r")(?P<year>\d{4})(?!\w)"
+    for match in re.finditer(pattern, raw):
+        matches.append((match.start("year"), match.end("year"), literal_values(match.group("year"))))
     for words, scales in ((TR, ("yuz", "bin", "milyon", "bucuk")), (EN, ("hundred", "thousand", "million"))):
         tokens = "|".join(sorted(set(words) | set(scales), key=len, reverse=True))
         if words is EN:
@@ -103,19 +114,21 @@ def day_values(text: str) -> set[int]:
                   if re.match(r"\s*(?:senesi|senesinde|sene|yili|yilinda|year)\b", raw[end:])]
     matches = [(m.start(), m.end(), int(m.group(1))) for m in re.finditer(
         r"(?<!\d)([0-3]?\d)(?:st|nd|rd|th)?(?!\d)", raw) if 1 <= int(m.group(1)) <= 31]
+    # Dative forms belong to the complete compound: "yirmi besine" is 25,
+    # so the fallback must not mistake its bare tens prefix for day 20.
     forms = {
-        1: ("birinde", "birinci", "birincisinde"),
-        2: ("ikisinde", "ikinci", "ikincisinde"),
-        3: ("ucunde", "ucuncu", "ucuncusunde"),
-        4: ("dordunde", "dorduncu", "dorduncusunde"),
-        5: ("besinde", "besinci", "besincisinde"),
-        6: ("altisinda", "altinci", "altincisinda"),
-        7: ("yedisinde", "yedinci", "yedincisinde"),
-        8: ("sekizinde", "sekizinci", "sekizincisinde"),
-        9: ("dokuzunda", "dokuzuncu", "dokuzuncusunda"),
-        10: ("onunda", "onuncu", "onuncusunda"),
-        20: ("yirmisinde", "yirminci", "yirmincisinde"),
-        30: ("otuzunda", "otuzuncu", "otuzuncusunda"),
+        1: ("birinde", "birine", "birinci", "birincisinde"),
+        2: ("ikisinde", "ikisine", "ikinci", "ikincisinde"),
+        3: ("ucunde", "ucune", "ucuncu", "ucuncusunde"),
+        4: ("dordunde", "dordune", "dorduncu", "dorduncusunde"),
+        5: ("besinde", "besine", "besinci", "besincisinde"),
+        6: ("altisinda", "altisina", "altinci", "altincisinda"),
+        7: ("yedisinde", "yedisine", "yedinci", "yedincisinde"),
+        8: ("sekizinde", "sekizine", "sekizinci", "sekizincisinde"),
+        9: ("dokuzunda", "dokuzuna", "dokuzuncu", "dokuzuncusunda"),
+        10: ("onunda", "onuna", "onuncu", "onuncusunda"),
+        20: ("yirmisinde", "yirmisine", "yirminci", "yirmincisinde"),
+        30: ("otuzunda", "otuzuna", "otuzuncu", "otuzuncusunda"),
     }
     for value in range(1, 32):
         tens, unit = divmod(value, 10)
@@ -127,7 +140,7 @@ def day_values(text: str) -> set[int]:
         for candidate in candidates:
             pattern = r"(?<!\w)" + r"\s*".join(map(re.escape, candidate.split())) + r"(?!\w)"
             matches.extend((m.start(), m.end(), value) for m in re.finditer(pattern, raw))
-    matches.extend((m.start(), m.end(), 1) for m in re.finditer(r"(?<!\w)gurre(?:si(?:nde|nin)?|sinde)?(?!\w)", raw))
+    matches.extend((m.start(), m.end(), 1) for m in re.finditer(r"(?<!\w)gurre(?:si(?:nde|nin|ne)?|sinde)?(?!\w)", raw))
     english = {1: "first", 2: "second", 3: "third", 4: "fourth", 5: "fifth", 6: "sixth",
                7: "seventh", 8: "eighth", 9: "ninth", 10: "tenth", 11: "eleventh", 12: "twelfth",
                13: "thirteenth", 14: "fourteenth", 15: "fifteenth", 16: "sixteenth", 17: "seventeenth",

@@ -4,7 +4,7 @@ description: Convert complete Sicill-i Ahval personnel biographies and their add
 license: Apache-2.0
 metadata:
   author: Fatih Kansoy
-  version: "0.1.5"
+  version: "0.1.6"
 ---
 
 # sicilahval

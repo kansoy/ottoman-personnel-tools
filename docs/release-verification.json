@@ -1,29 +1,29 @@
 {
-  "version": "0.1.5",
+  "version": "0.1.6",
   "python_tested": "3.14.0",
-  "unit_tests_passed": 40,
+  "unit_tests_passed": 43,
   "installed_package_matches_source_files": 33,
   "all_match": true,
   "artifacts": {
-    "sicilahval-0.1.5-py3-none-any.whl": {
-      "sha256": "fb527895733afc7478996259fdda3b63fc4d91df5910de6972dc34de694120e3",
-      "bytes": 111802
+    "sicilahval-0.1.6-py3-none-any.whl": {
+      "sha256": "c81e4de682fc539f0cc1c0d71828db0df6997f339491d770a782542e692a0530",
+      "bytes": 112230
     },
-    "sicilahval-0.1.5.tar.gz": {
-      "sha256": "9f85ed459e367e78da8857d96f3e76b0aebcd15d99c74cf0907cfa53ed418a4b",
-      "bytes": 268731
+    "sicilahval-0.1.6.tar.gz": {
+      "sha256": "2d9ffc70fd4963e28f2b2a332c260d38c2b080996316b47150d3ee2f1bdaa16c",
+      "bytes": 269815
     },
-    "sicilahval-skill-0.1.5.zip": {
-      "sha256": "63bbea62e893eb49d2e205057bebeda8838268dfb2a7ae9d16cc7e18cc0dfab7",
-      "bytes": 66065
+    "sicilahval-skill-0.1.6.zip": {
+      "sha256": "a673cee012b1951918263dc04ffddd6ce24b263960b7a1920510f272bae0afa7",
+      "bytes": 67038
     },
     "sicilahval_en.pdf": {
-      "sha256": "81ecc3fc930980c3a52a3348e944a9d0cf4c2b06439ae0a099704cac9cae0762",
-      "bytes": 213672
+      "sha256": "c138f724943f4f8446072868ee7301d972b906448465396a9a083520e98c5197",
+      "bytes": 213670
     },
     "sicilahval_tr.pdf": {
-      "sha256": "a9cab7f3a2808256044b6cbd8c280c22ffd0add8dfd40dd08b5b9a1a176aaddf",
-      "bytes": 213931
+      "sha256": "3738f0cccc3147837176d612a9225d04b50723db0137967d2bd34e6ed52cc3fa",
+      "bytes": 213926
     }
   },
   "real_demo_counts": {
@@ -71,8 +71,8 @@
   "real_sources_are_transcriptions_not_facsimile_inspections": true,
   "unseen_document_accuracy_benchmark": false,
   "no_network_or_model_used_for_cached_demos": true,
-  "skill_zip_sha256": "63bbea62e893eb49d2e205057bebeda8838268dfb2a7ae9d16cc7e18cc0dfab7",
-  "patch_scope": "Temporal religion/name applicability: preserve the exact conversion boundary; do not assign the later state to earlier periods, the whole conversion year or later periods by extrapolation. Link Manuk event details to its existing native dates, preserve unspecified prior religion, and verify CSV/SQLite retention without a lifetime flag. Source text, pre-existing source readings, native dates and entity counts are unchanged.",
+  "skill_zip_sha256": "a673cee012b1951918263dc04ffddd6ce24b263960b7a1920510f272bae0afa7",
+  "patch_scope": "Bounded date-literal checks recognize Turkish dative day forms as complete compounds and four-digit years attached to named months. Regressions accept the source-supported values, preserve direct certainty, and reject wrong days and shortened or incorrect years. Source text, source readings, native dates and entity counts are unchanged.",
   "pdf_pages": {
     "en": 3,
     "tr": 3
@@ -93,8 +93,8 @@
     "personnel_evidence"
   ],
   "unit_test_runs": [
-    "repository checkout: 40 passed, zero skips",
-    "fresh installed wheel outside checkout: 40 passed, zero skips"
+    "repository checkout: 43 passed, zero skips",
+    "fresh installed wheel outside checkout: 43 passed, zero skips"
   ],
   "sdist_real_demo_counts": {
     "manuk": {
@@ -113,6 +113,6 @@
     }
   },
   "local_distribution_checks_passed": 18,
-  "independent_regression_cases_basis": "The separate 55-case regression receipt is from the v0.1.3 numerical patch. It was not rerun for v0.1.5; numbers.py and validation.py are unchanged. The current complete 40-test suite passed in both the checkout and a fresh installed wheel.",
+  "independent_regression_cases_basis": "The separate 55-case regression receipt is from the v0.1.3 numerical patch and was not rerun for v0.1.6. The current complete 43-test suite, including the bounded day and attached-year changes, passed in both the checkout and a fresh installed wheel.",
   "verification_scope": "Local release preparation: fresh wheel and sdist installations, standalone ZIP execution, bilingual demos, payload mirrors, schema/provenance checks, and both PDFs. Public tag installation and downloaded release assets require a separate check after publication."
 }

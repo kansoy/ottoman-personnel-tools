@@ -20,7 +20,7 @@ from sicilahval.demo import TEXTS, build_example, write_demo
 from sicilahval.export import export_records
 from sicilahval.install import install_skill
 from sicilahval.intake import prepare_source
-from sicilahval.numbers import day_values, literal_values
+from sicilahval.numbers import day_values, literal_values, number_runs
 from sicilahval.util import read_json, schema_path
 from sicilahval.validation import validate_records
 
@@ -458,6 +458,76 @@ class SicilahvalTests(unittest.TestCase):
         report = validate_records(records, source)
         self.assertTrue(report["valid"])
         self.assertIn("day literal is not mechanically parsed", " ".join(report["warnings"]))
+
+    def test_month_attached_four_digit_year_is_complete(self):
+        for raw, year, month, day, calendar in (
+            ("27 Zilhicce1299", 1299, 12, 27, "hijri"),
+            ("4 Teşrinievvel1304", 1304, 10, 4, "rumi"),
+        ):
+            with self.subTest(raw=raw):
+                self.assertEqual(number_runs(raw), {year, day})
+                original = self.base / f"attached-{year}.txt"
+                original.write_text(TEXTS["appointment"].replace("Hicrî 1285", raw), encoding="utf-8")
+                workspace = self.base / f"attached-{year}"
+                prepare_source(original, workspace)
+                source = read_json(workspace / "source.json")
+                records = build_example("appointment", source, "en")
+                date = records["records"][0]["events"][0]["dates"][0]
+                date.update(raw=raw, year=year, month=month, day=day, precision="day", calendar=calendar)
+                report = validate_records(records, source)
+                self.assertTrue(report["valid"], report["errors"])
+                self.assertFalse(any("year literal is not mechanically parsed" in w for w in report["warnings"]))
+                self.assertEqual(date["certainty"], "direct")
+                for wrong_year in (year - 1, year + 1, year % 1000):
+                    date["year"] = wrong_year
+                    self.assertIn("direct numeric year does not occur", " ".join(validate_records(records, source)["errors"]))
+        for raw in ("27 Zilhicce12999", "27 Zilhicce299", "27 Sicil1299", "27 Zilhicce1299x"):
+            with self.subTest(raw=raw):
+                self.assertEqual(number_runs(raw), {27})
+
+    def test_dative_turkish_days_keep_complete_compounds(self):
+        # Independent literal spellings cover each day, including softening and
+        # vowel harmony; a compound must not collapse to its tens or units.
+        forms = (
+            "birine", "ikisine", "üçüne", "dördüne", "beşine", "altısına",
+            "yedisine", "sekizine", "dokuzuna", "onuna", "on birine",
+            "on ikisine", "on üçüne", "on dördüne", "on beşine", "on altısına",
+            "on yedisine", "on sekizine", "on dokuzuna", "yirmisine",
+            "yirmi birine", "yirmi ikisine", "yirmi üçüne", "yirmi dördüne",
+            "yirmi beşine", "yirmi altısına", "yirmi yedisine", "yirmi sekizine",
+            "yirmi dokuzuna", "otuzuna", "otuz birine",
+        )
+        for day, form in enumerate(forms, 1):
+            with self.subTest(day=day, form=form):
+                self.assertEqual(day_values("bin üç yüz iki senesi Muharreminin " + form), {day})
+        self.assertEqual(day_values("Muharreminin yirmibeşine"), {25})
+        self.assertEqual(day_values("Muharreminin gurresine"), {1})
+        self.assertEqual(day_values("21 senesi Şabanının okunamayan gününe"), set())
+
+    def test_dative_dates_accept_direct_days_and_reject_wrong_days(self):
+        cases = [
+            ("bin üç yüz iki senesi Muharreminin yirmi beşine", 1302, 1, 25),
+            ("bin üç yüz bir senesi Cemaziyelahiresinin on sekizine", 1301, 6, 18),
+        ]
+        for index, (raw, year, month, day) in enumerate(cases):
+            original = self.base / f"dative-{index}.txt"
+            original.write_text(TEXTS["appointment"].replace("Hicrî 1285", raw), encoding="utf-8")
+            workspace = self.base / f"dative-{index}"
+            prepare_source(original, workspace)
+            source = read_json(workspace / "source.json")
+            records = build_example("appointment", source, "en")
+            date = records["records"][0]["events"][0]["dates"][0]
+            date.update(raw=raw, year=year, month=month, day=day, precision="day")
+            report = validate_records(records, source)
+            self.assertTrue(report["valid"], report["errors"])
+            self.assertFalse(any("day literal is not mechanically parsed" in w for w in report["warnings"]))
+            self.assertEqual(date["certainty"], "direct")
+            for wrong_day in set(range(1, 32)) - {day}:
+                with self.subTest(raw=raw, wrong_day=wrong_day):
+                    date["day"] = wrong_day
+                    report = validate_records(records, source)
+                    self.assertFalse(report["valid"])
+                    self.assertIn("direct day conflicts", " ".join(report["errors"]))
 
     def test_html_entities_tables_notes_without_script_execution(self):
         original = self.base / "source.html"
