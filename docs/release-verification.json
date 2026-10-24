@@ -1,29 +1,29 @@
 {
-  "version": "0.1.2",
+  "version": "0.1.3",
   "python_tested": "3.14.0",
-  "unit_tests_passed": 34,
-  "installed_package_matches_source_files": 24,
+  "unit_tests_passed": 38,
+  "installed_package_matches_source_files": 33,
   "all_match": true,
   "artifacts": {
-    "sicilahval-0.1.2-py3-none-any.whl": {
-      "sha256": "d507b620ff98435438cf0d4809376f75803c730dae9883d4b49a3dce0d90b47d",
-      "bytes": 108711
+    "sicilahval-0.1.3-py3-none-any.whl": {
+      "sha256": "811f8fd97fbaceda15d57242ba9c3bd02380f40e2e2b7215be6c741f64946fe3",
+      "bytes": 110250
     },
-    "sicilahval-0.1.2.tar.gz": {
-      "sha256": "33c8645e8282d205c4999739dc233df9a0468a9c68c611cba9058a8d8afe260e",
-      "bytes": 260008
+    "sicilahval-0.1.3.tar.gz": {
+      "sha256": "80ee454606d5fcde1e19ffd2f0eeab811b2011b601a81fbafa0b8439327dc0fd",
+      "bytes": 264255
     },
-    "sicilahval-skill-0.1.2.zip": {
-      "sha256": "a004d21a31f81ecdaeb15cde351422d758ce782728c20266188c683cbaf32c1e",
-      "bytes": 63711
+    "sicilahval-skill-0.1.3.zip": {
+      "sha256": "8eb0c3c652e147a0e04f9b29e6289bed950ad7646a80e5fcbeefe335fdfb4373",
+      "bytes": 65141
     },
     "sicilahval_en.pdf": {
-      "sha256": "d19fc2ef8c3300306d754c160241c99c98018c9989e55207fd7b684e94c5d8fb",
-      "bytes": 213722
+      "sha256": "a9b51ac1c423e34575a428b6e0ab90a34ce0993c3a328c5fdc747ce4548308bb",
+      "bytes": 213671
     },
     "sicilahval_tr.pdf": {
-      "sha256": "b440bbfc37616045c249d019633a12c52e4b63c6482d3c2da80a83e90455dda7",
-      "bytes": 213998
+      "sha256": "f930cbb3d04124e42625de777b9d7dedcb8cde107021a7b8bfcf55b2de795bd1",
+      "bytes": 213927
     }
   },
   "real_demo_counts": {
@@ -64,8 +64,8 @@
   "real_sources_are_transcriptions_not_facsimile_inspections": true,
   "unseen_document_accuracy_benchmark": false,
   "no_network_or_model_used_for_cached_demos": true,
-  "skill_zip_sha256": "a004d21a31f81ecdaeb15cde351422d758ce782728c20266188c683cbaf32c1e",
-  "patch_scope": "PDF author email correction only; other content, source readings and runtime behavior unchanged.",
+  "skill_zip_sha256": "8eb0c3c652e147a0e04f9b29e6289bed950ad7646a80e5fcbeefe335fdfb4373",
+  "patch_scope": "Correct numerical evidence boundaries, explicit unpaid amounts, written-year calendar labels and English cardinal conjunctions; define Rumi month-name encoding; clarify documentation and close legacy SQLite readback connections. Source readings are unchanged.",
   "pdf_pages": {
     "en": 3,
     "tr": 3
@@ -78,5 +78,11 @@
   "author_contact": {
     "email": "kansoy@gmail.com",
     "website": "https://fatih.ai"
-  }
+  },
+  "independent_regression_cases_passed": 55,
+  "test_dependencies": "Full suite with pdf and dev extras; zero skips or warnings.",
+  "packages_checked": [
+    "sicilahval",
+    "personnel_evidence"
+  ]
 }

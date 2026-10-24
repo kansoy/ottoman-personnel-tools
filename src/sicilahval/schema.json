@@ -30,7 +30,7 @@
         "raw": {"type": "string"},
         "calendar": {"enum": ["hijri", "rumi", "gregorian", "julian", "unknown", "other"]},
         "year": {"type": ["integer", "null"]},
-        "month": {"type": ["integer", "null"], "minimum": 1, "maximum": 12},
+        "month": {"type": ["integer", "null"], "minimum": 1, "maximum": 12, "description": "Month-name encoding: Hijri Muharrem=1 through Zilhicce=12; Gregorian/Julian/Rumi January/Kanunusani=1, February/Subat=2, March/Mart=3 through December/Kanunuevvel=12. Rumi values are civil month labels, not fiscal ordinals starting in March. Preserve the native year and raw wording; no Gregorian conversion. Unknown month is null."},
         "day": {"type": ["integer", "null"], "minimum": 1, "maximum": 31},
         "precision": {"enum": ["day", "month", "year", "range", "relative", "unknown"]},
         "certainty": {"$ref": "#/$defs/certainty"},

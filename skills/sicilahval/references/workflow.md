@@ -26,6 +26,8 @@ Use one fact per distinct assertion where practical, with open-ended keys and st
 
 Keep every native expression, calendar and precision. AH/Hijri, Rumi/mali, Julian and Gregorian years are not interchangeable. Civil month names such as Şubat and Teşrinievvel require calendar attention; a heading alone may not establish a calendar. A paired AH/Rumi date belongs to one event, not two appointments or two payments.
 
+Follow the numeric month-label convention in [schema.md](schema.md): Rumi Kânunusani=1 and Mart=3, while the native year remains unchanged. This representation is not a calendar conversion or March-based fiscal month numbering.
+
 Attach dates to the claim they qualify: appointment, salary change, birth correction, later certification or report. A report date is not automatically the event date. Relative dates and abbreviated years can be interpreted only from their actual antecedent; state the inference and preserve alternatives.
 
 Retain conflicting age and birth/entry claims. AH year subtraction is not exact attained age. A one-year difference may involve ordinal counting; a later birth correction may leave an older narrative age unchanged. Never repair a number solely to force arithmetic agreement.

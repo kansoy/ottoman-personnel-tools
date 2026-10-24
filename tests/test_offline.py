@@ -1,5 +1,6 @@
 """Meaningful boundary and relation checks using invented text, no network."""
 import copy
+from contextlib import closing
 import csv
 import json
 from pathlib import Path
@@ -54,7 +55,7 @@ class OfflineEvidenceTests(unittest.TestCase):
                 summary = write_demo(out)
                 self.assertEqual(summary["validation_issues"], [])
                 self.assertEqual((summary["events"], summary["payments"], summary["event_dates"]), (2, 2, 2))
-                with sqlite3.connect(summary["database"]) as con:
+                with closing(sqlite3.connect(summary["database"])) as con:
                     self.assertEqual(con.execute("SELECT amount FROM payments ORDER BY payment_index").fetchall(),
                                      [("0",), (None,)])
                     self.assertEqual(con.execute("SELECT COUNT(*) FROM career_observations").fetchone()[0], 3)

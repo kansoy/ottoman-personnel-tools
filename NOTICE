@@ -8,4 +8,4 @@ https://ottomanbureaucracy.com
 The repository includes software, skill instructions, selected real examples, regression tests
 and the author's bilingual methods notes. The full input documents and private research dataset are not supplied;
 selected historical transcription excerpts carry their own source attribution. See SOURCE_ATTRIBUTION.md and
-SOURCE_MANIFEST.json for the unchanged legacy module's provenance.
+SOURCE_MANIFEST.json for the legacy module's provenance and documented modifications.

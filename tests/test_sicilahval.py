@@ -91,6 +91,21 @@ class SicilahvalTests(unittest.TestCase):
         payment["amount"] = 0
         self.assertIn("zero is not supported", " ".join(validate_records(records, source)["errors"]))
 
+    def test_explicit_unpaid_rejects_nonzero_amounts(self):
+        _, source, records = self.reading()
+        payment = records["records"][0]["events"][1]["payments"][0]
+        self.assertEqual((payment["amount_raw"], payment["amount"]), ("bilâ maaş", 0))
+        self.assertTrue(validate_records(records, source)["valid"])
+        for amount in (150, "150", -1):
+            with self.subTest(amount=amount):
+                payment["amount"] = amount
+                report = validate_records(records, source)
+                self.assertFalse(report["valid"])
+                self.assertIn("nonzero amount contradicts explicit unpaid", " ".join(report["errors"]))
+        # A validator does not fill a deliberately unresolved numeric amount.
+        payment["amount"] = None
+        self.assertTrue(validate_records(records, source)["valid"])
+
     def test_currency_period_and_calendar_relabel_rejected(self):
         _, source, records = self.reading()
         records["records"][0]["events"][3]["dates"][0]["calendar"] = "hijri"
@@ -215,7 +230,98 @@ class SicilahvalTests(unittest.TestCase):
     def test_turkish_english_cardinals_and_ambiguous_punctuation(self):
         self.assertEqual(literal_values("yüz elli"), {150})
         self.assertEqual(literal_values("one hundred fifty"), {150})
+        self.assertEqual(literal_values("one hundred and fifty"), {150})
+        self.assertEqual(literal_values("one thousand two hundred and fifty-nine"), {1259})
+        self.assertEqual(literal_values("one and two"), set())
         self.assertEqual(literal_values("1.500"), {1500, 1.5})
+
+    def test_complete_payment_tokens_with_units_grouping_and_prose_punctuation(self):
+        cases = [
+            ("1150 kuruş", "150 kuruş", 150, False),
+            ("150,50 kuruş", "50 kuruş", 50, False),
+            ("-150 kuruş", "150 kuruş", 150, False),
+            ("150 kuruş", "150 kuruş", 150, True),
+            ("150.", "150", 150, True),
+            ("150, ek ödeme 25", "150", 150, True),
+            ("1.500 kuruş", "1.500 kuruş", 1500, True),
+            ("1.500 kuruş", "1.500 kuruş", "1.500", True),
+            ("1 500 kuruş", "500 kuruş", 500, False),
+            ("1 500 kuruş", "1 500 kuruş", 1500, True),
+            ("1\u00a0500 kuruş", "500 kuruş", 500, False),
+            ("1\u00a0500 kuruş", "1\u00a0500 kuruş", 1500, True),
+            ("1\u202f500 kuruş", "500 kuruş", 500, False),
+            ("1290 150 kuruş", "150 kuruş", 150, True),
+            ("150 25 kuruş", "25 kuruş", 25, True),
+            ("1 5000 kuruş", "5000 kuruş", 5000, True),
+        ]
+        for index, (source_literal, amount_raw, amount, valid) in enumerate(cases):
+            with self.subTest(source=source_literal, amount_raw=amount_raw, amount=amount):
+                original = self.base / f"money-{index}.txt"
+                original.write_text(TEXTS["pay_legal"].replace("200 kuruş", source_literal), encoding="utf-8")
+                workspace = self.base / f"money-{index}"
+                prepare_source(original, workspace)
+                source = read_json(workspace / "source.json")
+                records = build_example("pay_legal", source, "en")
+                payment = records["records"][0]["events"][2]["payments"][0]
+                payment.update(amount_raw=amount_raw, amount=amount,
+                               currency_raw="kuruş" if "kuruş" in source_literal else "")
+                report = validate_records(records, source)
+                self.assertEqual(report["valid"], valid, report["errors"])
+                if not valid:
+                    self.assertIn("amount_raw does not occur", " ".join(report["errors"]))
+
+    def test_written_year_calendars_and_english_conjunctions(self):
+        cases = [
+            ("Hicrî bin iki yüz doksan", 1290, "hijri", True),
+            ("Hicrî bin iki yüz doksan", 1290, "rumi", False),
+            ("bin iki yüz doksan Hicrî", 1290, "hijri", True),
+            ("bin iki yüz doksan Hicrî", 1290, "rumi", False),
+            ("AH one thousand two hundred and fifty-nine", 1259, "hijri", True),
+            ("AH one thousand two hundred and fifty-nine", 1259, "rumi", False),
+            ("one thousand two hundred and fifty-nine AH", 1259, "hijri", True),
+            ("one thousand two hundred and fifty-nine AH", 1259, "rumi", False),
+            ("AH one thousand two hundred and fifty-nine", 1258, "hijri", False),
+            ("Hicrî bin iki yüz doksan / Rumi bin iki yüz seksen sekiz", 1290, "hijri", True),
+            ("Hicrî bin iki yüz doksan / Rumi bin iki yüz seksen sekiz", 1288, "rumi", True),
+            ("Hicrî bin iki yüz doksan / Rumi bin iki yüz seksen sekiz", 1288, "hijri", False),
+            ("Rumi 1290", 1290, "rumi", True),
+            ("Rumi 1290", 1290, "hijri", False),
+            ("bin iki yüz doksan sene-i Rumiyesi'nde", 1290, "rumi", True),
+            ("bin iki yüz doksan sene-i Rumiyesi'nde", 1290, "hijri", False),
+        ]
+        for index, (raw, year, calendar, valid) in enumerate(cases):
+            with self.subTest(raw=raw, year=year, calendar=calendar):
+                original = self.base / f"calendar-{index}.txt"
+                original.write_text(TEXTS["appointment"].replace("Hicrî 1285", raw), encoding="utf-8")
+                workspace = self.base / f"calendar-{index}"
+                prepare_source(original, workspace)
+                source = read_json(workspace / "source.json")
+                records = build_example("appointment", source, "en")
+                date = records["records"][0]["events"][0]["dates"][0]
+                date.update(raw=raw, year=year, calendar=calendar)
+                report = validate_records(records, source)
+                self.assertEqual(report["valid"], valid, report["errors"])
+                if valid:
+                    self.assertFalse(any("year literal is not mechanically parsed" in w for w in report["warnings"]))
+
+    def test_real_manuk_inflected_calendar_label_relabel_is_rejected(self):
+        resource = schema_path().with_name("examples") / "manuk"
+        source = read_json(resource / "source.json")
+        records = read_json(resource / "records.json")
+        self.assertTrue(validate_records(records, source)["valid"])
+        date = next(date for fact in records["records"][0]["facts"] for date in fact.get("dates", [])
+                    if "Hicriyesi" in date["raw"])
+        quote = date["evidence"][0]["quote"]
+        self.assertEqual(date["raw"], "Bin iki yüz elli dokuz sene-i Hicriyesi'nde")
+        for calendar in ("julian", "rumi"):
+            with self.subTest(calendar=calendar):
+                date["calendar"] = calendar
+                report = validate_records(records, source)
+                self.assertFalse(report["valid"])
+                self.assertIn("calendar contradicts explicit raw label", " ".join(report["errors"]))
+                self.assertEqual(date["evidence"][0]["quote"], quote)
+        date["calendar"] = "hijri"
+        self.assertTrue(validate_records(records, source)["valid"])
 
     def test_word_amount_mismatch_and_truncated_decimal_are_rejected(self):
         original = self.base / "words.txt"

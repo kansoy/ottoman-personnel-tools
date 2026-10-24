@@ -11,12 +11,12 @@ The LLM reads and structures the source. Python prepares the text, validates quo
 Python 3.10 or later:
 
 ```sh
-python -m pip install "sicilahval @ git+https://github.com/kansoy/ottoman-personnel-tools.git@v0.1.2"
+python -m pip install "sicilahval @ git+https://github.com/kansoy/ottoman-personnel-tools.git@v0.1.3"
 sicilahval install-skill --target codex --scope user
 # Or: sicilahval install-skill --target claude --scope user
 ```
 
-Use `--scope project` for the current project, `--target agents` for a shared Agent Skills directory, or `--path` for a custom parent directory. The [standalone skill](skills/sicilahval) includes Python helpers; an uploadable ZIP is on the [release page](https://github.com/kansoy/ottoman-personnel-tools/releases/tag/v0.1.2). A host with file access and Python execution is required; skill discovery varies by client.
+Use `--scope project` for the current project, `--target agents` for a shared Agent Skills directory, or `--path` for a custom parent directory. The [standalone skill](skills/sicilahval) includes Python helpers; an uploadable ZIP is on the [release page](https://github.com/kansoy/ottoman-personnel-tools/releases/tag/v0.1.3). A host with file access and Python execution is required; skill discovery varies by client.
 
 ## Use
 
@@ -33,12 +33,18 @@ sicilahval validate work/records.json --source work/source.json
 sicilahval export work/records.json --source work/source.json --out data
 ```
 
-TXT, Markdown, DOCX, text PDF, HTML, RTF and ODT are supported. Text PDFs require `pypdf`; the other readers use the Python standard library. For scans and images, the skill uses an available transcription/OCR workflow and retains its review limits. See [tested formats](docs/validation.md).
+TXT, Markdown, DOCX, text PDF, HTML, RTF and ODT are supported. Text PDFs require `pypdf` (use `sicilahval[pdf]` in the installation command); the other readers use the Python standard library. For scans and images, the skill uses an available transcription/OCR workflow and retains its review limits. See [tested formats](docs/validation.md).
 
 ## Examples and checks
 
 ```sh
 sicilahval demo --out example-output --language en
+```
+
+Run the complete test suite from a repository checkout:
+
+```sh
+python -m pip install ".[pdf,dev]"
 python -m unittest discover -s tests -v
 ```
 
@@ -50,8 +56,8 @@ Mechanical validation cannot prove historical accuracy or complete semantic extr
 
 ## Cite
 
-Kansoy, Fatih. 2026. *sicilahval: Evidence-linked extraction of Ottoman personnel records*. Version 0.1.2. https://github.com/kansoy/ottoman-personnel-tools.
+Kansoy, Fatih. 2026. *sicilahval: Evidence-linked extraction of Ottoman personnel records*. Version 0.1.3. https://github.com/kansoy/ottoman-personnel-tools.
 
 [CITATION.cff](CITATION.cff) · [BibTeX](docs/citation.bib) · [English methods note](docs/papers/sicilahval_en.pdf) · [Türkçe yöntem notu](docs/papers/sicilahval_tr.pdf)
 
-Cite historical publications and archival records separately. Apache-2.0 covers the software; the private [Ottoman Bureaucracy](https://ottomanbureaucracy.com) dataset is not distributed here; only the two selected transcription examples are included. The earlier `personnel_evidence` module is preserved: [provenance](SOURCE_ATTRIBUTION.md).
+Cite historical publications and archival records separately. Apache-2.0 covers the original software, skill and project documentation; source quotations/transcriptions retain any applicable source rights. The private [Ottoman Bureaucracy](https://ottomanbureaucracy.com) dataset is not distributed here; only the two selected transcription examples are included. The earlier `personnel_evidence` module is preserved: [provenance](SOURCE_ATTRIBUTION.md).

@@ -14,7 +14,7 @@ from pathlib import Path
 from typing import Any
 
 from .util import digest_bytes, json_text, read_json, schema_path
-from .numbers import day_values, literal_values, number_runs
+from .numbers import day_values, literal_values, number_runs, number_spans
 
 
 def _type(value: Any) -> str:
@@ -104,10 +104,41 @@ def _numbers(text: str) -> list[Decimal]:
 
 
 def _raw_attached(raw: str, quotes: list[str], *, monetary: bool = False) -> bool:
-    if monetary and re.fullmatch(r"[+-]?\d+(?:[.,]\d+)?", raw):
-        # 150 must not attach to 1150 or to the decimal amount 150,50.
-        return any(re.search(r"(?<![\d.,])" + re.escape(raw) + r"(?![\d.,])", quote) for quote in quotes)
-    return any(raw in quote for quote in quotes)
+    if not monetary:
+        return any(raw in quote for quote in quotes)
+    for quote in quotes:
+        # Check the source's complete digit tokens even when raw includes a
+        # currency: "150 kuruş" must not attach to "1150 kuruş". A comma or
+        # full stop extends a number only when another digit follows it.
+        numbers = list(re.finditer(
+            r"[+-]?\d{1,3}(?:[ \u00a0\u202f]\d{3})+(?!\d)(?:[.,]\d+)*|[+-]?\d+(?:[.,]\d+)*", quote))
+        for match in re.finditer(re.escape(raw), quote):
+            if not any(number.start() < match.end() and number.end() > match.start()
+                       and (number.start() < match.start() or number.end() > match.end())
+                       for number in numbers):
+                return True
+    return False
+
+
+def _calendar_labels(raw: str, year: int) -> set[str]:
+    """Bind explicit labels without requiring an Arabic-digit year spelling."""
+    folded = _fold(raw)
+    labels = {"hijri": r"(?:hicri(?:ye(?:si)?)?|hijri|ah|h\.)",
+              "rumi": r"(?:rumi(?:ye(?:si)?)?|r\.)",
+              "gregorian": r"(?:miladi|gregorian|ad)"}
+    present = {calendar for calendar, label in labels.items()
+               if re.search(r"\b" + label + r"(?!\w)", folded)}
+    if len(present) == 1:
+        # A single explicit label also covers "1290 AH" and a written year.
+        return present
+    bound = set()
+    for begin, _, values in number_spans(raw):
+        if Decimal(year) not in values:
+            continue
+        for calendar, label in labels.items():
+            if re.search(r"\b" + label + r"\s*[:.]?\s*$", folded[:begin]):
+                bound.add(calendar)
+    return bound
 
 
 def validate_records(records: dict | str | Path, source: dict | str | Path,
@@ -195,14 +226,12 @@ def validate_records(records: dict | str | Path, source: dict | str | Path,
                         errors.append(f"{rid}/{key}: direct day conflicts with recognizable date raw text")
                     elif not days:
                         warnings.append(f"{rid}/{key}: day literal is not mechanically parsed; inspect its reading")
-                folded = _fold(raw)
-                calendars = {"hijri": r"(?:hicri|hijri|ah|h\.)\s*[:.]?\s*",
-                             "rumi": r"(?:rumi|r\.)\s*[:.]?\s*",
-                             "gregorian": r"(?:miladi|gregorian|ad)\s*[:.]?\s*"}
-                for calendar, prefix in calendars.items():
-                    if obj["year"] is not None and re.search(r"\b" + prefix + str(obj["year"]) + r"\b", folded):
-                        if calendar != obj["calendar"] and obj["certainty"] == "direct":
-                            errors.append(f"{rid}/{key}: calendar contradicts explicit raw label")
+                if obj["year"] is not None and obj["certainty"] == "direct":
+                    calendars = _calendar_labels(raw, obj["year"])
+                    if calendars and obj["calendar"] not in calendars:
+                        errors.append(f"{rid}/{key}: calendar contradicts explicit raw label")
+                    elif len(calendars) > 1:
+                        warnings.append(f"{rid}/{key}: year has multiple explicit calendar labels; inspect their association")
                 if obj["precision"] == "day" and any(obj[k] is None for k in ("year", "month", "day")):
                     errors.append(f"{rid}/{key}: day precision requires year, month and day")
                 if obj["precision"] == "month" and any(obj[k] is None for k in ("year", "month")):
@@ -221,7 +250,9 @@ def validate_records(records: dict | str | Path, source: dict | str | Path,
                 if obj["certainty"] == "direct" and amount is not None:
                     nums = literal_values(raw)
                     unpaid = re.search(r"\b(?:bila[\s-]*maas|maassiz|ucretsiz|unpaid|without pay|no salary)\b", _fold(raw))
-                    if amount == 0 and not (Decimal(0) in nums or unpaid):
+                    if unpaid and amount != 0:
+                        errors.append(f"{rid}/{key}: nonzero amount contradicts explicit unpaid amount raw text")
+                    elif amount == 0 and not (Decimal(0) in nums or unpaid):
                         errors.append(f"{rid}/{key}: zero is not supported by an explicit zero/unpaid amount raw text")
                     elif nums and amount not in nums:
                         errors.append(f"{rid}/{key}: direct amount does not occur in amount raw text")

@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+from contextlib import closing
 import json
 from pathlib import Path
 import sqlite3
@@ -534,7 +535,7 @@ def write_export(out_dir: Path, tables: dict[str, list[dict[str, Any]]]) -> Path
             writer = csv.DictWriter(handle, fieldnames=columns, extrasaction="ignore")
             writer.writeheader()
             writer.writerows(tables[table])
-    with sqlite3.connect(db_path) as connection:
+    with closing(sqlite3.connect(db_path)) as connection:
         rows = connection.execute("SELECT * FROM career_observations").fetchall()
         columns = [item[0] for item in connection.execute("SELECT * FROM career_observations LIMIT 0").description]
     with (out_dir / "career_observations.csv").open("w", encoding="utf-8-sig", newline="") as handle:

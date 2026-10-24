@@ -25,7 +25,12 @@ def fold(text: str) -> str:
 
 
 def _cardinal(text: str, words: dict, hundred: str, thousand: str, million: str) -> Decimal | None:
-    raw = re.sub(r"[\s'’\-]", "", fold(text))
+    folded = fold(text)
+    if words is EN:
+        # English permits a conjunction after a scale, not between arbitrary
+        # numbers: "one hundred and fifty" is 150; "one and two" is not 3.
+        folded = re.sub(r"\b(hundred|thousand|million)[\s-]+and[\s-]+", r"\1 ", folded)
+    raw = re.sub(r"[\s'’\-]", "", folded)
     half = Decimal(0)
     if raw.endswith("bucuk"):
         raw = raw[:-5]
@@ -64,20 +69,27 @@ def literal_values(text: str) -> set[Decimal]:
     return values
 
 
-def _number_spans(text: str) -> list[tuple[int, int, set[Decimal]]]:
+def number_spans(text: str) -> list[tuple[int, int, set[Decimal]]]:
+    """Return literal candidates and their positions in folded text."""
     matches = []
     raw = fold(text)
     for match in re.finditer(r"(?<!\w)[+-]?\d+(?:[.,]\d+)?(?!\w)", raw):
         matches.append((match.start(), match.end(), literal_values(match.group())))
     for words, scales in ((TR, ("yuz", "bin", "milyon", "bucuk")), (EN, ("hundred", "thousand", "million"))):
         tokens = "|".join(sorted(set(words) | set(scales), key=len, reverse=True))
+        if words is EN:
+            # Keep the conjunction in the same numerical run when it follows
+            # a scale and another number follows it. Do not absorb prose such
+            # as "one hundred and subsequently ...".
+            with_and = r"(?:hundred|thousand|million)[\s-]+and(?=[\s-]+(?:" + tokens + r")(?!\w))"
+            tokens = with_and + "|" + tokens
         for match in re.finditer(r"(?<!\w)(?:" + tokens + r")(?:[\s-]*(?:" + tokens + r"))*(?!\w)", raw):
             matches.append((match.start(), match.end(), literal_values(match.group())))
     return matches
 
 
 def number_runs(text: str) -> set[Decimal]:
-    return set().union(*(values for _, _, values in _number_spans(text)))
+    return set().union(*(values for _, _, values in number_spans(text)))
 
 
 def day_values(text: str) -> set[int]:
@@ -87,7 +99,7 @@ def day_values(text: str) -> set[int]:
     spelling remains unchecked; it must not be rejected because a year parsed.
     """
     raw = fold(text)
-    year_spans = [(begin, end) for begin, end, _ in _number_spans(raw)
+    year_spans = [(begin, end) for begin, end, _ in number_spans(raw)
                   if re.match(r"\s*(?:senesi|senesinde|sene|yili|yilinda|year)\b", raw[end:])]
     matches = [(m.start(), m.end(), int(m.group(1))) for m in re.finditer(
         r"(?<!\d)([0-3]?\d)(?:st|nd|rd|th)?(?!\d)", raw) if 1 <= int(m.group(1)) <= 31]
@@ -131,7 +143,7 @@ def day_values(text: str) -> set[int]:
         if not any(begin < stop and end > start for start, stop, _ in selected):
             selected.append((begin, end, value))
     result = {value for _, _, value in selected}
-    for begin, end, values in _number_spans(raw):
+    for begin, end, values in number_spans(raw):
         if not any(begin < stop and end > start for start, stop in year_spans) and not any(begin < stop and end > start for start, stop, _ in selected):
             result.update(int(value) for value in values if value == int(value) and 1 <= value <= 31)
     return result
