@@ -1,16 +1,16 @@
 \documentclass[11pt,a4paper]{article}
 \usepackage[english]{babel}
 \usepackage{kansoy}
-\hypersetup{pdftitle={sicilahval: From personnel biographies to auditable data},pdfauthor={Fatih Kansoy},pdfsubject={Software note, version 0.1.0},pdfkeywords={Sicill-i Ahval, Ottoman personnel, historical data, LLM skill, source evidence}}
+\hypersetup{pdftitle={sicilahval: From personnel biographies to auditable data},pdfauthor={Fatih Kansoy},pdfsubject={Software note, version 0.1.1},pdfkeywords={Sicill-i Ahval, Ottoman personnel, historical data, LLM skill, source evidence}}
 \begin{document}
-\noteTitle{From personnel biographies to auditable data}{Software note}{Version 0.1.0}{24 October 2026}
+\noteTitle{From personnel biographies to auditable data}{Software note}{Version 0.1.1}{24 October 2026}
 
 \textbf{sicilahval} is a Python package and a portable language-model skill for converting Sicill-i Ahvâl transcriptions into structured records, CSV tables and SQLite. Fatih Kansoy developed it from workflows used to review Ottoman personnel biographies, including Jewish and Armenian officials. It records source statements and their evidence before researchers construct analysis variables.
 
 \section{Why this tool}
-Studies of officials born in a particular town have produced valuable transcriptions and biographical accounts. The studies of Bergama and Gümüşhane are two examples (Başaran 2013; Saylan 2016). Researchers who reuse such material still need to separate appointments, dates, pay changes, education and other details from prose. Different spreadsheets can record the same statement in incompatible ways or omit details that did not serve the first study.
+Sicill-i Ahvâl registers record Ottoman officials' biographies and careers. Sarıyıldız (2009) explains their administrative context, later additions and corrections. Reusing these accounts requires appointments, dates, pay changes, education and other details to be separated from prose. A shared extraction format makes that work reusable while retaining the wording and evidence.
 
-The aim is to make this structuring step reusable and inspectable. A record should retain the complete biography, later additions, archival references and unresolved readings. A short summary or one fixed research spreadsheet cannot serve that purpose. The software therefore exports linked tables and the full structured JSON rather than imposing a single set of research columns.
+Each record should retain the complete biography, later additions, archival references and unresolved readings. The software exports linked tables and full structured JSON, leaving the selection of research variables to the researcher.
 
 \section{What is recorded}
 A source-local record holds facts, events and coverage decisions. Facts can describe names, relatives, birthplace, education, languages, publications, honours or any other detail. Events retain appointments, transfers, concurrent posts, leave, retirement, death and proceedings. Dates and payment components remain attached to the relevant statement.
@@ -55,7 +55,7 @@ Review disputed names, amounts, calendars and biography boundaries before wider 
 Python 3.10 or later is required. Install the tagged release:
 \begin{Code}
 python -m pip install \
-  "git+https://github.com/kansoy/ottoman-personnel-tools.git@v0.1.0"
+  "git+https://github.com/kansoy/ottoman-personnel-tools.git@v0.1.1"
 sicilahval install-skill --target codex --scope user
 \end{Code}
 Use \verb|--target claude| for Claude Code. Other hosts need Agent Skills and Python execution.
@@ -78,10 +78,9 @@ TXT, Markdown, DOCX, text PDF, HTML, RTF and ODT are supported. Scans need check
 The selected real readings were checked against their transcriptions. Regression tests also check validation and export; neither establishes an extraction accuracy rate. The public release includes these two examples, not the full research corpus.
 
 \section{Citation and availability}
-\smallref{Kansoy, Fatih. 2026. \emph{sicilahval: From personnel biographies to auditable data}. Software and technical note, version 0.1.0. \url{https://github.com/kansoy/ottoman-personnel-tools/releases/tag/v0.1.0}.}
+\smallref{Kansoy, Fatih. 2026. \emph{sicilahval: From personnel biographies to auditable data}. Software and technical note, version 0.1.1. \url{https://github.com/kansoy/ottoman-personnel-tools/releases/tag/v0.1.1}.}
 \smallref{Use the repository's \texttt{CITATION.cff} for software citation. Cite the source publications separately; this tool does not replace their scholarly credit. Software and skill: Apache-2.0. Historical excerpts retain their source attribution.}
 
 \section{References}
-\smallref{Başaran, Mehmet. 2013. \emph{Sicill-i Ahval Defterlerine Göre Bergama Doğumlu Memurlar (1827-1892)}. Tarih İncelemeleri Dergisi 28(1): 77-103. \url{https://dergipark.org.tr/tr/pub/egetid/article/69126}.}
-\smallref{Saylan, Kemal. 2016. \emph{Sicill-i Ahval Defterlerine Göre Gümüşhane Doğumlu Memurlar Hakkında Bazı Tespitler}. Mavi Atlas 7: 76-94. \url{https://doi.org/10.18795/ma.64038}.}
+\smallref{Sarıyıldız, Gülden. 2009. ``Sicill-i Ahvâl Defterleri.'' \emph{TDV İslâm Ansiklopedisi} 37: 134-136. \url{https://avesis.istanbul.edu.tr/yayin/0b6be7b2-7c25-45cc-943c-c16c7abde025/sicill-i-ahval-defterleri}.}
 \end{document}

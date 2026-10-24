@@ -1,5 +1,5 @@
 {
-  "version": "0.1.0",
+  "version": "0.1.1",
   "release_date": "2026-10-24",
   "toolchain": "latexmk with pdfLaTeX; Poppler pdfinfo and pdftotext",
   "notes": {
@@ -8,8 +8,8 @@
       "pages": 3,
       "author": "Fatih Kansoy",
       "title": "sicilahval: From personnel biographies to auditable data",
-      "sha256": "4ca485462343f6100ec4e5f294219bdaeb9cd41c1e3e6134c931a17fe0954759",
-      "bytes": 215511,
+      "sha256": "644cce6ae9d49ed2c54dd43cf80b1f255625b37b1216b508432433d744c29817",
+      "bytes": 213602,
       "source": "en/main.tex",
       "checks": [
         "exactly_three_pages",
@@ -19,7 +19,9 @@
         "no_missing_glyphs",
         "no_overfull_boxes",
         "no_LaTeX_warnings",
-        "self_contained_style_matches_shared_copy"
+        "self_contained_style_matches_shared_copy",
+        "single_scholar_reference_Sariyildiz_2009",
+        "author_email_and_website"
       ]
     },
     "tr": {
@@ -27,8 +29,8 @@
       "pages": 3,
       "author": "Fatih Kansoy",
       "title": "sicilahval: Memur biyografilerinden denetlenebilir veriye",
-      "sha256": "49824ccfda25ac796fcd7fce848abfbc52af46a04f9aeb4291d15f14e2f9ab3f",
-      "bytes": 215866,
+      "sha256": "2e4412652a704dffe17994a544d239ee913f224f7ac87cde6a324acae4032ad1",
+      "bytes": 213870,
       "source": "tr/main.tex",
       "checks": [
         "exactly_three_pages",
@@ -38,7 +40,9 @@
         "no_missing_glyphs",
         "no_overfull_boxes",
         "no_LaTeX_warnings",
-        "self_contained_style_matches_shared_copy"
+        "self_contained_style_matches_shared_copy",
+        "single_scholar_reference_Sariyildiz_2009",
+        "author_email_and_website"
       ]
     }
   },

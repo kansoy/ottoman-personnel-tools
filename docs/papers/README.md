@@ -1,11 +1,11 @@
 # sicilahval technical note
 
-Fatih Kansoy, 24 October 2026, version 0.1.0.
+Fatih Kansoy, 24 October 2026, version 0.1.1.
 
 - [English PDF](sicilahval_en.pdf): *From personnel biographies to auditable data*.
 - [Türkçe PDF](sicilahval_tr.pdf): *Memur biyografilerinden denetlenebilir veriye*.
 
-These are two language editions of the same three-page note. They explain the problem, source-level design, reading rules, two real source examples, installation, use and limits. Source publications are cited separately from the software.
+These are two language editions of the same three-page note. They explain the problem, source-level design, reading rules, two real source examples, installation, use and limits. The sole scholarly reference is Gülden Sarıyıldız (2009), TDV İslâm Ansiklopedisi 37: 134-136; software and archival references are separate. Both title blocks include the author’s email and personal website.
 
 ## Build
 

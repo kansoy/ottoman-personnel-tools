@@ -1,28 +1,40 @@
 {
-  "version": "0.1.0",
+  "version": "0.1.1",
   "python_tested": "3.14.0",
   "unit_tests_passed": 34,
   "installed_package_matches_source_files": 24,
   "all_match": true,
   "artifacts": {
-    "sicilahval-0.1.0-py3-none-any.whl": {
-      "sha256": "45838f7dad56f96b05765ad53fbff4c057930da07568258ede4fd191a4d5da05",
-      "bytes": 108712
+    "sicilahval-0.1.1-py3-none-any.whl": {
+      "sha256": "ee2423a7260266005d6dea620b3fb0d3d8278f61a7f404bcb2d0636cac2f08fe",
+      "bytes": 108710
     },
-    "sicilahval-0.1.0.tar.gz": {
-      "sha256": "7ae010105c243cbc9580b1087c196c7091d6b8f087b1226371dd8801ed9bab71",
-      "bytes": 259967
+    "sicilahval-0.1.1.tar.gz": {
+      "sha256": "a4421c09b2a8336fd9c10c3fc6146f67d4841972af0d77dbfc69b719b4d819ef",
+      "bytes": 260017
+    },
+    "sicilahval-skill-0.1.1.zip": {
+      "sha256": "460129bd4477dbb77e526442b811f1cda25b2fd95b2c372d0553bc26aae70b32",
+      "bytes": 63711
+    },
+    "sicilahval_en.pdf": {
+      "sha256": "644cce6ae9d49ed2c54dd43cf80b1f255625b37b1216b508432433d744c29817",
+      "bytes": 213602
+    },
+    "sicilahval_tr.pdf": {
+      "sha256": "2e4412652a704dffe17994a544d239ee913f224f7ac87cde6a324acae4032ad1",
+      "bytes": 213870
     }
   },
   "real_demo_counts": {
-    "manuk": {
+    "en": {
       "records": 1,
       "facts": 33,
       "events": 14,
       "dates": 14,
       "payments": 6
     },
-    "zenop": {
+    "tr": {
       "records": 1,
       "facts": 38,
       "events": 21,
@@ -37,13 +49,6 @@
       "events": 14,
       "dates": 14,
       "payments": 6
-    },
-    "zenop": {
-      "records": 1,
-      "facts": 38,
-      "events": 21,
-      "dates": 25,
-      "payments": 10
     }
   },
   "stdlib_runtime": true,
@@ -59,7 +64,15 @@
   "real_sources_are_transcriptions_not_facsimile_inspections": true,
   "unseen_document_accuracy_benchmark": false,
   "no_network_or_model_used_for_cached_demos": true,
-  "skill_zip_sha256": "0193d732ead5691052a48ce48718880b5f11ab3ae9f96d0fef9c906b2c4ea82e",
-  "cff_schema_valid": true,
-  "skill_frontmatter_valid": true
+  "skill_zip_sha256": "460129bd4477dbb77e526442b811f1cda25b2fd95b2c372d0553bc26aae70b32",
+  "patch_scope": "Scholarly-reference and author-contact correction; source readings and runtime behavior unchanged.",
+  "pdf_pages": {
+    "en": 3,
+    "tr": 3
+  },
+  "scholarly_reference": "Gülden Sarıyıldız (2009), TDV İslâm Ansiklopedisi 37: 134–136",
+  "author_contact_links_verified": true,
+  "all_six_rendered_pages_visually_reviewed": true,
+  "cff_metadata_sanity": true,
+  "skill_frontmatter_sanity": true
 }

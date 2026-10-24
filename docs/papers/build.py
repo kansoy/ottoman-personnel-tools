@@ -49,9 +49,16 @@ def main() -> None:
         assert metadata["Author"] == "Fatih Kansoy", (lang, metadata["Author"])
         assert metadata["Title"].startswith("sicilahval:"), (lang, metadata["Title"])
         text = run(["pdftotext", "-layout", str(pdf), "-"])
-        for required in ("sicilahval", "Fatih Kansoy", "Manuk", "Zenop", "Gümüşhane", "CITATION.cff"):
+        for required in ("sicilahval", "Fatih Kansoy", "Manuk", "Zenop", "Sarıyıldız", "hi@fatih.ai", "fatih.ai", "CITATION.cff"):
             assert required in text, (lang, required)
         assert "--language " + lang in text, (lang, "command hyphens")
+        source = (project / "main.tex").read_text()
+        heading = "\\section{References}" if lang == "en" else "\\section{Kaynakça}"
+        assert source.split(heading)[1].count("\\smallref{") == 1, (lang, "one scholarly reference")
+        for removed in ("Başaran", "Saylan", "Bergama", "Gümüşhane"):
+            assert removed not in text, (lang, "removed reference", removed)
+        assert "mailto:hi@fatih.ai" in (project / "kansoy.sty").read_text()
+        assert "https://fatih.ai" in (project / "kansoy.sty").read_text()
         assert "\ufffd" not in text and "\u25a0" not in text, (lang, "missing glyph")
         log = (build / "main.log").read_text(errors="replace")
         for forbidden in ("Overfull", "Missing character", "Undefined control sequence", "LaTeX Warning:"):
@@ -72,10 +79,11 @@ def main() -> None:
                 "exactly_three_pages", "author_and_title_metadata", "Turkish_glyph_text",
                 "literal_command_hyphens", "no_missing_glyphs", "no_overfull_boxes",
                 "no_LaTeX_warnings", "self_contained_style_matches_shared_copy",
+                "single_scholar_reference_Sariyildiz_2009", "author_email_and_website",
             ],
         }
     receipt = {
-        "version": "0.1.0",
+        "version": "0.1.1",
         "release_date": "2026-10-24",
         "toolchain": "latexmk with pdfLaTeX; Poppler pdfinfo and pdftotext",
         "notes": checks,

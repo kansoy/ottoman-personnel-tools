@@ -1,16 +1,16 @@
 \documentclass[11pt,a4paper]{article}
 \usepackage[turkish]{babel}
 \usepackage{kansoy}
-\hypersetup{pdftitle={sicilahval: Memur biyografilerinden denetlenebilir veriye},pdfauthor={Fatih Kansoy},pdfsubject={Yazılım notu, sürüm 0.1.0},pdfkeywords={Sicill-i Ahval, Osmanlı memurları, tarihsel veri, LLM becerisi, kaynak kanıtı}}
+\hypersetup{pdftitle={sicilahval: Memur biyografilerinden denetlenebilir veriye},pdfauthor={Fatih Kansoy},pdfsubject={Yazılım notu, sürüm 0.1.1},pdfkeywords={Sicill-i Ahval, Osmanlı memurları, tarihsel veri, LLM becerisi, kaynak kanıtı}}
 \begin{document}
-\noteTitle{Memur biyografilerinden denetlenebilir veriye}{Yazılım notu}{Sürüm 0.1.0}{24 Ekim 2026}
+\noteTitle{Memur biyografilerinden denetlenebilir veriye}{Yazılım notu}{Sürüm 0.1.1}{24 Ekim 2026}
 
 \textbf{sicilahval}, Sicill-i Ahvâl transkripsiyonlarını yapılandırılmış kayıtlara, CSV tablolarına ve SQLite veritabanına dönüştüren bir Python paketi ve taşınabilir dil modeli becerisidir. Fatih Kansoy tarafından, Musevi ve Ermeni memurlar dâhil Osmanlı memur biyografilerinin incelenmesinde kullanılan iş akışlarından geliştirilmiştir. Araştırma değişkenleri oluşturulmadan önce kaynakta belirtilen bilgileri ve dayanaklarını kaydeder.
 
 \section{Neden gerekli?}
-Belirli bir şehirde doğan memurları inceleyen çalışmalar değerli transkripsiyonlar ve biyografiler sunmaktadır. Bergama ve Gümüşhane üzerine çalışmalar iki örnektir (Başaran 2013; Saylan 2016). Bu malzemeyi yeniden kullanmak isteyen araştırmacının atamaları, tarihleri, maaş değişikliklerini, eğitimi ve diğer ayrıntıları metinden yeniden ayırması gerekir. Farklı elektronik tablolar aynı ifadeyi farklı biçimlerde kaydedebilir veya ilk araştırmanın sorusuyla ilgisiz ayrıntıları dışarıda bırakabilir.
+Sicill-i Ahvâl defterleri Osmanlı memurlarının biyografi ve hizmet bilgilerini kaydeder. Sarıyıldız (2009), defterlerin idarî bağlamını, zeyillerini ve düzeltme usulünü açıklar. Bu kayıtları yeniden kullanmak için atama, tarih, maaş değişikliği, eğitim ve diğer ayrıntıların metinden ayrılması gerekir. Ortak bir bilgi çıkarımı biçimi, kaynak ifadesini ve dayanağını koruyarak bu emeğin yeniden kullanılmasını sağlar.
 
-Amaç, bu yapılandırma aşamasını yeniden kullanılabilir ve denetlenebilir kılmaktır. Kayıt; biyografinin tamamını, sonradan eklenen bilgileri, arşiv künyelerini ve çözülemeyen okumaları korumalıdır. Kısa bir özet veya tek araştırmaya göre düzenlenmiş sabit bir tablo bu ihtiyacı karşılayamaz. Bu nedenle yazılım, zorunlu bir araştırma sütunları listesi yerine ilişkili tablolar ve yapılandırılmış JSON üretir.
+Her kayıt biyografinin tamamını, ekleri, arşiv künyelerini ve çözülemeyen okumaları korumalıdır. Yazılım, araştırma değişkenlerinin seçimini araştırmacıya bırakarak ilişkili tablolar ve yapılandırılmış JSON üretir.
 
 \section{Neler kaydedilir?}
 Her kaynak içi kayıt; olguları, olayları ve kapsam kararlarını içerir. Adlar, yakınlar, doğum yeri, eğitim, diller, yayınlar, nişanlar ve diğer ayrıntılar olgu olarak kaydedilebilir. Atama, nakil, eşzamanlı görev, izin, emeklilik, ölüm ve soruşturma gibi olaylar ayrı tutulur. Tarihler ve ödeme kalemleri ilgili ifadeye bağlanır.
@@ -55,7 +55,7 @@ Tartışmalı adları, tutarları, takvimleri ve biyografi sınırlarını kulla
 Python 3.10 veya üzeri gerekir. Etiketlenmiş sürümü kurun:
 \begin{Code}
 python -m pip install \
-  "git+https://github.com/kansoy/ottoman-personnel-tools.git@v0.1.0"
+  "git+https://github.com/kansoy/ottoman-personnel-tools.git@v0.1.1"
 sicilahval install-skill --target codex --scope user
 \end{Code}
 Claude Code için \verb|--target claude| kullanın. Diğer ortamlar Agent Skills ve Python çalıştırmayı desteklemelidir.
@@ -78,10 +78,9 @@ TXT, Markdown, DOCX, metin PDF, HTML, RTF ve ODT desteklenir. Taramalar denetlen
 Seçilen gerçek okumalar çevriyazılarla karşılaştırılmıştır. Regresyon testleri ayrıca doğrulama ve dışa aktarmayı sınar; bunlar bilgi çıkarımının doğruluk oranını ölçmez. Açık sürümde yalnızca bu iki örnek bulunur; araştırma derleminin bütünü paylaşılmaz.
 
 \section{Atıf ve erişim}
-\smallref{Kansoy, Fatih. 2026. \emph{sicilahval: Memur biyografilerinden denetlenebilir veriye}. Yazılım ve teknik not, sürüm 0.1.0. \url{https://github.com/kansoy/ottoman-personnel-tools/releases/tag/v0.1.0}.}
+\smallref{Kansoy, Fatih. 2026. \emph{sicilahval: Memur biyografilerinden denetlenebilir veriye}. Yazılım ve teknik not, sürüm 0.1.1. \url{https://github.com/kansoy/ottoman-personnel-tools/releases/tag/v0.1.1}.}
 \smallref{Yazılım atfı için deponun \texttt{CITATION.cff} dosyasını kullanın. Kaynak yayınlara ayrıca atıf verin; araç bu çalışmaların bilimsel katkısının yerine geçmez. Yazılım ve beceri: Apache-2.0. Tarihsel parçalar kaynak künyeleriyle sunulur.}
 
 \section{Kaynakça}
-\smallref{Başaran, Mehmet. 2013. \emph{Sicill-i Ahval Defterlerine Göre Bergama Doğumlu Memurlar (1827-1892)}. Tarih İncelemeleri Dergisi 28(1): 77-103. \url{https://dergipark.org.tr/tr/pub/egetid/article/69126}.}
-\smallref{Saylan, Kemal. 2016. \emph{Sicill-i Ahval Defterlerine Göre Gümüşhane Doğumlu Memurlar Hakkında Bazı Tespitler}. Mavi Atlas 7: 76-94. \url{https://doi.org/10.18795/ma.64038}.}
+\smallref{Sarıyıldız, Gülden. 2009. ``Sicill-i Ahvâl Defterleri.'' \emph{TDV İslâm Ansiklopedisi} 37: 134-136. \url{https://avesis.istanbul.edu.tr/yayin/0b6be7b2-7c25-45cc-943c-c16c7abde025/sicill-i-ahval-defterleri}.}
 \end{document}

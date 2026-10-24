@@ -1,6 +1,6 @@
 # Validation / Doğrulama
 
-Version 0.1.0, 24 October 2026. / Sürüm 0.1.0, 24 Ekim 2026.
+Version 0.1.1, 24 October 2026. / Sürüm 0.1.1, 24 Ekim 2026.
 
 **34 local tests passed.** They cover source hashes, text integrity, exact quotations, linked facts/events, declared coverage, dates, payments, CSV/SQLite equality, package installation and standalone skill execution. / **34 yerel test geçti.** Kaynak özeti, metin bütünlüğü, alıntılar, olgu/olay bağlantıları, kapsam, tarihler, ödemeler, CSV/SQLite eşitliği, paket kurulumu ve bağımsız beceri çalışması denetlendi.
 
